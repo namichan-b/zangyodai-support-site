@@ -1,0 +1,221 @@
+/**
+ * 残業代特化サイト - メインビジュアル カスタムCSS
+ *
+ * 実装内容:
+ * 1. 文字を左揃えに変更
+ * 2. 文字サイズを大きく、インパクトのあるサイズに調整
+ * 3. よりリッチでプロフェッショナルなデザインに
+ *
+ * 使用方法:
+ * WordPress管理画面 > 外観 > カスタマイズ > 追加CSS
+ * に以下のコードをコピー&ペーストしてください
+ */
+
+/* ============================================
+   1. メインビジュアル テキストレイヤー基本設定
+   ============================================ */
+
+/* テキストを左揃えに変更 */
+.p-mainVisual__textLayer {
+    text-align: left !important;
+    padding-left: 8% !important;  /* 左側に適度な余白を追加 */
+    padding-right: 8% !important; /* 右側にも余白を追加してバランス調整 */
+}
+
+/* スマホ表示時の調整 */
+@media (max-width: 960px) {
+    .p-mainVisual__textLayer {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+}
+
+
+/* ============================================
+   2. メインタイトルのスタイル
+   ============================================ */
+
+/* メインタイトルを大きく、インパクトのあるサイズに */
+.p-mainVisual__slideTitle.p-mainVisual__slideTitle {
+    /* レスポンシブ対応: 最小2.5rem、推奨5vw、最大5rem */
+    font-size: clamp(2.5rem, 5vw, 5rem) !important;
+    font-weight: 900 !important;  /* より太く、力強い印象に */
+    line-height: 1.3 !important;
+    letter-spacing: 0.05em !important;  /* 文字間隔を少し広げて読みやすく */
+    margin-bottom: 1.5rem !important;
+
+    /* テキストに影をつけて背景から浮き出させる */
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.3),
+        4px 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+/* スマホ表示時のタイトル調整 */
+@media (max-width: 960px) {
+    .p-mainVisual__slideTitle.p-mainVisual__slideTitle {
+        font-size: clamp(2rem, 7vw, 3rem) !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+
+/* ============================================
+   3. サブテキストのスタイル
+   ============================================ */
+
+/* サブテキストも調整して階層感を出す */
+.p-mainVisual__slideText.p-mainVisual__slideText {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem) !important;
+    font-weight: 500 !important;
+    line-height: 1.8 !important;
+    margin-top: 1rem !important;
+    letter-spacing: 0.03em !important;
+
+    /* サブテキストにも軽く影を追加 */
+    text-shadow:
+        1px 1px 3px rgba(0,0,0,0.3),
+        2px 2px 8px rgba(0,0,0,0.2) !important;
+}
+
+/* スマホ表示時のサブテキスト調整 */
+@media (max-width: 960px) {
+    .p-mainVisual__slideText.p-mainVisual__slideText {
+        font-size: clamp(0.95rem, 4vw, 1.3rem) !important;
+        margin-top: 0.75rem !important;
+    }
+}
+
+
+/* ============================================
+   4. グラデーションオーバーレイで高級感を演出
+   ============================================ */
+
+/* メインビジュアル全体にグラデーションを追加 */
+.p-mainVisual::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 左から右へのグラデーション（左が濃く、右が薄く） */
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    z-index: 1;
+    pointer-events: none;  /* クリックイベントを透過 */
+}
+
+/* テキストレイヤーを最前面に */
+.p-mainVisual__textLayer {
+    z-index: 2;
+    position: relative;
+}
+
+
+/* ============================================
+   5. ボタンのスタイル（設定されている場合）
+   ============================================ */
+
+/* ボタンがある場合のスタイル調整 */
+.p-mainVisual__slideBtn {
+    margin-top: 2rem !important;
+}
+
+.p-mainVisual__slideBtn a {
+    font-size: clamp(1rem, 2vw, 1.2rem) !important;
+    padding: 1rem 2.5rem !important;
+    font-weight: 600 !important;
+    border-radius: 50px !important;  /* 丸みのあるボタンに */
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.2),
+        0 8px 24px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* ボタンホバー時のアニメーション */
+.p-mainVisual__slideBtn a:hover {
+    transform: translateY(-2px) !important;
+    box-shadow:
+        0 6px 16px rgba(0,0,0,0.25),
+        0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* スマホ表示時のボタン調整 */
+@media (max-width: 960px) {
+    .p-mainVisual__slideBtn {
+        margin-top: 1.5rem !important;
+    }
+
+    .p-mainVisual__slideBtn a {
+        padding: 0.875rem 2rem !important;
+    }
+}
+
+
+/* ============================================
+   6. アニメーション効果（オプション）
+   ============================================ */
+
+/* タイトルのフェードインアニメーション */
+.p-mainVisual__slideTitle {
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* サブテキストのフェードインアニメーション（少し遅延） */
+.p-mainVisual__slideText {
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+/* ボタンのフェードインアニメーション（さらに遅延） */
+.p-mainVisual__slideBtn {
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+/* フェードインアニメーションの定義 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================
+   7. 追加のデザイン調整（オプション）
+   ============================================ */
+
+/* メインビジュアル全体の最小高さを設定（必要に応じて調整） */
+.p-mainVisual {
+    min-height: 500px;
+}
+
+@media (max-width: 960px) {
+    .p-mainVisual {
+        min-height: 400px;
+    }
+}
+
+/* テキストエリアの背景に半透明のボックスを追加（オプション） */
+/*
+.p-mainVisual__textLayer {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 2rem !important;
+    border-radius: 12px !important;
+}
+*/
+
+/* テキストにアウトラインを追加して視認性向上（オプション） */
+/*
+.p-mainVisual__slideTitle.p-mainVisual__slideTitle {
+    -webkit-text-stroke: 1px rgba(0,0,0,0.2);
+}
+*/

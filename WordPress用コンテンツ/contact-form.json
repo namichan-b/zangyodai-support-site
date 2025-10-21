@@ -1,0 +1,190 @@
+{
+  "id": "1",
+  "field_id": 10,
+  "title": "お問い合わせフォーム",
+  "desc": "",
+  "type": "contact",
+  "template": "contact",
+  "fields": [
+    {
+      "id": "0",
+      "type": "name",
+      "label": "お名前",
+      "format": "first-last",
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "1",
+      "type": "email",
+      "label": "メールアドレス",
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "2",
+      "type": "phone",
+      "label": "電話番号",
+      "format": "us",
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "3",
+      "type": "select",
+      "label": "相談内容の種類",
+      "choices": {
+        "1": {
+          "label": "未払い残業代について相談したい",
+          "value": "未払い残業代について相談したい"
+        },
+        "2": {
+          "label": "残業代に加えて、その他の労働問題についても相談したい",
+          "value": "残業代に加えて、その他の労働問題についても相談したい"
+        },
+        "3": {
+          "label": "その他の労働問題のみ相談したい",
+          "value": "その他の労働問題のみ相談したい"
+        }
+      },
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "4",
+      "type": "select",
+      "label": "雇用形態",
+      "choices": {
+        "1": {
+          "label": "正社員",
+          "value": "正社員"
+        },
+        "2": {
+          "label": "契約社員",
+          "value": "契約社員"
+        },
+        "3": {
+          "label": "アルバイト・パート（時給制）",
+          "value": "アルバイト・パート（時給制）"
+        },
+        "4": {
+          "label": "その他",
+          "value": "その他"
+        }
+      },
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "5",
+      "type": "select",
+      "label": "勤続期間",
+      "choices": {
+        "1": {
+          "label": "6ヶ月未満",
+          "value": "6ヶ月未満"
+        },
+        "2": {
+          "label": "6ヶ月～1年",
+          "value": "6ヶ月～1年"
+        },
+        "3": {
+          "label": "1年～3年",
+          "value": "1年～3年"
+        },
+        "4": {
+          "label": "3年以上",
+          "value": "3年以上"
+        }
+      },
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "6",
+      "type": "select",
+      "label": "月の平均的な額面金額",
+      "choices": {
+        "1": {
+          "label": "15万円未満",
+          "value": "15万円未満"
+        },
+        "2": {
+          "label": "15万円～20万円",
+          "value": "15万円～20万円"
+        },
+        "3": {
+          "label": "20万円～30万円",
+          "value": "20万円～30万円"
+        },
+        "4": {
+          "label": "30万円以上",
+          "value": "30万円以上"
+        }
+      },
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "7",
+      "type": "select",
+      "label": "現在の状況",
+      "choices": {
+        "1": {
+          "label": "在職中",
+          "value": "在職中"
+        },
+        "2": {
+          "label": "退職済み",
+          "value": "退職済み"
+        }
+      },
+      "required": "1",
+      "size": "medium"
+    },
+    {
+      "id": "8",
+      "type": "text",
+      "label": "退職時期",
+      "description": "退職済みの方のみご記入ください",
+      "placeholder": "例: 2023年3月",
+      "required": "0",
+      "size": "medium"
+    },
+    {
+      "id": "9",
+      "type": "textarea",
+      "label": "ご相談内容の詳細",
+      "required": "1",
+      "size": "medium",
+      "placeholder": "できるだけ詳しくご記入ください"
+    }
+  ],
+  "settings": {
+    "form_title": "お問い合わせフォーム",
+    "submit_text": "送信する",
+    "submit_text_processing": "送信中...",
+    "honeypot": "1",
+    "notification_enable": "1",
+    "notifications": {
+      "1": {
+        "email": "info@lawyer-ak.com",
+        "subject": "【残業代サポート】お問い合わせがありました",
+        "sender_name": "残業代サポート",
+        "sender_address": "info@lawyer-ak.com",
+        "replyto": "{field_id=\"1\"}",
+        "message": "{all_fields}"
+      }
+    },
+    "confirmations": {
+      "1": {
+        "type": "message",
+        "message": "<p>お問い合わせありがとうございます。内容を確認次第、ご連絡いたします。</p>",
+        "message_scroll": "1"
+      }
+    }
+  },
+  "meta": {
+    "template": "contact"
+  }
+}

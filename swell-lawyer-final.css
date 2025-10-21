@@ -1,0 +1,331 @@
+/**
+ * 残業代特化サイト - 弁護士事務所デザイン（最終版）
+ *
+ * 改善内容:
+ * - ドットテクスチャのみ削除（オーバーレイは維持）
+ * - 背景画像を適度に暗くして読みやすく
+ * - 弁護士事務所らしいプロフェッショナルなデザイン
+ *
+ * 使用方法:
+ * 外観 > カスタマイズ > 追加CSS
+ */
+
+/* ============================================
+   ドットテクスチャを完全削除
+   ============================================ */
+
+/* SWELLのドットフィルターを無効化 */
+body .p-mainVisual::after,
+html body .p-mainVisual::after,
+.p-mainVisual::after,
+.p-mainVisual__bg::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* ドットパターンクラスを強制削除 */
+body .p-mainVisual .has-texture,
+html body .p-mainVisual .has-texture,
+.p-mainVisual.-dot::after,
+.p-mainVisual.-dots::after {
+    background-image: none !important;
+    background: none !important;
+}
+
+
+/* ============================================
+   グレースケールフィルターを削除
+   ============================================ */
+
+/* グレースケール化を解除 */
+body .p-mainVisual,
+html body .p-mainVisual,
+body .p-mainVisual *,
+html body .p-mainVisual *,
+body .p-mainVisual img,
+html body .p-mainVisual img,
+.p-mainVisual__bg {
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+/* 彩度を正常に */
+body .p-mainVisual__bg img,
+html body .p-mainVisual__bg img {
+    filter: saturate(1) brightness(1) !important;
+    -webkit-filter: saturate(1) brightness(1) !important;
+}
+
+
+/* ============================================
+   適度なオーバーレイ（読みやすさ確保）
+   ============================================ */
+
+/* 既存のオーバーレイの上に追加のグラデーションを重ねる */
+body .p-mainVisual__textLayer::before,
+html body .p-mainVisual__textLayer::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50px !important;
+    left: -50px !important;
+    right: -50px !important;
+    bottom: -50px !important;
+
+    /* 左から右への美しいグラデーション */
+    background: linear-gradient(
+        110deg,
+        rgba(10, 25, 47, 0.85) 0%,      /* 左：濃い紺色 */
+        rgba(15, 35, 60, 0.75) 30%,     /* 左中央：やや薄く */
+        rgba(20, 45, 75, 0.6) 60%,      /* 右中央：さらに薄く */
+        rgba(25, 55, 90, 0.4) 100%      /* 右：かなり薄く */
+    ) !important;
+
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+
+/* ============================================
+   テキストレイヤー: 左揃え配置
+   ============================================ */
+
+body .p-mainVisual__textLayer,
+html body .p-mainVisual__textLayer {
+    text-align: left !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    z-index: 2 !important;
+    position: relative !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__textLayer,
+    html body .p-mainVisual__textLayer {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+}
+
+
+/* ============================================
+   メインタイトル: 弁護士事務所らしく
+   ============================================ */
+
+body .p-mainVisual__slideTitle,
+html body .p-mainVisual__slideTitle,
+.p-mainVisual__slideTitle.p-mainVisual__slideTitle.p-mainVisual__slideTitle {
+    /* 法律事務所らしい重厚な明朝体 */
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "游明朝体", "Yu Mincho", YuMincho, "HG正楷書体-PRO", "HGS明朝E", "MS P明朝", "MS 明朝", "Noto Serif JP", serif !important;
+
+    font-size: clamp(2.5rem, 5.5vw, 5.5rem) !important;  /* サイズを少し小さく */
+    font-weight: 900 !important;  /* より太く、力強く */
+    line-height: 1.3 !important;
+    letter-spacing: 0.08em !important;  /* 文字間隔を調整 */
+    margin-bottom: 2rem !important;
+
+    /* 文字をより重厚に見せる */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+
+    /* はみ出さないように */
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+
+    /* 強めのテキストシャドウで視認性確保 */
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.6),
+        3px 3px 8px rgba(0,0,0,0.5),
+        4px 4px 16px rgba(0,0,0,0.4) !important;
+
+    color: #ffffff !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideTitle,
+    html body .p-mainVisual__slideTitle {
+        font-size: clamp(2.2rem, 8vw, 3.5rem) !important;
+        margin-bottom: 1.5rem !important;
+        letter-spacing: 0.05em !important;
+    }
+}
+
+
+/* ============================================
+   サブテキスト
+   ============================================ */
+
+body .p-mainVisual__slideText,
+html body .p-mainVisual__slideText,
+.p-mainVisual__slideText.p-mainVisual__slideText.p-mainVisual__slideText {
+    /* サブテキストも重厚感のあるゴシック体 */
+    font-family: "ヒラギノ角ゴ ProN W6", "Hiragino Kaku Gothic ProN W6", "ヒラギノ角ゴ Pro W6", "Hiragino Kaku Gothic Pro W6", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", "Noto Sans JP", sans-serif !important;
+
+    font-size: clamp(1.1rem, 2.8vw, 1.75rem) !important;  /* サイズを少し小さく */
+    font-weight: 600 !important;  /* より太く */
+    line-height: 2 !important;
+    margin-top: 1.2rem !important;
+    letter-spacing: 0.05em !important;  /* 文字間隔を調整 */
+
+    /* 文字をくっきり表示 */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+
+    /* はみ出さないように */
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+
+    text-shadow:
+        1px 1px 3px rgba(0,0,0,0.6),
+        2px 2px 6px rgba(0,0,0,0.5) !important;
+
+    color: #ffffff !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideText,
+    html body .p-mainVisual__slideText {
+        font-size: clamp(1rem, 4.5vw, 1.4rem) !important;
+        margin-top: 1rem !important;
+        line-height: 1.9 !important;
+    }
+}
+
+
+/* ============================================
+   ゴールド装飾ライン
+   ============================================ */
+
+body .p-mainVisual__slideTitle::before,
+html body .p-mainVisual__slideTitle::before {
+    content: "" !important;
+    display: block !important;
+    width: 70px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #d4af37 0%, #f4e4a6 100%) !important;
+    margin-bottom: 1.8rem !important;
+    border-radius: 2px !important;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4) !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideTitle::before,
+    html body .p-mainVisual__slideTitle::before {
+        width: 55px !important;
+        height: 3px !important;
+        margin-bottom: 1.2rem !important;
+    }
+}
+
+
+/* ============================================
+   CTAボタン
+   ============================================ */
+
+body .p-mainVisual__slideBtn,
+html body .p-mainVisual__slideBtn {
+    margin-top: 2.5rem !important;
+}
+
+body .p-mainVisual__slideBtn a,
+html body .p-mainVisual__slideBtn a {
+    /* ボタンも重厚感のあるフォント */
+    font-family: "ヒラギノ角ゴ ProN W6", "Hiragino Kaku Gothic ProN W6", "メイリオ", Meiryo, "MS Pゴシック", sans-serif !important;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem) !important;
+    font-weight: 700 !important;
+    padding: 1.3rem 3.5rem !important;
+    letter-spacing: 0.15em !important;  /* 文字間隔を広く */
+
+    /* ゴールドグラデーションボタン */
+    background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%) !important;
+    color: #1a1a1a !important;
+
+    border: none !important;
+    border-radius: 6px !important;
+
+    box-shadow:
+        0 4px 15px rgba(212, 175, 55, 0.35),
+        0 8px 30px rgba(0,0,0,0.25) !important;
+
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-decoration: none !important;
+    letter-spacing: 0.1em !important;
+}
+
+body .p-mainVisual__slideBtn a:hover,
+html body .p-mainVisual__slideBtn a:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    background: linear-gradient(135deg, #f4e4a6 0%, #d4af37 100%) !important;
+    box-shadow:
+        0 6px 20px rgba(212, 175, 55, 0.45),
+        0 12px 40px rgba(0,0,0,0.3) !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideBtn,
+    html body .p-mainVisual__slideBtn {
+        margin-top: 2rem !important;
+    }
+
+    body .p-mainVisual__slideBtn a,
+    html body .p-mainVisual__slideBtn a {
+        padding: 1rem 2.5rem !important;
+    }
+}
+
+
+/* ============================================
+   アニメーション
+   ============================================ */
+
+@keyframes professionalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body .p-mainVisual__slideTitle,
+html body .p-mainVisual__slideTitle {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both !important;
+}
+
+body .p-mainVisual__slideText,
+html body .p-mainVisual__slideText {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both !important;
+}
+
+body .p-mainVisual__slideBtn,
+html body .p-mainVisual__slideBtn {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.9s both !important;
+}
+
+
+/* ============================================
+   メインビジュアル全体
+   ============================================ */
+
+body .p-mainVisual,
+html body .p-mainVisual {
+    min-height: 550px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual,
+    html body .p-mainVisual {
+        min-height: 450px !important;
+    }
+}
