@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>相談の流れ - プレビュー版</title>
+
+  <style>
+/* ========================================
+   【Live Server プレビュー用】
+   相談の流れページ - ミドルブルー配色（中間の明るさ）
+   スマホ完全対応版
+
+   配色：ミドルブルー × ゴールド
+   - メインカラー: #2874a6（ミディアムブルー）
+   - アクセント: #c9a961（ゴールド）
+======================================== */
+
+/* ========================================
+   リセット & ベース設定
+======================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
+
+/* ========================================
+   相談の流れページ - 基本設定
+======================================== */
+.consultation-flow {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* ========================================
+   ヘッダーセクション
+======================================== */
+.flow-header {
+  text-align: left;
+  margin-bottom: 60px;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  border-radius: 15px;
+  color: white;
+}
+
+.flow-main-title {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  color: white;
+}
+
+.flow-subtitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 15px;
+  color: #c9a961;
+  text-shadow:
+    1px 1px 3px rgba(255, 255, 255, 0.9),
+    -1px -1px 3px rgba(255, 255, 255, 0.9),
+    1px -1px 3px rgba(255, 255, 255, 0.9),
+    -1px 1px 3px rgba(255, 255, 255, 0.9),
+    0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.flow-description {
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* ========================================
+   バッジ（トップ）
+======================================== */
+.badges-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+  justify-content: flex-start;
+}
+
+.badge-top {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   CTAボタン群（トップ）
+======================================== */
+.cta-buttons-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 30px;
+  min-height: 60px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-icon {
+  font-size: 28px;
+}
+
+.cta-phone {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.cta-phone:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+.cta-form {
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+}
+
+.cta-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(58, 58, 58, 0.3);
+}
+
+/* ========================================
+   タイムライン（進行イメージ）
+======================================== */
+.timeline-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 70px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  overflow-x: auto;
+}
+
+.timeline-step {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.timeline-num {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+}
+
+.timeline-label {
+  font-weight: bold;
+  color: #2874a6;
+  font-size: 16px;
+}
+
+.timeline-arrow {
+  color: #c9a961;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   各ステップセクション
+======================================== */
+.flow-step {
+  margin-bottom: 60px;
+  border: 3px solid #e9ecef;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.flow-step:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 30px 40px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+}
+
+.step-number {
+  background: #c9a961;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.step-title-group {
+  flex-grow: 1;
+}
+
+.step-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 0 5px;
+  color: white;
+}
+
+.step-time {
+  font-size: 16px;
+  margin: 0;
+  color: #c9a961;
+  font-weight: bold;
+}
+
+.step-content {
+  padding: 40px;
+  background: white;
+}
+
+.content-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.content-intro {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* ========================================
+   連絡方法カード
+======================================== */
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.contact-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 30px 25px;
+  text-align: center;
+  transition: all 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.phone-card {
+  border-color: #28a745;
+}
+
+.phone-card:hover {
+  border-color: #20c997;
+  background: linear-gradient(135deg, #f0fff4 0%, #e6fff0 100%);
+}
+
+.form-card {
+  border-color: #2874a6;
+}
+
+.form-card:hover {
+  border-color: #5499c7;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+}
+
+.contact-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.contact-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+}
+
+.contact-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #28a745;
+  margin: 10px 0 5px;
+}
+
+.contact-label {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.contact-hours {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.contact-desc {
+  font-size: 15px;
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  min-height: 48px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s;
+  box-shadow: 0 3px 10px rgba(58, 58, 58, 0.2);
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(58, 58, 58, 0.3);
+  background: linear-gradient(135deg, #2a2a2a 0%, #3498db 100%);
+}
+
+.phone-card .contact-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.phone-card .contact-btn:hover {
+  background: linear-gradient(135deg, #218838 0%, #1ea87a 100%);
+}
+
+.line-card .contact-btn {
+  background: linear-gradient(135deg, #00b900 0%, #06c755 100%);
+}
+
+.line-card .contact-btn:hover {
+  background: linear-gradient(135deg, #009600 0%, #05a848 100%);
+}
+
+/* ========================================
+   バッジ
+======================================== */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.badge {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+}
+
+/* ========================================
+   チェックリスト（資料準備）
+======================================== */
+.document-checklist {
+  margin: 30px 0;
+}
+
+.checklist-section {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.checklist-section:hover {
+  border-color: #c9a961;
+}
+
+.checklist-section[open] {
+  border-color: #2874a6;
+  box-shadow: 0 3px 15px rgba(58, 58, 58, 0.1);
+}
+
+.checklist-title {
+  padding: 20px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-bottom: 2px solid #e9ecef;
+  transition: all 0.3s;
+}
+
+.checklist-title:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.checklist-section[open] .checklist-title {
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+  border-bottom-color: #c9a961;
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 25px 30px;
+  margin: 0;
+}
+
+.checklist-items li {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 16px;
+}
+
+.checklist-items li:last-child {
+  border-bottom: none;
+}
+
+/* ========================================
+   アドバイスボックス
+======================================== */
+.advice-box,
+.info-box {
+  display: flex;
+  gap: 20px;
+  padding: 25px;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3d1 100%);
+  border-left: 5px solid #c9a961;
+  border-radius: 10px;
+  margin: 30px 0;
+  box-shadow: 0 3px 10px rgba(201, 169, 97, 0.15);
+}
+
+.info-box {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+  border-left-color: #2874a6;
+  box-shadow: 0 3px 10px rgba(58, 58, 58, 0.15);
+}
+
+.advice-icon,
+.info-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.advice-content h4,
+.info-content h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 10px;
+}
+
+.advice-content p,
+.info-content p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* ========================================
+   面談オプション
+======================================== */
+.meeting-options,
+.meeting-content {
+  margin: 25px 0;
+}
+
+.meeting-options h4,
+.meeting-content h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.meeting-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meeting-list li {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-left: 4px solid #c9a961;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.meeting-items {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.meeting-items li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.meeting-items li:last-child {
+  border-bottom: none;
+}
+
+/* ========================================
+   方針カード
+======================================== */
+.approach-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 30px 0 15px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.approach-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.approach-card {
+  background: white;
+  border: 3px solid #e9ecef;
+  border-radius: 12px;
+  padding: 30px 25px;
+  transition: all 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.approach-card:hover {
+  border-color: #2874a6;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(58, 58, 58, 0.15);
+}
+
+.approach-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.approach-period {
+  font-size: 16px;
+  font-weight: bold;
+  color: #c9a961;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.approach-label {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  margin: 15px 0 10px;
+}
+
+.approach-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.approach-list li {
+  padding: 10px 0 10px 25px;
+  position: relative;
+}
+
+.approach-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ========================================
+   プロセスブロック
+======================================== */
+.process-block {
+  margin: 25px 0;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-left: 4px solid #2874a6;
+  border-radius: 10px;
+}
+
+.process-block h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+}
+
+.process-block ul {
+  margin: 10px 0 0;
+  padding-left: 25px;
+}
+
+.process-block li {
+  padding: 8px 0;
+}
+
+/* ========================================
+   FAQ セクション
+======================================== */
+.faq-section {
+  margin: 70px 0 60px;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+  border-radius: 15px;
+  border: 2px solid #2874a6;
+}
+
+.faq-main-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2874a6;
+  text-align: center;
+  margin: 0 0 40px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #c9a961;
+}
+
+.faq-item {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  border-color: #c9a961;
+}
+
+.faq-item[open] {
+  border-color: #2874a6;
+  box-shadow: 0 5px 20px rgba(58, 58, 58, 0.15);
+}
+
+.faq-question {
+  padding: 20px 25px;
+  min-height: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  transition: all 0.3s;
+  list-style: none;
+}
+
+.faq-question:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.faq-item[open] .faq-question {
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "+";
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  color: #c9a961;
+}
+
+.faq-item[open] .faq-question::after {
+  content: "−";
+  color: #c9a961;
+}
+
+.faq-answer {
+  padding: 20px 25px;
+  line-height: 1.8;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+/* ========================================
+   最終CTAセクション
+======================================== */
+.final-cta {
+  margin: 60px 0;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(58, 58, 58, 0.3);
+}
+
+.final-cta-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 50px;
+}
+
+.final-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.final-badges .badge {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  font-size: 15px;
+  padding: 12px 24px;
+}
+
+/* ========================================
+   フッター情報
+======================================== */
+.flow-footer {
+  text-align: left;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  margin-top: 60px;
+}
+
+.footer-lawyer-name {
+  font-size: 28px;
+  color: #2874a6;
+  margin: 0 0 8px;
+}
+
+.footer-bar-affiliation {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 15px;
+}
+
+.footer-office-small {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 20px;
+}
+
+.footer-address,
+.footer-tel,
+.footer-contact {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.flow-footer a {
+  color: #2874a6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.flow-footer a:hover {
+  color: #c9a961;
+  text-decoration: underline;
+}
+
+/* ========================================
+   スマホ専用改行の表示制御
+======================================== */
+/* デフォルト（PC）では非表示 */
+.sp-br {
+  display: none;
+}
+
+/* ========================================
+   レスポンシブ対応（タブレット）
+======================================== */
+@media (max-width: 768px) {
+  /* タブレットでスマホ改行を表示 */
+  .sp-br {
+    display: inline;
+  }
+  .consultation-flow {
+    padding: 30px 15px;
+  }
+
+  .flow-header {
+    padding: 35px 20px;
+  }
+
+  .flow-main-title {
+    font-size: 32px;
+  }
+
+  .flow-subtitle {
+    font-size: 20px;
+  }
+
+  .flow-description {
+    font-size: 16px;
+  }
+
+  .timeline-overview {
+    padding: 25px 20px;
+    gap: 8px;
+  }
+
+  .timeline-num {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .timeline-label {
+    font-size: 14px;
+  }
+
+  .timeline-arrow {
+    font-size: 20px;
+    padding: 0 5px;
+  }
+
+  .step-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 25px;
+    gap: 15px;
+  }
+
+  .step-title {
+    font-size: 24px;
+  }
+
+  .step-content {
+    padding: 30px 25px;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-section {
+    padding: 35px 25px;
+  }
+
+  .final-cta {
+    padding: 40px 25px;
+  }
+
+  .final-cta-title {
+    font-size: 28px;
+  }
+}
+
+/* ========================================
+   レスポンシブ対応（スマートフォン）
+   タッチターゲット最適化
+======================================== */
+@media (max-width: 480px) {
+  .consultation-flow {
+    padding: 20px 15px;
+  }
+
+  .flow-header {
+    padding: 30px 20px;
+  }
+
+  .flow-main-title {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .flow-subtitle {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  .flow-description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* CTAボタン - タッチ最適化 */
+  .cta-buttons-top {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .cta-btn {
+    padding: 18px 24px;
+    min-height: 60px;
+    font-size: 17px;
+  }
+
+  /* タイムライン - スマホで縦並び */
+  .timeline-overview {
+    flex-direction: column;
+    gap: 8px;
+    padding: 25px 20px;
+  }
+
+  .timeline-num {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+
+  .timeline-label {
+    font-size: 18px;
+  }
+
+  .timeline-arrow {
+    transform: rotate(90deg);
+    padding: 4px 0;
+    font-size: 20px;
+  }
+
+  .step-header {
+    padding: 20px 20px;
+  }
+
+  .step-number {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .step-title {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .step-time {
+    font-size: 15px;
+  }
+
+  .step-content {
+    padding: 25px 20px;
+  }
+
+  .content-heading {
+    font-size: 26px;
+    line-height: 1.5;
+  }
+
+  .content-intro {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* 連絡カード - タッチ最適化 */
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .contact-icon {
+    font-size: 44px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .contact-number {
+    font-size: 24px;
+  }
+
+  .contact-btn {
+    padding: 16px 28px;
+    min-height: 52px;
+    font-size: 17px;
+  }
+
+  /* アドバイスボックス - スマホ最適化 */
+  .advice-box,
+  .info-box {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 20px;
+  }
+
+  .advice-icon,
+  .info-icon {
+    font-size: 36px;
+  }
+
+  .advice-content h4,
+  .info-content h4 {
+    font-size: 17px;
+  }
+
+  .advice-content p,
+  .info-content p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* チェックリスト - タッチ最適化 */
+  .checklist-title {
+    padding: 18px 20px;
+    min-height: 56px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .checklist-items {
+    padding: 20px 20px;
+  }
+
+  .checklist-items li {
+    padding: 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* 方針カード */
+  .approach-card {
+    padding: 25px 20px;
+  }
+
+  .approach-name {
+    font-size: 22px;
+  }
+
+  /* プロセスブロック */
+  .process-block {
+    padding: 20px 20px;
+  }
+
+  .process-block h4 {
+    font-size: 17px;
+  }
+
+  .process-block li {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* FAQ - タッチ最適化 */
+  .faq-section {
+    padding: 30px 20px;
+  }
+
+  .faq-main-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    min-height: 60px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .faq-answer {
+    padding: 18px 20px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* 最終CTA */
+  .final-cta {
+    padding: 40px 20px;
+  }
+
+  .final-cta-title {
+    font-size: 26px;
+    line-height: 1.4;
+    margin-bottom: 35px;
+  }
+
+  /* バッジ */
+  .badges,
+  .final-badges {
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  /* フッター */
+  .flow-footer {
+    padding: 30px 20px;
+  }
+
+  .footer-lawyer-name {
+    font-size: 24px;
+  }
+
+  .footer-bar-affiliation {
+    font-size: 15px;
+  }
+
+  .footer-office-small {
+    font-size: 13px;
+  }
+
+  .footer-address,
+  .footer-tel,
+  .footer-contact {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+/* ========================================
+   極小スマホ対応（iPhone SE等）
+======================================== */
+@media (max-width: 375px) {
+  .flow-main-title {
+    font-size: 24px;
+  }
+
+  .flow-subtitle {
+    font-size: 17px;
+  }
+
+  .cta-btn {
+    font-size: 16px;
+    padding: 16px 20px;
+  }
+
+  .step-title {
+    font-size: 20px;
+  }
+
+  .contact-number {
+    font-size: 22px;
+  }
+
+  .final-cta-title {
+    font-size: 23px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<article class="consultation-flow">
+
+  <!-- ヘッダーセクション -->
+  <header class="flow-header">
+    <h1 class="flow-main-title">相談の流れ</h1>
+    <p class="flow-subtitle">未払い残業代の回収まで、<br class="sp-br">6つのステップで安心サポート</p>
+    <p class="flow-description"><strong>ご相談</strong>から残業代回収までの流れを、<br class="sp-br">わかりやすくご説明します。</p>
+  </header>
+
+  <!-- バッジ（トップ） -->
+  <section class="badges-top">
+    <span class="badge-top">✓ 初回<strong>相談</strong>無料</span>
+    <span class="badge-top">✓ 秘密厳守</span>
+    <span class="badge-top">✓ 全国対応</span>
+  </section>
+
+  <!-- CTAボタン群（トップ） -->
+  <section class="cta-buttons-top">
+    <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-btn cta-form">
+      <span class="cta-icon">📧</span>
+      <span class="cta-text">相談<strong>予約</strong>フォーム</span>
+    </a>
+    <a href="tel:05054823433" class="cta-btn cta-phone">
+      <span class="cta-icon">📞</span>
+      <span class="cta-text">電話で<strong>無料</strong>相談</span>
+    </a>
+  </section>
+
+  <!-- 進行イメージ（タイムライン） -->
+  <section class="timeline-overview">
+    <div class="timeline-step">
+      <div class="timeline-num">STEP 1</div>
+      <div class="timeline-label">予約</div>
+    </div>
+    <div class="timeline-arrow">→</div>
+    <div class="timeline-step">
+      <div class="timeline-num">STEP 2</div>
+      <div class="timeline-label">準備</div>
+    </div>
+    <div class="timeline-arrow">→</div>
+    <div class="timeline-step">
+      <div class="timeline-num">STEP 3</div>
+      <div class="timeline-label">面談</div>
+    </div>
+    <div class="timeline-arrow">→</div>
+    <div class="timeline-step">
+      <div class="timeline-num">STEP 4</div>
+      <div class="timeline-label">着手</div>
+    </div>
+    <div class="timeline-arrow">→</div>
+    <div class="timeline-step">
+      <div class="timeline-num">STEP 5</div>
+      <div class="timeline-label">交渉等</div>
+    </div>
+    <div class="timeline-arrow">→</div>
+    <div class="timeline-step">
+      <div class="timeline-num">STEP 6</div>
+      <div class="timeline-label">回収</div>
+    </div>
+  </section>
+
+  <!-- STEP 1 -->
+  <section class="flow-step">
+    <div class="step-header">
+      <div class="step-number">STEP 1</div>
+      <div class="step-title-group">
+        <h2 class="step-title">ご予約</h2>
+        <p class="step-time">所要時間：1分</p>
+      </div>
+    </div>
+
+    <div class="step-content">
+      <h3 class="content-heading">まずはお気軽に<strong>お問い合わせ</strong>ください</h3>
+      <p class="content-intro"><strong>2つの方法からお選びいただけます</strong></p>
+
+      <div class="contact-methods">
+        <div class="contact-card form-card">
+          <div class="contact-icon">📧</div>
+          <h4 class="contact-title">フォーム相談</h4>
+          <p class="contact-hours">24時間受付</p>
+          <p class="contact-desc">詳しく書いて正確な判断を</p>
+          <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="contact-btn">相談<strong>予約</strong>フォーム</a>
+        </div>
+
+        <div class="contact-card phone-card">
+          <div class="contact-icon">📞</div>
+          <h4 class="contact-title">電話相談</h4>
+          <p class="contact-number">050-5482-3433</p>
+          <p class="contact-label">（新規<strong>相談</strong>専用）</p>
+          <p class="contact-hours">平日9:00-18:00</p>
+          <p class="contact-desc">お急ぎの方はお電話で</p>
+          <a href="tel:05054823433" class="contact-btn">電話をかける</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="flow-step">
+    <div class="step-header">
+      <div class="step-number">STEP 2</div>
+      <div class="step-title-group">
+        <h2 class="step-title">事前準備</h2>
+        <p class="step-time">所要時間：30分程度</p>
+      </div>
+    </div>
+
+    <div class="step-content">
+      <h3 class="content-heading">可能な範囲で資料をご準備ください</h3>
+      <p class="content-intro"><strong>手元にない資料は、<strong>弁護士</strong>がサポートします</strong></p>
+      <p>面談前に、以下の資料を可能な範囲でご準備いただくと、より具体的な<strong>ご相談</strong>が可能です。</p>
+
+      <div class="document-checklist">
+        <details class="checklist-section" open>
+          <summary class="checklist-title">すべての方に共通する資料</summary>
+          <ul class="checklist-items">
+            <li>□ 給与明細</li>
+            <li>□ 雇用契約書</li>
+            <li>□ 就業規則</li>
+            <li>□ 勤怠記録（タイムカード・勤怠アプリ等）</li>
+            <li>□ 賃金台帳</li>
+          </ul>
+        </details>
+
+        <details class="checklist-section">
+          <summary class="checklist-title">ドライバーの方</summary>
+          <ul class="checklist-items">
+            <li>□ タコグラフ記録</li>
+            <li>□ ドライブレコーダー記録</li>
+            <li>□ 配送伝票・運行日報</li>
+            <li>□ ゲート入退館記録</li>
+            <li>□ GPS記録</li>
+          </ul>
+        </details>
+
+        <details class="checklist-section">
+          <summary class="checklist-title">店長・管理職の方</summary>
+          <ul class="checklist-items">
+            <li>□ 管理職任命辞令</li>
+            <li>□ 店舗鍵の開閉時刻記録</li>
+            <li>□ 売上締め作業の時刻記録</li>
+            <li>□ LINE等の業務指示履歴</li>
+            <li>□ シフト表・勤務表</li>
+          </ul>
+        </details>
+
+        <details class="checklist-section">
+          <summary class="checklist-title">営業職の方</summary>
+          <ul class="checklist-items">
+            <li>□ 訪問先ビルの入退館記録</li>
+            <li>□ メール送受信時刻</li>
+            <li>□ スケジュール・カレンダー</li>
+            <li>□ 交通系ICカード履歴</li>
+            <li>□ 日報・営業報告書</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="advice-box">
+        <div class="advice-icon">💡</div>
+        <div class="advice-content">
+          <h4><strong>弁護士</strong>からのアドバイス</h4>
+          <p>「証拠が全くない」という方もご安心ください。<br>
+          労働基準法により、会社にはタイムカードや賃金台帳の保管義務があります。<br>
+          <strong>弁護士</strong>が受任後に、会社に対して資料の開示を請求することができます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="flow-step">
+    <div class="step-header">
+      <div class="step-number">STEP 3</div>
+      <div class="step-title-group">
+        <h2 class="step-title">面談・方針提案</h2>
+        <p class="step-time">所要時間：60分程度</p>
+      </div>
+    </div>
+
+    <div class="step-content">
+      <h3 class="content-heading">詳しくお話を伺い、最適な方針をご提案します</h3>
+
+      <div class="meeting-options">
+        <h4>面談方法を選べます</h4>
+        <ul class="meeting-list">
+          <li>🏢 事務所面談（福岡市中央区天神）</li>
+          <li>📹 オンライン面談（Google Meet）</li>
+          <li>☎️ 電話相談</li>
+        </ul>
+      </div>
+
+      <div class="meeting-content">
+        <h4>面談でお聞きする内容</h4>
+        <ol class="meeting-items">
+          <li>現在の労働状況・給与体系</li>
+          <li>残業の実態と証拠の有無</li>
+          <li>会社の対応・退職の時期</li>
+        </ol>
+      </div>
+
+      <h4 class="approach-heading">ご提案する方針</h4>
+      <p>証拠の状況、会社の対応、<strong>ご依頼者</strong>様のご希望を踏まえ、以下のいずれかの方針をご提案します。</p>
+
+      <div class="approach-cards">
+        <div class="approach-card">
+          <h5 class="approach-name">交渉</h5>
+          <p class="approach-period">⏱ 期間：3-6ヶ月程度</p>
+          <p class="approach-label">こんな方に：</p>
+          <ul class="approach-list">
+            <li>早期解決を希望</li>
+            <li>金額より解決を希望</li>
+          </ul>
+        </div>
+
+        <div class="approach-card">
+          <h5 class="approach-name">労働審判</h5>
+          <p class="approach-period">⏱ 期間：6-9ヶ月程度</p>
+          <p class="approach-label">こんな方に：</p>
+          <ul class="approach-list">
+            <li>交渉が難航した</li>
+            <li>裁判所の判断を求めたい</li>
+            <li>証拠がある程度揃っている</li>
+          </ul>
+        </div>
+
+        <div class="approach-card">
+          <h5 class="approach-name">訴訟</h5>
+          <p class="approach-period">⏱ 期間：9ヶ月-1年半程度</p>
+          <p class="approach-label">こんな方に：</p>
+          <ul class="approach-list">
+            <li>会社提示との金額に隔たりが大きい場合</li>
+            <li>徹底的に請求したい</li>
+            <li>複雑な事案</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="badges">
+        <span class="badge">✓ 初回<strong>相談</strong>無料</span>
+        <span class="badge">✓ 着手金0円</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="flow-step">
+    <div class="step-header">
+      <div class="step-number">STEP 4</div>
+      <div class="step-title-group">
+        <h2 class="step-title"><strong>ご依頼</strong>・着手</h2>
+      </div>
+    </div>
+
+    <div class="step-content">
+      <h3 class="content-heading">正式に<strong>ご依頼</strong>いただいた時点から、<strong>弁護士</strong>が代理人として活動を開始します</h3>
+
+      <div class="process-block">
+        <h4><strong>委任契約</strong>の締結</h4>
+        <ul>
+          <li>費用・報酬体系のご説明</li>
+          <li><strong>委任契約</strong>書へのご署名</li>
+        </ul>
+      </div>
+
+      <div class="process-block">
+        <h4>会社への受任通知</h4>
+        <p><strong>弁護士</strong>が会社に対し、「受任通知」を送付します。</p>
+      </div>
+
+      <div class="advice-box">
+        <div class="advice-icon">💡</div>
+        <div class="advice-content">
+          <h4>この時点から</h4>
+          <p>会社からの連絡は、すべて<strong>弁護士</strong>が窓口となります。<br>
+          <strong>ご依頼者</strong>様が会社と直接やり取りする必要はありません。</p>
+        </div>
+      </div>
+
+      <div class="process-block">
+        <h4>証拠の収集・開示請求</h4>
+        <p><strong>弁護士</strong>が会社に対し、以下の資料の開示を請求します。</p>
+        <ul>
+          <li>タイムカード</li>
+          <li>賃金台帳</li>
+          <li>出勤簿</li>
+          <li>その他必要な資料</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section class="flow-step">
+    <div class="step-header">
+      <div class="step-number">STEP 5</div>
+      <div class="step-title-group">
+        <h2 class="step-title">交渉・審判・訴訟</h2>
+      </div>
+    </div>
+
+    <div class="step-content">
+      <h3 class="content-heading"><strong>弁護士</strong>が代理人として、会社と交渉または裁判所での手続きを進めます</h3>
+
+      <div class="process-block">
+        <h4>交渉の場合</h4>
+        <ul>
+          <li><strong>弁護士</strong>が会社と直接交渉</li>
+          <li>残業代の金額、支払方法を協議</li>
+          <li>合意に至れば、合意書を作成</li>
+        </ul>
+      </div>
+
+      <div class="process-block">
+        <h4>労働審判の場合</h4>
+        <ul>
+          <li>裁判所での期日（通常3回以内）</li>
+          <li>労働審判委員会による調停案の提示</li>
+          <li>調停成立または審判</li>
+        </ul>
+      </div>
+
+      <div class="process-block">
+        <h4>訴訟の場合</h4>
+        <ul>
+          <li>裁判所での口頭弁論期日</li>
+          <li>証拠の提出、主張の整理</li>
+          <li>和解協議または判決</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <div class="info-icon">📱</div>
+        <div class="info-content">
+          <h4>進捗状況は随時ご報告します</h4>
+          <p>メールや電話で<strong>弁護士</strong>と連絡を取り合うことができます。<br>
+          疑問点や不安な点があれば、いつでもお気軽にご連絡ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 6 -->
+  <section class="flow-step">
+    <div class="step-header">
+      <div class="step-number">STEP 6</div>
+      <div class="step-title-group">
+        <h2 class="step-title">解決・回収</h2>
+      </div>
+    </div>
+
+    <div class="step-content">
+      <h3 class="content-heading">残業代を回収し、報酬を精算してお渡しします</h3>
+
+      <div class="process-block">
+        <h4>回収金の受領</h4>
+        <p>会社から<strong>弁護士</strong>の預り金口座に残業代が振り込まれます。</p>
+      </div>
+
+      <div class="process-block">
+        <h4>報酬の精算</h4>
+        <p>以下の費用を精算します。</p>
+        <ul>
+          <li>着手金（<strong>無料</strong>）</li>
+          <li>成功報酬（回収額の一定割合）</li>
+        </ul>
+        <p>詳しくは「費用・料金」ページをご覧ください。</p>
+      </div>
+
+      <div class="process-block">
+        <h4>残額のお渡し</h4>
+        <p>報酬を差し引いた残額を、<strong>ご依頼者</strong>様の口座にお振込みします。</p>
+      </div>
+
+      <div class="badges">
+        <span class="badge">✓ 完全成功報酬制も選択可能</span>
+        <span class="badge">✓ 費用の詳細は事前にご説明</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- よくある質問 -->
+  <section class="faq-section">
+    <h2 class="faq-main-title">よくある質問</h2>
+
+    <details class="faq-item" open>
+      <summary class="faq-question">Q. 費用はいくらかかりますか？</summary>
+      <div class="faq-answer">
+        <p>A. 初回<strong>相談</strong>は<strong>無料</strong>です。着手金も<strong>無料</strong>です。成功報酬の詳細は「費用・料金」ページをご覧ください。<strong>ご相談</strong>時に、具体的な金額をご説明します。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Q. 会社に知られたくないのですが…</summary>
+      <div class="faq-answer">
+        <p>A. <strong>弁護士</strong>には法律上の守秘義務があります。<strong>相談</strong>段階で会社に知られることはありません。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Q. 在職中でも<strong>相談</strong>できますか？</summary>
+      <div class="faq-answer">
+        <p>A. はい、在職中の方からの<strong>ご相談</strong>も多数承っております。退職前に<strong>相談</strong>されることをおすすめします。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Q. どのくらいの残業代が請求できますか？</summary>
+      <div class="faq-answer">
+        <p>A. 給与額、残業時間、勤続年数等によって異なります。資料をお持ちいただければ、面談時に概算をお伝えできます。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Q. 証拠がなくても請求できますか？</summary>
+      <div class="faq-answer">
+        <p>A. タイムカード等がお手元になくても、<strong>弁護士</strong>が会社に開示請求できます。まずは<strong>ご相談</strong>ください。</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="final-cta">
+    <h2 class="final-cta-title">まずは無料<strong>相談</strong>から始めましょう</h2>
+
+    <div class="contact-methods">
+      <div class="contact-card form-card">
+        <div class="contact-icon">📧</div>
+        <h4 class="contact-title">フォームで予約</h4>
+        <p class="contact-hours">24時間受付</p>
+        <p class="contact-desc">詳しく書いて正確な判断を</p>
+        <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="contact-btn">相談<strong>予約</strong>する</a>
+      </div>
+
+      <div class="contact-card phone-card">
+        <div class="contact-icon">📞</div>
+        <h4 class="contact-title">電話で相談</h4>
+        <p class="contact-number">050-5482-3433</p>
+        <p class="contact-label">（新規<strong>相談</strong>専用）</p>
+        <p class="contact-hours">平日9:00-18:00</p>
+        <p class="contact-desc">お急ぎの方はこちら</p>
+        <a href="tel:05054823433" class="contact-btn">電話をかける</a>
+      </div>
+    </div>
+
+    <div class="final-badges">
+      <span class="badge">✓ 初回<strong>相談</strong>無料</span>
+      <span class="badge">✓ 完全成功報酬制あり</span>
+      <span class="badge">✓ 秘密厳守</span>
+      <span class="badge">✓ 全国対応</span>
+      <span class="badge">✓ オンライン面談OK</span>
+      <span class="badge">✓ 土日対応可能（要<strong>予約</strong>）</span>
+    </div>
+  </section>
+
+  <!-- フッター情報 -->
+  <footer class="flow-footer">
+    <p class="footer-lawyer-name"><strong>弁護士 川波晃生</strong></p>
+    <p class="footer-bar-affiliation">福岡県<strong>弁護士</strong>会所属</p>
+    <p class="footer-office-small">Hi法律事務所福岡事務所</p>
+    <p class="footer-address">〒810-0001 福岡市中央区天神一丁目13番25号 福岡中央ビル5階</p>
+    <p class="footer-tel">電話: <a href="tel:05054823433">050-5482-3433</a></p>
+    <p class="footer-contact"><a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/"><strong>お問い合わせ</strong>フォーム</a></p>
+  </footer>
+
+</article>
+
+</body>
+</html>

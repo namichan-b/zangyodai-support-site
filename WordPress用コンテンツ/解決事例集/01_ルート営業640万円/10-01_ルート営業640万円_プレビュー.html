@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="サービス業のルート営業が、固定残業無効により約640万円の残業代を満額回収した事例を弁護士が詳しく解説。タイムカードがなくても証明できる方法、裁判せずに解決した戦略を公開。福岡発・全国対応。">
+  <title>【事例1】ルート営業が固定残業無効で約640万円を満額回収 | 残業代サポート</title>
+
+  <style>
+/* ============================================
+   解決事例詳細ページ用CSS
+   ルート営業640万円事例
+   ============================================ */
+
+/* CSS変数定義 */
+:root {
+  --color-primary: #1a4d8f; /* ネイビーブルー：信頼感 */
+  --color-accent: #c9a961; /* ゴールド：成功・高級感 */
+  --color-text: #333; /* ダークグレー：本文 */
+  --color-text-light: #666; /* ライトグレー：補助テキスト */
+  --color-bg-light: #f8f9fa; /* ライトグレー：背景 */
+  --color-bg-white: #ffffff; /* ホワイト */
+  --color-border: #e0e0e0; /* ボーダー */
+  --color-success: #28a745; /* 成功：グリーン */
+  --color-alert: #ffc107; /* 注意：イエロー */
+
+  --font-heading: 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+  --font-body: '游ゴシック体', 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 60px;
+
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ベーススタイル */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: var(--font-body);
+  background: #f5f5f5;
+  color: var(--color-text);
+}
+
+.case-study-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.8;
+  background: var(--color-bg-white);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* セクション共通 */
+.case-study-page section {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* セクションタイトル（整列：左揃え統一） */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--color-accent);
+  text-align: left; /* 整列原則：左揃え */
+}
+
+.section-title .subtitle {
+  font-size: 20px;
+  color: var(--color-text-light);
+  font-weight: 400;
+  display: block;
+  margin-top: var(--spacing-xs);
+}
+
+/* リード文セクション */
+.case-lead {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2a5f9f 100%);
+  color: var(--color-bg-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-xl);
+}
+
+.case-lead-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-align: left; /* 整列原則 */
+}
+
+.problem-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.problem-list li {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.problem-list strong {
+  color: var(--color-accent); /* コントラスト原則：強調 */
+  font-weight: 700;
+}
+
+.lead-text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin: var(--spacing-md) 0;
+}
+
+.lead-text strong {
+  color: var(--color-accent); /* ラベリング効果：強調 */
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+/* 依頼者プロフィール（近接：グリッドでグループ化） */
+.case-profile {
+  background: var(--color-bg-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.profile-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  background: var(--color-bg-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.profile-label {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+.profile-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* 相談前の状況 */
+.situation-intro {
+  font-size: 16px;
+  margin-bottom: var(--spacing-md);
+}
+
+.situation-box {
+  background: var(--color-bg-white);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-border);
+}
+
+.box-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-accent);
+  text-align: left; /* 整列原則 */
+}
+
+.client-voice {
+  background: #f0f4f8;
+  padding: var(--spacing-md);
+  border-left: 4px solid var(--color-primary);
+  margin: var(--spacing-md) 0;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.client-voice.highlight {
+  background: #fff9e6;
+  border-left: 4px solid var(--color-accent);
+  font-weight: 600;
+}
+
+.client-voice strong {
+  color: var(--color-accent); /* ラベリング効果 */
+  font-weight: 700;
+  font-style: normal;
+}
+
+.label-badge {
+  display: inline-block;
+  background: var(--color-text-light);
+  color: var(--color-bg-white);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: var(--spacing-xs);
+}
+
+.strong-text {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: var(--spacing-sm) 0;
+}
+
+.detail-list {
+  margin: var(--spacing-md) 0;
+}
+
+.detail-item {
+  margin-bottom: var(--spacing-sm);
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0;
+}
+
+.check-list li {
+  padding-left: 30px;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  line-height: 1.8;
+}
+
+.check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.check-list strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* 解決までの流れ */
+.process-step {
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.step-header {
+  background: var(--color-primary);
+  color: var(--color-bg-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.step-number {
+  background: var(--color-accent);
+  color: var(--color-bg-white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  text-align: left; /* 整列原則 */
+}
+
+.step-title strong {
+  color: var(--color-accent); /* ラベリング効果 */
+  font-weight: 700;
+}
+
+.step-content {
+  padding: var(--spacing-lg);
+}
+
+.step-content > p {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
+}
+
+.step-content strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* 情報ボックス（近接：関連情報をグループ化） */
+.info-box {
+  background: var(--color-bg-light);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--color-primary);
+}
+
+.info-box.success-box {
+  background: #e8f5e9;
+  border-left-color: var(--color-success);
+}
+
+.info-title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0;
+}
+
+.info-list li {
+  padding-left: 24px;
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+}
+
+.info-list li::before {
+  content: '•';
+  position: absolute;
+  left: 8px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.highlight-text {
+  background: linear-gradient(transparent 60%, #fff9e6 60%);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ポイントボックス */
+.point-box {
+  background: #e3f2fd;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-primary);
+}
+
+.point-title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.point-title strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.primary-text {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* 費用ボックス */
+.fee-box {
+  background: #fff9e6;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-accent);
+}
+
+.fee-title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.fee-title strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.fee-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0;
+}
+
+.fee-list li {
+  padding-left: 24px;
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+}
+
+.fee-list li::before {
+  content: '💰';
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+}
+
+.fee-note {
+  font-style: italic;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.note-text {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: var(--color-bg-light);
+  border-radius: 4px;
+}
+
+/* 番号付きリスト */
+.numbered-list {
+  counter-reset: list-counter;
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.numbered-list > li {
+  counter-increment: list-counter;
+  margin-bottom: var(--spacing-md);
+  padding-left: 40px;
+  position: relative;
+}
+
+.numbered-list > li::before {
+  content: counter(list-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--color-primary);
+  color: var(--color-bg-white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.sub-list {
+  list-style: disc;
+  margin-left: 20px;
+  margin-top: var(--spacing-sm);
+}
+
+.sub-list li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* アラートボックス */
+.alert-box {
+  background: #fff3cd;
+  border: 2px solid var(--color-alert);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius);
+}
+
+.alert-title {
+  font-weight: 700;
+  color: #856404;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* 分析ボックス */
+.analysis-box {
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-primary);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius);
+}
+
+.analysis-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  text-align: left; /* 整列原則 */
+}
+
+.analysis-title strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.analysis-item {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.analysis-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.analysis-subtitle {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.result-text {
+  font-weight: 700;
+  margin-top: var(--spacing-sm);
+}
+
+/* 結果ボックス */
+.result-box {
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.result-box.success {
+  background: #e8f5e9;
+  border: 2px solid var(--color-success);
+}
+
+.result-box .result-text {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* 結果セクション（コントラスト：重要な結果を強調） */
+.case-result {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.result-item {
+  background: var(--color-bg-white);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.result-item.highlight {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #d4b06a 100%);
+  color: var(--color-bg-white);
+}
+
+.result-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.result-item.highlight .result-label {
+  color: var(--color-bg-white);
+}
+
+.result-value {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.result-value.primary {
+  font-size: 32px;
+  color: var(--color-bg-white);
+}
+
+.result-value .note {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: var(--spacing-xs);
+}
+
+/* あなたにも当てはまる */
+.case-apply {
+  background: #e3f2fd;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 3px solid var(--color-primary);
+}
+
+.apply-subtitle {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 18px;
+}
+
+.apply-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.apply-list li {
+  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 36px;
+  margin-bottom: var(--spacing-sm);
+  background: var(--color-bg-white);
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.apply-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 12px;
+  color: var(--color-success);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.apply-cta {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--color-bg-white);
+  border-radius: var(--border-radius);
+}
+
+.apply-cta .primary-text.large {
+  font-size: 20px;
+  display: block;
+}
+
+/* 学べるポイント */
+.point-card {
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.point-header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2a5f9f 100%);
+  color: var(--color-bg-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.point-num {
+  background: var(--color-accent);
+  color: var(--color-bg-white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.point-card-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.point-card > p {
+  padding: 0 var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+}
+
+.point-detail {
+  padding: 0 var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+}
+
+.detail-title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.evidence-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0;
+}
+
+.evidence-list li {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  background: var(--color-bg-light);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 4px;
+}
+
+.evidence-list strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.example-box {
+  background: #f0f4f8;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) var(--spacing-lg);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 4px;
+}
+
+.example-box.success {
+  background: #e8f5e9;
+  border-left-color: var(--color-success);
+}
+
+.example-title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.example-box p {
+  margin: 0;
+}
+
+.example-box strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* 依頼者の声 */
+.case-voice {
+  background: #fff9e6;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 3px solid var(--color-accent);
+}
+
+.voice-quote {
+  font-size: 18px;
+  line-height: 1.8;
+  font-style: italic;
+  margin: var(--spacing-md) 0 0 0;
+  padding: 0;
+  border-left: none;
+}
+
+.voice-quote strong {
+  color: var(--color-accent); /* ラベリング効果 */
+  font-weight: 700;
+  font-style: normal;
+}
+
+.voice-quote cite {
+  display: block;
+  text-align: right;
+  margin-top: var(--spacing-md);
+  font-style: normal;
+  color: var(--color-text-light);
+  font-size: 16px;
+}
+
+/* FAQ */
+.faq-list {
+  margin: var(--spacing-md) 0;
+}
+
+.faq-item {
+  background: var(--color-bg-white);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-border);
+}
+
+.faq-question {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.faq-question strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.faq-answer {
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.8;
+}
+
+.faq-answer strong {
+  color: var(--color-accent); /* ラベリング効果 */
+  font-weight: 700;
+}
+
+/* 相談の流れ */
+.consultation-flow {
+  margin-top: var(--spacing-lg);
+}
+
+.flow-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  text-align: left;
+}
+
+.flow-title strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.flow-steps {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.flow-step {
+  background: var(--color-bg-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.flow-num {
+  background: var(--color-primary);
+  color: var(--color-bg-white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.flow-step-title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 16px;
+}
+
+.flow-step-title strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.flow-detail {
+  list-style: disc;
+  margin-left: 20px;
+  margin-top: var(--spacing-sm);
+}
+
+.flow-detail li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.flow-detail strong {
+  color: var(--color-accent); /* ラベリング効果 */
+  font-weight: 700;
+}
+
+/* CTA */
+.case-cta {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2a5f9f 100%);
+  color: var(--color-bg-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  text-align: left; /* 整列原則：左揃え */
+}
+
+.cta-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-bg-white);
+}
+
+.cta-title strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.cta-text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin: var(--spacing-md) 0;
+}
+
+.cta-text.strong {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.cta-text strong {
+  color: var(--color-accent); /* ラベリング効果 */
+  font-weight: 700;
+}
+
+.contact-info {
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-lg) 0;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: flex-start; /* 整列原則：左揃え */
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-label {
+  font-weight: 600;
+  min-width: 120px;
+  text-align: left; /* 整列原則：左揃え */
+}
+
+.contact-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.contact-value.phone,
+.contact-value.email {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.contact-value.phone:hover,
+.contact-value.email:hover {
+  opacity: 0.8;
+}
+
+.contact-value strong {
+  color: var(--color-accent); /* ラベリング効果 */
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-start; /* 整列原則：左揃え */
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: var(--box-shadow);
+}
+
+.cta-button.primary {
+  background: var(--color-accent);
+  color: var(--color-bg-white);
+}
+
+.cta-button.primary:hover {
+  background: #d4b06a;
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+  background: var(--color-bg-white);
+  color: var(--color-primary);
+}
+
+.cta-button.secondary:hover {
+  background: #f8f9fa;
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.cta-button strong {
+  color: inherit; /* ボタン内では継承 */
+}
+
+.button-icon {
+  font-size: 20px;
+}
+
+/* 関連情報 */
+.case-related {
+  background: var(--color-bg-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+}
+
+.related-title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 16px;
+}
+
+.related-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-links li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.related-links a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.related-links a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* 弁護士情報 */
+.lawyer-info {
+  text-align: center;
+  padding: var(--spacing-md);
+  background: var(--color-bg-light);
+  border-radius: var(--border-radius);
+  margin-top: var(--spacing-lg);
+}
+
+.lawyer-name {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.lawyer-bar {
+  color: var(--color-text-light);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .case-study-page {
+    padding: var(--spacing-sm);
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .section-title .subtitle {
+    font-size: 18px;
+  }
+
+  .case-lead-title {
+    font-size: 20px;
+  }
+
+  .lead-text {
+    font-size: 16px;
+  }
+
+  /* グリッドを1列に */
+  .profile-grid,
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ステップヘッダーを縦並びに */
+  .step-header,
+  .point-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .step-title,
+  .point-card-title {
+    font-size: 18px;
+  }
+
+  .result-value {
+    font-size: 20px;
+  }
+
+  .result-value.primary {
+    font-size: 28px;
+  }
+
+  .cta-title {
+    font-size: 24px;
+  }
+
+  .cta-text {
+    font-size: 16px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .contact-label {
+    text-align: left;
+    min-width: auto;
+  }
+
+  .flow-step {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .case-lead-title {
+    font-size: 18px;
+  }
+
+  .step-title,
+  .point-card-title {
+    font-size: 16px;
+  }
+}
+
+/* アクセシビリティ：フォーカス状態 */
+a:focus,
+button:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* 印刷用スタイル */
+@media print {
+  .cta-buttons {
+    display: none;
+  }
+
+  .case-study-page {
+    max-width: 100%;
+  }
+
+  .case-lead,
+  .case-cta {
+    background: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+  }
+}
+  </style>
+</head>
+<body>
+
+<div class="case-study-page">
+
+  <!-- リード文セクション -->
+  <section class="case-lead">
+    <h2 class="case-lead-title">こんなことで困っていませんか？</h2>
+
+    <ul class="problem-list">
+      <li><strong>給与明細に残業代の記載がない</strong></li>
+      <li><strong>直行直帰が多くタイムカードがないため、残業代を請求できない</strong>と諦めている</li>
+      <li><strong>待機時間があるが、これが労働時間になるのでは？</strong></li>
+    </ul>
+
+    <p class="lead-text">
+      このような状況でお悩みの方は、実は多額の未払い残業代を取り戻せる可能性があります。
+    </p>
+
+    <p class="lead-text">
+      残業代請求を多数手がける<strong>弁護士</strong>が、<strong>営業職で固定残業が無効となり、約640万円を満額回収した解決事例</strong>について詳しく解説します。
+    </p>
+  </section>
+
+  <!-- 依頼者プロフィール -->
+  <section class="case-profile">
+    <h2 class="section-title">依頼者プロフィール</h2>
+
+    <div class="profile-grid">
+      <div class="profile-item">
+        <span class="profile-label">業種・職種</span>
+        <span class="profile-value">サービス業（ルート営業）</span>
+      </div>
+      <div class="profile-item">
+        <span class="profile-label">年代</span>
+        <span class="profile-value">40代男性</span>
+      </div>
+      <div class="profile-item">
+        <span class="profile-label">勤続年数</span>
+        <span class="profile-value">10年以上</span>
+      </div>
+      <div class="profile-item">
+        <span class="profile-label">雇用形態</span>
+        <span class="profile-value">正社員</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 相談前の状況 -->
+  <section class="case-situation">
+    <h2 class="section-title">「残業代が払われたことがなく、ずっとおかしいと思っていました」<br><span class="subtitle">〜<strong>相談</strong>前の状況</span></h2>
+
+    <p class="situation-intro">
+      Aさん（仮名）は、サービス業のルート営業として10年以上勤務していました。
+    </p>
+
+    <div class="situation-box">
+      <h3 class="box-title">毎日の長時間労働</h3>
+
+      <blockquote class="client-voice">
+        「朝早く家を出て、夜遅くに帰宅。これを10年以上続けてきました。」
+      </blockquote>
+
+      <div class="detail-list">
+        <p class="detail-item"><span class="label-badge">建前</span> 勤務時間は8時間勤務</p>
+        <p class="detail-item strong-text">でも実際は…</p>
+        <ul class="check-list">
+          <li>遠方への直行時は<strong>朝早くから出発</strong></li>
+          <li>帰宅は<strong>夜遅くが当たり前</strong></li>
+          <li>ルートが決まっているから<strong>休憩なんて取れない</strong></li>
+          <li>年末年始・GW・お盆も<strong>電話当番で待機</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="situation-box">
+      <h3 class="box-title">給与明細を見ても「残業代」の文字はない</h3>
+
+      <blockquote class="client-voice">
+        「給料明細のどこを見ても『残業代』って項目がないんです。長時間働いているのに残業代が払われないのはおかしいなと思っていました。でも人手も足りていないし、仕方なくそのまま働いていました。」
+      </blockquote>
+
+      <blockquote class="client-voice highlight">
+        「退職を決めたとき、『このまま泣き寝入りはしたくない』と思いました。10年以上働いてきた分、しっかり請求したい。家族のためにも、<strong>弁護士</strong>に<strong>相談</strong>しようと決めました。」
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 解決までの流れ -->
+  <section class="case-process">
+    <h2 class="section-title">解決までの流れ</h2>
+
+    <!-- ステップ1 -->
+    <div class="process-step">
+      <div class="step-header">
+        <span class="step-number">STEP 1</span>
+        <h3 class="step-title">初回<strong>相談</strong>（無料）で状況を詳しくヒアリング</h3>
+      </div>
+
+      <div class="step-content">
+        <p><strong>弁護士</strong>が詳しく聞き取りを行いました：</p>
+
+        <div class="info-box">
+          <h4 class="info-title">聞き取った内容</h4>
+          <ul class="info-list">
+            <li>所定労働時間と実際の労働時間</li>
+            <li>具体的な勤務期間と勤務パターン</li>
+            <li>給与の金額と内訳</li>
+            <li>仕事の進め方（直行直帰、ルート営業など）</li>
+            <li>休憩時間の有無や実態</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h4 class="info-title">Aさんが持参した資料</h4>
+          <ul class="info-list">
+            <li>給与明細（残業代の記載なし）</li>
+            <li>タイムカード（一部の期間のみ保管していた）</li>
+            <li><strong class="highlight-text">酒気帯び確認の日報</strong>（毎日の出発・帰着時刻が記録されている）</li>
+            <li><strong class="highlight-text">手帳</strong>（仕事の記録を詳細に記載）</li>
+          </ul>
+        </div>
+
+        <div class="point-box">
+          <h4 class="point-title"><strong>弁護士</strong>の見立て</h4>
+          <p>Aさんは「タイムカードが一部しかないので証拠が足りないのでは」と不安を感じていましたが、<strong>弁護士</strong>が資料を確認したところ：</p>
+          <ul class="check-list">
+            <li>タイムカードが一部欠けていても、<strong>酒気帯び確認の日報と手帳があれば労働時間を十分証明できる</strong>と判断</li>
+            <li>直行時の出発時刻や帰着時刻も立証可能</li>
+            <li>休憩時間の有無も記録から明らかにできる</li>
+            <li><strong class="primary-text">これなら請求できる</strong>という結論に</li>
+          </ul>
+        </div>
+
+        <div class="info-box success-box">
+          <h4 class="info-title">残業代の見込み額を計算</h4>
+          <p>聴取した内容から、<strong>弁護士</strong>がおおよその残業代見込み額を計算しました。</p>
+          <p class="strong-text">「これだけの金額が回収できる可能性があります」という説明を受け、Aさんは納得して<strong>依頼</strong>を決断されました。</p>
+        </div>
+
+        <div class="fee-box">
+          <h4 class="fee-title"><strong>弁護士</strong>費用の説明</h4>
+          <p><strong>弁護士</strong>から費用について説明しました：</p>
+          <ul class="fee-list">
+            <li><strong class="highlight-text">完全成功報酬制</strong>を採用しています</li>
+            <li>最初にお支払いいただくお金はありません</li>
+            <li>回収できた金額の中から報酬をいただきます</li>
+            <li>見込み額から報酬額も明確に提示しました</li>
+          </ul>
+        </div>
+
+        <p class="note-text">
+          初回<strong>相談</strong>時には就業規則や賃金規程はまだ入手できていませんでした。これらは後で会社に開示請求することになります。
+        </p>
+      </div>
+    </div>
+
+    <!-- ステップ2 -->
+    <div class="process-step">
+      <div class="step-header">
+        <span class="step-number">STEP 2</span>
+        <h3 class="step-title">会社へ内容証明郵便で請求</h3>
+      </div>
+
+      <div class="step-content">
+        <p><strong>弁護士</strong>が会社に対し、内容証明郵便で以下を送付：</p>
+
+        <ol class="numbered-list">
+          <li><strong>未払い残業代の請求</strong></li>
+          <li><strong>証拠資料の開示請求</strong>
+            <ul class="sub-list">
+              <li>タイムカード（全期間）</li>
+              <li>賃金台帳</li>
+              <li>給与明細</li>
+              <li>就業規則・賃金規程</li>
+              <li>労働条件通知書</li>
+              <li>その他労働時間に関する記録</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ステップ3 -->
+    <div class="process-step">
+      <div class="step-header">
+        <span class="step-number">STEP 3</span>
+        <h3 class="step-title">会社から資料が届き、<strong>弁護士</strong>が分析</h3>
+      </div>
+
+      <div class="step-content">
+        <p>会社から以下の資料が送られてきました：</p>
+        <ul class="info-list">
+          <li>タイムカード（全期間）</li>
+          <li>就業規則・賃金規程</li>
+          <li>労働条件通知書</li>
+          <li>給与明細</li>
+        </ul>
+
+        <div class="alert-box">
+          <p class="alert-title">しかし、会社のタイムカードにも問題がありました：</p>
+          <p>直行時の始業時刻が正確に記録されていない</p>
+        </div>
+
+        <div class="point-box">
+          <h4 class="point-title">そこで<strong>弁護士</strong>が追加で証拠を活用</h4>
+          <ul class="check-list">
+            <li>Aさんが持っていた<strong>酒気帯び確認日報</strong>でタイムカードの不明点を補完</li>
+            <li>Aさんの<strong>手帳の記録</strong>と照合して労働時間を正確に立証</li>
+          </ul>
+        </div>
+
+        <div class="analysis-box">
+          <h4 class="analysis-title"><strong>弁護士</strong>が分析して判明したこと</h4>
+
+          <div class="analysis-item">
+            <h5 class="analysis-subtitle">① 固定残業が無効</h5>
+            <ul class="check-list">
+              <li>労働条件通知書に固定残業代の記載があったが、Aさんは見たことも署名もしていない</li>
+              <li>賃金規程には具体的な固定残業代の計算方法の記載なし</li>
+              <li><strong class="highlight-text">求人票には固定残業の記載が一切なかった</strong></li>
+              <li class="result-text">→ <strong class="primary-text">法的に無効</strong></li>
+            </ul>
+          </div>
+
+          <div class="analysis-item">
+            <h5 class="analysis-subtitle">② 労働時間を正確に立証できた</h5>
+            <ul class="check-list">
+              <li>会社のタイムカードが不完全でも、酒気帯び確認日報と手帳で直行時の早朝出発時刻を客観的に証明</li>
+              <li>複数の証拠を組み合わせることで、労働時間の正確性を立証</li>
+            </ul>
+          </div>
+
+          <div class="analysis-item">
+            <h5 class="analysis-subtitle">③ 住宅手当も残業代の基礎に含めることができた</h5>
+            <ul class="check-list">
+              <li>住宅手当が一律支給であることが判明</li>
+              <li>家賃実費に連動していないため、残業代の計算に含められる</li>
+              <li class="result-text">→ <strong class="primary-text">時給単価がアップし、回収額が増加</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ステップ4 -->
+    <div class="process-step">
+      <div class="step-header">
+        <span class="step-number">STEP 4</span>
+        <h3 class="step-title">会社との交渉</h3>
+      </div>
+
+      <div class="step-content">
+        <p><strong>弁護士</strong>が以下を指摘：</p>
+
+        <ul class="check-list">
+          <li>固定残業の要件を満たしていない（署名なし、求人票に記載なし）</li>
+          <li>労働時間は客観的証拠で立証できている</li>
+          <li>住宅手当を含めた正確な計算では、未払額は明らか</li>
+        </ul>
+
+        <div class="result-box success">
+          <p class="result-text"><strong class="highlight-text">証拠が明確だったため、会社は交渉段階で満額支払いに応じました。</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 結果 -->
+  <section class="case-result">
+    <h2 class="section-title">結果</h2>
+
+    <div class="result-grid">
+      <div class="result-item highlight">
+        <h3 class="result-label">回収金額</h3>
+        <p class="result-value primary">約640万円（満額）</p>
+      </div>
+
+      <div class="result-item">
+        <h3 class="result-label">解決方法</h3>
+        <p class="result-value">裁判外での交渉<br><span class="note">(労働審判・訴訟には至らず)</span></p>
+      </div>
+
+      <div class="result-item">
+        <h3 class="result-label">解決期間</h3>
+        <p class="result-value">約2〜3ヶ月</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- あなたにも当てはまる -->
+  <section class="case-apply">
+    <h2 class="section-title">あなたにも当てはまるかもしれません</h2>
+
+    <h3 class="apply-subtitle">こんな状況に心当たりはありませんか？</h3>
+
+    <ul class="apply-list">
+      <li>「固定残業代」と言われたが、詳しい説明を受けていない</li>
+      <li>タイムカードがない、または一部しかない</li>
+      <li>直行直帰が多く、労働時間の記録が曖昧</li>
+      <li>酒気帯び確認や業務日報を記録している</li>
+      <li>待機時間があるが、労働時間として扱われていない</li>
+      <li>住宅手当などが一律で支給されている</li>
+    </ul>
+
+    <p class="apply-cta">
+      <strong class="primary-text large">→ あなたも未払い残業代を請求できる可能性があります</strong>
+    </p>
+  </section>
+
+  <!-- 学べるポイント -->
+  <section class="case-points">
+    <h2 class="section-title">この事例から学べる3つのポイント</h2>
+
+    <div class="point-card">
+      <div class="point-header">
+        <span class="point-num">POINT 1</span>
+        <h3 class="point-card-title">「固定残業」は会社が勝手に決められない</h3>
+      </div>
+
+      <p>会社が「給料に残業代が含まれている」と言っても、それだけでは有効になりません。</p>
+
+      <div class="point-detail">
+        <h4 class="detail-title">無効になるケース</h4>
+        <ul class="check-list">
+          <li>労働条件通知書に署名していない、または見たことがない</li>
+          <li>求人票に固定残業の記載がない</li>
+          <li>賃金規程に具体的な計算方法が書かれていない</li>
+          <li>きちんとした説明を受けていない</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <h4 class="example-title">Aさんの場合</h4>
+        <p>会社が後から作った労働条件通知書も、求人票との矛盾があり、本人の同意もなかったため無効と判断されました。</p>
+      </div>
+    </div>
+
+    <div class="point-card">
+      <div class="point-header">
+        <span class="point-num">POINT 2</span>
+        <h3 class="point-card-title">タイムカードがなくても労働時間は証明できる</h3>
+      </div>
+
+      <p>直行直帰でタイムカードがなくても、諦める必要はありません。</p>
+
+      <div class="point-detail">
+        <h4 class="detail-title">活用できる証拠</h4>
+        <ul class="evidence-list">
+          <li><strong>酒気帯び確認記録</strong>: 運送業・営業職で車を使う場合、出発・帰着時刻が記録されている</li>
+          <li><strong>ETC利用履歴</strong>: 高速道路の通行記録（時刻・場所が正確）</li>
+          <li><strong>会社の配車記録・コールログ</strong>: 会社が業務管理のために作っている記録</li>
+          <li><strong>メール・LINE</strong>: 上司や顧客とのやり取り</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <h4 class="example-title">Aさんの場合</h4>
+        <p>酒気帯び確認記録があったため、直行時の出発時刻を正確に証明できました。</p>
+      </div>
+    </div>
+
+    <div class="point-card">
+      <div class="point-header">
+        <span class="point-num">POINT 3</span>
+        <h3 class="point-card-title">戦略的に請求すれば、裁判せずに解決できる</h3>
+      </div>
+
+      <p>「裁判は避けたい」という方も安心してください。</p>
+
+      <div class="point-detail">
+        <h4 class="detail-title">早期解決の戦略</h4>
+        <p>明確な証拠を示して、会社に「裁判になれば負ける」と理解してもらう</p>
+      </div>
+
+      <div class="example-box success">
+        <p>結果、会社は早期解決を選び、<strong>2〜3ヶ月で満額回収を実現</strong>しました。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 依頼者の声 -->
+  <section class="case-voice">
+    <h2 class="section-title"><strong>依頼者</strong>の声</h2>
+
+    <blockquote class="voice-quote">
+      「この度は解決していただきありがとうございました。今後、困り事があり法的サポートが必要な時は川波先生に<strong>相談</strong>いたします。川波先生のおかげで未払い分の賃金が支払われたことをうれしく思います。」
+      <cite>（40代男性・サービス業）</cite>
+    </blockquote>
+  </section>
+
+  <!-- まずは無料相談 -->
+  <section class="case-consultation">
+    <h2 class="section-title">まずは<strong>無料相談</strong>から始めてください</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 class="faq-question">Q1. 証拠がなくても<strong>相談</strong>できますか？</h3>
+        <p class="faq-answer">はい、大丈夫です。Aさんもタイムカードはありませんでしたが、会社の記録や外部の記録で立証できました。まずは現在の状況をお聞かせください。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Q2. <strong>弁護士</strong>費用が心配です</h3>
+        <p class="faq-answer">初回<strong>相談</strong>は<strong>無料</strong>です。完全成功報酬制ですので、回収できた金額から報酬をいただきます。ただし、実費（印紙・郵券等）は別途必要です。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Q3. 在職中でも<strong>相談</strong>できますか？</h3>
+        <p class="faq-answer">もちろんです。退職を考えている方も、在職中の方も<strong>相談</strong>可能です。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Q4. 何年前まで遡れますか？</h3>
+        <p class="faq-answer">原則として3年前まで遡って請求できます（2020年4月以降の残業代）。Aさんの場合、約3年分の請求で640万円でした。</p>
+      </div>
+    </div>
+
+    <div class="consultation-flow">
+      <h3 class="flow-title">初回<strong>相談</strong>の流れ</h3>
+
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div>
+            <h4 class="flow-step-title"><strong>お問い合わせ</strong>（電話・メール）</h4>
+            <ul class="flow-detail">
+              <li>簡単に状況をお聞かせください</li>
+              <li><strong>相談</strong>日時を調整します（オンライン<strong>相談</strong>も可能）</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div>
+            <h4 class="flow-step-title">初回<strong>相談</strong>（<strong>無料</strong>）</h4>
+            <ul class="flow-detail">
+              <li>お持ちの資料を確認します（給与明細、就業規則など）</li>
+              <li>資料がなくても、状況を伺って見通しをお伝えします</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div>
+            <h4 class="flow-step-title"><strong>ご依頼</strong></h4>
+            <ul class="flow-detail">
+              <li>納得いただけたら、正式に<strong>ご依頼</strong>ください</li>
+              <li><strong>弁護士</strong>費用の見積もりを明確にお示しします</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div>
+            <h4 class="flow-step-title">解決まで</h4>
+            <ul class="flow-detail">
+              <li>証拠収集、会社との交渉</li>
+              <li>必要に応じて労働審判・訴訟</li>
+              <li>多くの場合、2〜6ヶ月で解決します</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-cta">
+    <h2 class="cta-title">今すぐ<strong>ご相談</strong>ください</h2>
+
+    <p class="cta-text">
+      あなたも、Aさんと同じように未払い残業代を取り戻せるかもしれません。
+    </p>
+
+    <p class="cta-text">
+      「これが普通だ」と思っていた働き方が、実は違法な長時間労働だったというケースは少なくありません。
+    </p>
+
+    <p class="cta-text strong">
+      まずは<strong>無料相談</strong>で、あなたの状況を聞かせてください。
+    </p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-label">電話</span>
+        <a href="tel:05054823433" class="contact-value phone">050-5482-3433</a>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-label">所在地</span>
+        <span class="contact-value">福岡市中央区天神一丁目13番25号 福岡中央ビル5階</span>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-label">営業時間</span>
+        <span class="contact-value">平日 9:00〜18:00</span>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-label">オンライン<strong>相談</strong></span>
+        <span class="contact-value">全国対応可能</span>
+      </div>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-button primary">
+        <span class="button-icon">✉</span>
+        お問い合わせフォームで<strong>相談</strong>する
+      </a>
+
+      <a href="tel:05054823433" class="cta-button secondary">
+        <span class="button-icon">📞</span>
+        今すぐ<strong>無料相談</strong>する（電話）
+      </a>
+    </div>
+  </section>
+
+  <!-- 関連情報 -->
+  <section class="case-related">
+    <h3 class="related-title">関連情報</h3>
+
+    <ul class="related-links">
+      <li><a href="/case-studies/">解決事例一覧に戻る</a></li>
+      <li><a href="/about-overtime/">残業代請求の基礎知識</a></li>
+      <li><a href="/fixed-overtime/">固定残業代とは？</a></li>
+      <li><a href="/fees/">費用・料金について</a></li>
+    </ul>
+  </section>
+
+  <!-- 弁護士情報 -->
+  <section class="lawyer-info">
+    <p class="lawyer-name">弁護士: 川波晃生</p>
+    <p class="lawyer-bar">所属: 福岡県弁護士会</p>
+  </section>
+
+</div>
+
+</body>
+</html>

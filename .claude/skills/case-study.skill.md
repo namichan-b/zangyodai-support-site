@@ -327,10 +327,103 @@ Claude Code:
 
 ---
 
+## 📁 出力ファイル（4点セット）
+
+解決事例を作成する際は、以下の4ファイルを必ず作成してください：
+
+### 1. HTML（WordPress用）
+- **ファイル名**: `10-XX_[タイトル]_HTML.html`
+- **用途**: WordPressのカスタムHTMLブロックに貼り付け
+- **内容**: `<div class="case-study-page">` から `</div>` まで
+- **特徴**:
+  - セマンティックHTML
+  - ラベリング効果（`<strong>相談者</strong>`、`<strong>依頼者</strong>`、`<strong>弁護士</strong>`）適用
+  - アクセシビリティ対応
+
+### 2. CSS（WordPress用）
+- **ファイル名**: `10-XX_[タイトル]_CSS.css`
+- **用途**: WordPressの「追加CSS」に貼り付け（初回のみ）
+- **内容**: CSS変数 + レスポンシブスタイル
+- **特徴**:
+  - デザイン4原則（近接・整列・反復・コントラスト）適用
+  - モバイルファースト設計
+  - CSS変数で統一的なデザイン
+
+### 3. プレビュー版HTML（Live Server用）
+- **ファイル名**: `10-XX_[タイトル]_プレビュー.html`
+- **用途**: VS Code Live Serverでリアルタイムプレビュー、クライアントへのデモ
+- **内容**: 完全なHTML5ドキュメント（head + body）
+- **特徴**:
+  - `<!DOCTYPE html>` から始まる完全版
+  - `<head>` にCSSを`<style>`タグでインライン埋め込み
+  - `<body>` に事例詳細HTMLを配置
+  - meta charset、viewport設定済み
+  - ブラウザで直接開ける
+  - WordPress貼り付け前のデザイン確認に最適
+
+### 4. WordPress貼り付け手順書
+- **ファイル名**: `10-XX_[タイトル]_WordPress貼り付け手順.md`
+- **用途**: 実装ガイド、トラブルシューティング
+- **内容**:
+  - 手順1〜6（ページ作成、HTML貼り付け、CSS追加、公開、メニュー追加、一覧ページリンク）
+  - SEO設定（メタディスクリプション、フォーカスキーフレーズ）
+  - トラブルシューティング
+  - 広告規制チェックリスト
+  - 公開後の作業
+
+---
+
+## 📐 プレビュー版HTMLの構造
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【事例1】ルート営業が固定残業無効で約640万円を満額回収 | 残業代サポート</title>
+
+  <style>
+    /* ここにCSS全体をインライン埋め込み */
+    /* CSS変数定義 */
+    :root {
+      --color-primary: #1a4d8f;
+      --color-accent: #c9a961;
+      ...
+    }
+
+    /* メインスタイル */
+    ...
+
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+      ...
+    }
+  </style>
+</head>
+<body>
+  <!-- ここに事例詳細のHTML本体を配置 -->
+  <div class="case-study-page">
+    ...
+  </div>
+</body>
+</html>
+```
+
+---
+
 ## 📁 保存先
 
-- **一覧ページ**: `WordPress用コンテンツ/10_解決事例一覧.txt` に追記
-- **詳細ページ**: `WordPress用コンテンツ/10-XX_事例詳細_[タイトル].txt` として新規作成
+**保存ディレクトリ**: `WordPress用コンテンツ/解決事例集/XX_[タイトル]/`
+
+例：
+```
+WordPress用コンテンツ/解決事例集/01_ルート営業640万円/
+├── 10-01_ルート営業640万円_HTML.html
+├── 10-01_ルート営業640万円_CSS.css
+├── 10-01_ルート営業640万円_プレビュー.html ← 新規追加
+└── 10-01_ルート営業640万円_WordPress貼り付け手順.md
+```
 
 ---
 
