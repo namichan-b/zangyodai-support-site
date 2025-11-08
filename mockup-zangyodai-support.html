@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>残業代サポート | 福岡発・全国対応 | 完全成功報酬制</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #04384c;
+        }
+
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tel-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #04384c;
+        }
+
+        .tel-hours {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .nav {
+            background: #04384c;
+        }
+
+        .nav-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            flex: 1;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            transform: rotate(15deg);
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #ff6b35;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 42px;
+            font-weight: 900;
+            color: #ffd700;
+        }
+
+        .stat-unit {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.primary {
+            background: #ff6b35;
+            color: #fff;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .cta-button.primary:hover {
+            background: #ff5722;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255,107,53,0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .cta-button.secondary:hover {
+            background: #fff;
+            color: #04384c;
+        }
+
+        /* 解決事例セクション */
+        .cases {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: #28a745;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #04384c;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .cases-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .case-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .case-header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            padding: 20px;
+            color: #fff;
+        }
+
+        .case-industry {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .case-amount {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .case-amount-unit {
+            font-size: 20px;
+        }
+
+        .case-body {
+            padding: 25px;
+        }
+
+        .case-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .case-detail-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .case-detail-value {
+            font-weight: 700;
+            color: #04384c;
+        }
+
+        .case-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 特徴セクション */
+        .features {
+            padding: 80px 20px;
+            background: #fff;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: #fff;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #04384c;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta-button-white {
+            background: #fff;
+            color: #ff6b35;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-tel {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        /* フッター */
+        .footer {
+            background: #04384c;
+            color: #fff;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-about h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-menu h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-menu ul {
+            list-style: none;
+        }
+
+        .footer-menu a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-menu a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .tel-number {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-main">残業代サポート</div>
+                <div class="logo-sub">弁護士 川波晃生 | HI法律事務所福岡事務所</div>
+            </div>
+            <div class="header-contact">
+                <div>
+                    <div class="tel-number">📞 050-5482-3433</div>
+                    <div class="tel-hours">平日 9:00〜18:00</div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
+                <li class="nav-item"><a href="#cases" class="nav-link">解決事例</a></li>
+                <li class="nav-item"><a href="#flow" class="nav-link">相談の流れ</a></li>
+                <li class="nav-item"><a href="#fee" class="nav-link">費用・料金</a></li>
+                <li class="nav-item"><a href="#lawyer" class="nav-link">弁護士紹介</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1 class="hero-title">
+                残業代請求はお任せください<br>
+                完全成功報酬で安心サポート
+            </h1>
+            <p class="hero-subtitle">
+                初回相談・着手金無料 | 福岡発・全国対応 | 弁護士が直接対応
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-label">初回相談</div>
+                    <div class="stat-value">無料</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">着手金</div>
+                    <div class="stat-value">無料</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">完全成功報酬型</div>
+                    <div class="stat-value">回収時<span class="stat-unit">のみ</span></div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-button primary">
+                    今すぐ無料相談を申し込む →
+                </a>
+                <a href="tel:050-5482-3433" class="cta-button secondary">
+                    📞 電話で相談する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解決事例セクション -->
+    <section class="cases" id="cases">
+        <div class="section-header">
+            <span class="section-badge">CASE STUDIES</span>
+            <h2 class="section-title">最新の解決事例</h2>
+            <p class="section-subtitle">実際の獲得金額と解決までの期間をご紹介</p>
+        </div>
+        <div class="cases-grid">
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-industry">IT企業・システムエンジニア</div>
+                    <div class="case-amount">280<span class="case-amount-unit">万円</span></div>
+                </div>
+                <div class="case-body">
+                    <div class="case-detail">
+                        <span class="case-detail-label">解決期間</span>
+                        <span class="case-detail-value">4ヶ月</span>
+                    </div>
+                    <div class="case-detail">
+                        <span class="case-detail-label">労働時間</span>
+                        <span class="case-detail-value">月100時間超の残業</span>
+                    </div>
+                    <div class="case-detail">
+                        <span class="case-detail-label">解決方法</span>
+                        <span class="case-detail-value">交渉による和解</span>
+                    </div>
+                    <p class="case-description">
+                        裁量労働制の名目で残業代が支払われていなかったケース。タイムカードとメール履歴から労働時間を立証し、残業代を獲得。
+                    </p>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-industry">運送業・トラック運転手</div>
+                    <div class="case-amount">220<span class="case-amount-unit">万円</span></div>
+                </div>
+                <div class="case-body">
+                    <div class="case-detail">
+                        <span class="case-detail-label">解決期間</span>
+                        <span class="case-detail-value">6ヶ月</span>
+                    </div>
+                    <div class="case-detail">
+                        <span class="case-detail-label">労働時間</span>
+                        <span class="case-detail-value">月80時間超の残業</span>
+                    </div>
+                    <div class="case-detail">
+                        <span class="case-detail-label">解決方法</span>
+                        <span class="case-detail-value">労働審判</span>
+                    </div>
+                    <p class="case-description">
+                        固定残業代制度で追加の残業代が支払われていなかったケース。運行記録から正確な労働時間を算出し、回収に成功。
+                    </p>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-industry">飲食業・店長</div>
+                    <div class="case-amount">150<span class="case-amount-unit">万円</span></div>
+                </div>
+                <div class="case-body">
+                    <div class="case-detail">
+                        <span class="case-detail-label">解決期間</span>
+                        <span class="case-detail-value">3ヶ月</span>
+                    </div>
+                    <div class="case-detail">
+                        <span class="case-detail-label">労働時間</span>
+                        <span class="case-detail-value">月120時間超の残業</span>
+                    </div>
+                    <div class="case-detail">
+                        <span class="case-detail-label">解決方法</span>
+                        <span class="case-detail-value">交渉による和解</span>
+                    </div>
+                    <p class="case-description">
+                        名ばかり管理職として残業代が支払われていなかったケース。管理監督者に該当しないことを立証し、残業代と遅延損害金を獲得。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section class="features">
+        <div class="section-header">
+            <span class="section-badge">WHY CHOOSE US</span>
+            <h2 class="section-title">選ばれる4つの理由</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h3 class="feature-title">完全成功報酬制</h3>
+                <p class="feature-description">
+                    着手金0円、相談料0円。獲得した残業代から報酬をいただくため、初期費用の心配は不要です。
+                </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">迅速な解決</h3>
+                <p class="feature-description">
+                    平均解決期間4ヶ月。弁護士が直接対応し、スピーディーな解決を実現します。
+                </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">会社にバレない</h3>
+                <p class="feature-description">
+                    在職中でも安心。秘密厳守で対応し、退職後の請求も可能です。
+                </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">全国対応可能</h3>
+                <p class="feature-description">
+                    オンライン相談対応。福岡の事務所から全国どこでもサポートいたします。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">今すぐ無料相談を始めましょう</h2>
+            <p class="cta-description">
+                残業代請求には時効があります。退職後3年で請求権が消滅するため、早めの行動が大切です。
+            </p>
+            <div class="cta-buttons">
+                <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-button-white">
+                    📝 お問い合わせフォームへ
+                </a>
+                <div class="cta-tel">
+                    📞 050-5482-3433
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>残業代サポート</h3>
+                    <p>
+                        弁護士 川波晃生（福岡県弁護士会所属）<br>
+                        〒810-0001 福岡市中央区天神一丁目13番25号 福岡中央ビル5階<br>
+                        TEL: 050-5482-3433（平日 9:00〜18:00）
+                    </p>
+                </div>
+                <div class="footer-menu">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="#">解決事例</a></li>
+                        <li><a href="#">相談の流れ</a></li>
+                        <li><a href="#">費用・料金</a></li>
+                        <li><a href="#">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu">
+                    <h4>会社情報</h4>
+                    <ul>
+                        <li><a href="#">弁護士紹介</a></li>
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">免責事項</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 残業代サポート All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弁護士紹介 | 残業代サポート | 福岡発・全国対応</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', 'Mincho', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #04384c;
+        }
+
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tel-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #04384c;
+        }
+
+        .tel-hours {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .nav {
+            background: #04384c;
+        }
+
+        .nav-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            flex: 1;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* パンくずリスト */
+        .breadcrumb {
+            background: #fff;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '>';
+            margin: 0 10px;
+            color: #999;
+        }
+
+        .breadcrumb-link {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb-link:hover {
+            color: #04384c;
+        }
+
+        .breadcrumb-current {
+            color: #04384c;
+            font-weight: 700;
+        }
+
+        /* ページヒーロー */
+        .page-hero {
+            background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+            padding: 60px 20px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .page-hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+        }
+
+        /* スマホ用改行 */
+        .sp-br {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .sp-br {
+                display: inline;
+            }
+        }
+
+        /* プロフィールセクション */
+        .profile-section {
+            background: #fff;
+            padding: 80px 20px;
+        }
+
+        .profile-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* プロフィール写真エリア */
+        .profile-photo-area {
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            border-radius: 10px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: #adb5bd;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-name-card {
+            background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .lawyer-name {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .lawyer-name-reading {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .lawyer-title {
+            font-size: 16px;
+            color: #ffd700;
+            font-weight: 700;
+        }
+
+        /* プロフィール詳細 */
+        .profile-details {
+            padding-top: 20px;
+        }
+
+        .greeting-section {
+            margin-bottom: 50px;
+        }
+
+        .greeting-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: #04384c;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ff6b35;
+        }
+
+        .greeting-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 2;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #04384c;
+        }
+
+        .profile-info {
+            margin-bottom: 40px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-row {
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .info-label {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            font-weight: 700;
+            color: #04384c;
+            width: 150px;
+        }
+
+        .info-value {
+            padding: 15px 20px;
+            color: #333;
+        }
+
+        /* 取扱分野 */
+        .expertise-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .expertise-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #04384c;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .expertise-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 5px solid #04384c;
+        }
+
+        .expertise-card.primary {
+            border-top-color: #ff6b35;
+            transform: scale(1.05);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .expertise-card.primary .expertise-icon {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+        }
+
+        .expertise-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #04384c;
+            margin-bottom: 15px;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-item {
+            padding: 8px 0;
+            color: #666;
+            font-size: 14px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .expertise-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        /* 方針セクション */
+        .policy-section {
+            background: #fff;
+            padding: 60px 20px;
+        }
+
+        .policy-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .policy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .policy-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .policy-number {
+            width: 60px;
+            height: 60px;
+            background: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 900;
+            margin: 0 auto 20px;
+        }
+
+        .policy-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #04384c;
+            margin-bottom: 15px;
+        }
+
+        .policy-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* 経歴セクション */
+        .career-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .career-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .career-timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .career-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #04384c 0%, rgba(4,56,76,0.2) 100%);
+        }
+
+        .career-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .career-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #ff6b35;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px #ff6b35;
+        }
+
+        .career-year {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .career-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #04384c;
+            margin-bottom: 10px;
+        }
+
+        .career-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* メッセージセクション */
+        .message-section {
+            background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .message-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .message-text {
+            font-size: 18px;
+            color: rgba(255,255,255,0.95);
+            line-height: 2;
+            margin-bottom: 40px;
+        }
+
+        .message-signature {
+            font-size: 20px;
+            color: #ffd700;
+            font-weight: 700;
+        }
+
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+            padding: 60px 20px;
+            text-align: left;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 20px;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .cta-button {
+            background: #fff;
+            color: #ff6b35;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-tel {
+            font-size: 28px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        /* フッター */
+        .footer {
+            background: #04384c;
+            color: #fff;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-about h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-menu h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-menu ul {
+            list-style: none;
+        }
+
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+
+        .footer-menu a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-menu a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 28px;
+            }
+
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .profile-photo {
+                width: 250px;
+                height: 330px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .policy-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .career-timeline {
+                padding-left: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .tel-number {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-main">残業代サポート</div>
+                <div class="logo-sub">弁護士 川波晃生 | 福岡県弁護士会所属</div>
+            </div>
+            <div class="header-contact">
+                <div>
+                    <div class="tel-number">050-5482-3433</div>
+                    <div class="tel-hours">平日 9:00〜18:00</div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">解決事例</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">相談の流れ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">費用・料金</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">弁護士紹介</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">トップ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <span class="breadcrumb-current">弁護士紹介</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ページヒーロー -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <h1 class="page-title">弁護士紹介</h1>
+            <p class="page-subtitle">
+                残業代請求のプロフェッショナルとして<br class="sp-br">
+                <strong>あなた</strong>の権利を守ります
+            </p>
+        </div>
+    </section>
+
+    <!-- プロフィールセクション -->
+    <section class="profile-section">
+        <div class="profile-inner">
+            <div class="profile-container">
+                <!-- 写真エリア -->
+                <div class="profile-photo-area">
+                    <div class="profile-photo">
+                        👔
+                    </div>
+                    <div class="profile-name-card">
+                        <div class="lawyer-name">川波 晃生</div>
+                        <div class="lawyer-name-reading">かわなみ あきお</div>
+                        <div class="lawyer-title"><strong>弁護士</strong>（福岡県弁護士会所属）</div>
+                    </div>
+                </div>
+
+                <!-- 詳細エリア -->
+                <div class="profile-details">
+                    <div class="greeting-section">
+                        <h2 class="greeting-title">ご挨拶</h2>
+                        <div class="greeting-text">
+                            未払い残業代の問題は、資料収集や計算が煩雑で、個人での対応が難しい分野です。<br><br>
+
+                            多くの労働者の方が、長時間労働にもかかわらず適切な残業代を受け取っていない現状があります。
+                            「固定残業代に含まれている」「管理職だから残業代は出ない」といった会社の主張が、
+                            実は法的に無効なケースが多数存在します。<br><br>
+
+                            私は、証拠の集め方から交渉・労働審判・訴訟まで一貫して対応し、
+                            迅速かつ適正な解決を目指します。完全成功報酬制により、
+                            リスクなくご相談いただける体制を整えています。<br><br>
+
+                            <strong>あなた</strong>の正当な権利を守るため、全力でサポートいたします。
+                            まずはお気軽に<strong>ご相談</strong>ください。
+                        </div>
+                    </div>
+
+                    <div class="profile-info">
+                        <table class="info-table">
+                            <tr class="info-row">
+                                <td class="info-label">事務所</td>
+                                <td class="info-value">HI法律事務所 福岡事務所</td>
+                            </tr>
+                            <tr class="info-row">
+                                <td class="info-label">所在地</td>
+                                <td class="info-value">〒810-0001 福岡市中央区天神一丁目13番25号 福岡中央ビル5階</td>
+                            </tr>
+                            <tr class="info-row">
+                                <td class="info-label">電話番号</td>
+                                <td class="info-value">050-5482-3433</td>
+                            </tr>
+                            <tr class="info-row">
+                                <td class="info-label">所属</td>
+                                <td class="info-value">福岡県弁護士会</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 取扱分野 -->
+    <section class="expertise-section">
+        <div class="expertise-inner">
+            <div class="section-header">
+                <h2 class="section-title">取扱分野</h2>
+                <p class="section-subtitle">労働問題に特化した専門的なサポートを提供します</p>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-card primary">
+                    <div class="expertise-icon">💰</div>
+                    <h3 class="expertise-title">未払い残業代請求</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">固定残業代の無効主張</li>
+                        <li class="expertise-item">管理監督者性の否定</li>
+                        <li class="expertise-item">事業場外みなし労働の無効</li>
+                        <li class="expertise-item">タイムカードなしでの立証</li>
+                        <li class="expertise-item">裁量労働制の無効主張</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚖️</div>
+                    <h3 class="expertise-title">不当解雇・退職勧奨</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">解雇無効の主張</li>
+                        <li class="expertise-item">退職勧奨への対応</li>
+                        <li class="expertise-item">解雇予告手当の請求</li>
+                        <li class="expertise-item">復職交渉</li>
+                    </ul>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-icon">🛡️</div>
+                    <h3 class="expertise-title">ハラスメント対応</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">パワーハラスメント</li>
+                        <li class="expertise-item">セクシャルハラスメント</li>
+                        <li class="expertise-item">マタニティハラスメント</li>
+                        <li class="expertise-item">慰謝料請求</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 方針セクション -->
+    <section class="policy-section">
+        <div class="policy-inner">
+            <div class="section-header">
+                <h2 class="section-title">私の方針</h2>
+                <p class="section-subtitle">依頼者の立場に立った、透明性の高いサービスを提供します</p>
+            </div>
+
+            <div class="policy-cards">
+                <div class="policy-card">
+                    <div class="policy-number">1</div>
+                    <h3 class="policy-title">分かりやすい説明</h3>
+                    <p class="policy-description">
+                        法律用語を避け、分かりやすい言葉で説明します。
+                        進捗状況も随時報告し、安心してお任せいただける環境を整えています。
+                    </p>
+                </div>
+
+                <div class="policy-card">
+                    <div class="policy-number">2</div>
+                    <h3 class="policy-title">費用の明確化</h3>
+                    <p class="policy-description">
+                        税込表示・最低成功報酬・差額精算など、
+                        すべての費用を明確に提示。後から追加費用が発生することはありません。
+                    </p>
+                </div>
+
+                <div class="policy-card">
+                    <div class="policy-number">3</div>
+                    <h3 class="policy-title">証拠の丁寧な整理</h3>
+                    <p class="policy-description">
+                        タイムカードがない場合でも、メール履歴やPCログなど、
+                        様々な証拠を組み合わせて労働時間を立証します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- メッセージセクション -->
+    <section class="message-section">
+        <div class="message-inner">
+            <h2 class="message-title">あなたの正当な権利を守ります</h2>
+            <p class="message-text">
+                「残業代は出ないものだと諦めていませんか？」<br><br>
+
+                多くの企業で、法的に無効な理由で残業代が支払われていません。
+                固定残業代、管理職、裁量労働制...これらの制度が適切に運用されているケースは稀です。<br><br>
+
+                私は、一人でも多くの労働者が正当な対価を受け取れるよう、
+                全力でサポートします。<strong>初回相談は無料</strong>、<strong>着手金も0円</strong>。
+                まずは気軽に<strong>ご相談</strong>ください。
+            </p>
+            <div class="message-signature">
+                弁護士 川波晃生
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">まずは無料相談から</h2>
+            <p class="cta-description">
+                <strong>あなた</strong>の状況を詳しくお聞きし、<br class="sp-br">
+                最適な解決方法をご提案します。
+            </p>
+            <div class="cta-buttons">
+                <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-button">
+                    お問い合わせフォームへ
+                </a>
+                <div class="cta-tel">
+                    050-5482-3433
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>残業代サポート</h3>
+                    <p>
+                        <strong>弁護士</strong> 川波晃生（福岡県弁護士会所属）<br>
+                        〒810-0001 福岡市中央区天神一丁目13番25号 福岡中央ビル5階<br>
+                        TEL: 050-5482-3433（平日 9:00〜18:00）
+                    </p>
+                </div>
+                <div class="footer-menu">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="#">解決事例</a></li>
+                        <li><a href="#">相談の流れ</a></li>
+                        <li><a href="#">費用・料金</a></li>
+                        <li><a href="#">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu">
+                    <h4>会社情報</h4>
+                    <ul>
+                        <li><a href="#">弁護士紹介</a></li>
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">免責事項</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 残業代サポート All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

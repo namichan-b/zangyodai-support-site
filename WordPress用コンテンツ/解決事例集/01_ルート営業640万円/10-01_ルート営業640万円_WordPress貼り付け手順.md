@@ -187,6 +187,57 @@
 
 ---
 
+## 手順7：関連情報のブログカード表示について
+
+### 7-1. ブログカードショートコードについて
+
+HTMLファイルには、関連情報セクションに**SWELLのブログカードショートコード**がすでに記載されています：
+
+```html
+[blogcard url="https://zangyodai-support.com/case-studies/"]
+[blogcard url="https://zangyodai-support.com/knowledge/"]
+[blogcard url="https://zangyodai-support.com/fixed-overtime/"]
+[blogcard url="https://zangyodai-support.com/fee/"]
+```
+
+### 7-2. 自動表示の仕組み
+
+カスタムHTMLブロックに上記ショートコードを貼り付けるだけで、**WordPressが自動的にブログカード形式で表示**してくれます。
+
+追加の作業は不要です。
+
+### 7-3. URLの調整（必要に応じて）
+
+実際のページURLが異なる場合は、HTMLファイル内の以下の部分を修正してください：
+
+```html
+<!-- 修正前（例） -->
+[blogcard url="https://zangyodai-support.com/case-studies/"]
+
+<!-- 修正後（実際のURLに合わせる） -->
+[blogcard url="https://zangyodai-support.com/solved-cases/"]
+```
+
+### 7-4. 代替方法：WordPress標準の埋め込みブロック
+
+ショートコードではなく、別の方法でブログカードを表示したい場合：
+
+#### 方法1：SWELL「関連記事」ブロックを使う
+
+1. カスタムHTMLブロック内のショートコード部分を削除
+2. カスタムHTMLブロックの下に新しいブロックを追加
+3. 「SWELL」→「関連記事」ブロックを選択
+4. ページを選択
+
+#### 方法2：WordPress標準「埋め込み」ブロックを使う
+
+1. カスタムHTMLブロック内のショートコード部分を削除
+2. カスタムHTMLブロックの下に新しいブロックを追加
+3. 「埋め込み」ブロックを選択
+4. ページのURLを入力（自動的にブログカード形式で表示されます）
+
+---
+
 ## トラブルシューティング
 
 ### Q1. デザインが反映されない

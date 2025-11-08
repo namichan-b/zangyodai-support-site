@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>費用・料金 | 残業代サポート | 福岡発・全国対応</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', 'Mincho', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #04384c;
+        }
+
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tel-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #04384c;
+        }
+
+        .tel-hours {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .nav {
+            background: #04384c;
+        }
+
+        .nav-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            flex: 1;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* パンくずリスト */
+        .breadcrumb {
+            background: #fff;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '>';
+            margin: 0 10px;
+            color: #999;
+        }
+
+        .breadcrumb-link {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb-link:hover {
+            color: #04384c;
+        }
+
+        .breadcrumb-current {
+            color: #04384c;
+            font-weight: 700;
+        }
+
+        /* ページヒーロー */
+        .page-hero {
+            background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+            padding: 60px 20px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .page-hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+        }
+
+        /* スマホ用改行 */
+        .sp-br {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .sp-br {
+                display: inline;
+            }
+        }
+
+        /* メインポイント */
+        .main-points {
+            background: #fff;
+            padding: 60px 20px;
+        }
+
+        .main-points-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .point-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .point-card.highlight {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffe5d5 100%);
+            border: 2px solid #ff6b35;
+            transform: scale(1.05);
+        }
+
+        .point-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .point-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: #fff;
+        }
+
+        .point-card.highlight .point-icon {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+        }
+
+        .point-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #04384c;
+            margin-bottom: 10px;
+        }
+
+        .point-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .point-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 料金テーブル */
+        .fee-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .fee-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #04384c;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .fee-tables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .fee-table {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .fee-table-header {
+            background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .fee-table-header.highlight {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+        }
+
+        .fee-stage {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .fee-rate {
+            font-size: 42px;
+            font-weight: 900;
+            color: #ffd700;
+        }
+
+        .fee-rate-sub {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .fee-table-body {
+            padding: 30px;
+        }
+
+        .fee-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .fee-item:last-child {
+            border-bottom: none;
+        }
+
+        .fee-item-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .fee-item-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #04384c;
+        }
+
+        .fee-item-note {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* 料金シミュレーション */
+        .simulation-section {
+            background: #fff;
+            padding: 60px 20px;
+        }
+
+        .simulation-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .simulation-calculator {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .calculator-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #04384c;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .calculator-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .calculator-example {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .calculator-example:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .example-amount {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .example-recovery {
+            font-size: 28px;
+            font-weight: 900;
+            color: #04384c;
+            margin-bottom: 5px;
+        }
+
+        .example-arrow {
+            color: #ff6b35;
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .example-fee {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+
+        .example-receive {
+            font-size: 24px;
+            font-weight: 900;
+            color: #28a745;
+            margin-top: 10px;
+        }
+
+        .example-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* 注意事項 */
+        .notice-section {
+            background: #fff8f0;
+            border: 2px solid #ff6b35;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .notice-title {
+            font-size: 20px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notice-list {
+            list-style: none;
+        }
+
+        .notice-item {
+            padding: 10px 0;
+            color: #666;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .notice-item::before {
+            content: '※';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+        }
+
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+            padding: 60px 20px;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .cta-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 20px;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .cta-button-white {
+            background: #fff;
+            color: #ff6b35;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-tel {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        /* フッター */
+        .footer {
+            background: #04384c;
+            color: #fff;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-about h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-menu h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-menu ul {
+            list-style: none;
+        }
+
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+
+        .footer-menu a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-menu a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 28px;
+            }
+
+            .points-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fee-tables {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-examples {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .tel-number {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-main">残業代サポート</div>
+                <div class="logo-sub">弁護士 川波晃生 | 福岡県弁護士会所属</div>
+            </div>
+            <div class="header-contact">
+                <div>
+                    <div class="tel-number">050-5482-3433</div>
+                    <div class="tel-hours">平日 9:00〜18:00</div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link">トップ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">解決事例</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">相談の流れ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">費用・料金</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">弁護士紹介</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">トップ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <span class="breadcrumb-current">費用・料金</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ページヒーロー -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <h1 class="page-title">費用・料金</h1>
+            <p class="page-subtitle">
+                完全成功報酬制で安心。<br class="sp-br">
+                <strong>初回相談無料</strong>・<strong>着手金0円</strong>でご利用いただけます。
+            </p>
+        </div>
+    </section>
+
+    <!-- メインポイント -->
+    <section class="main-points">
+        <div class="main-points-inner">
+            <div class="points-grid">
+                <div class="point-card">
+                    <div class="point-icon">💰</div>
+                    <h3 class="point-title">初回相談</h3>
+                    <div class="point-value">0円</div>
+                    <p class="point-description">
+                        <strong>初回相談</strong>は<strong>完全無料</strong>。<br>
+                        電話・オンライン<strong>相談</strong>も可能です。
+                    </p>
+                </div>
+                <div class="point-card highlight">
+                    <div class="point-icon">🎯</div>
+                    <h3 class="point-title">着手金</h3>
+                    <div class="point-value">0円</div>
+                    <p class="point-description">
+                        <strong>着手金</strong>は一切いただきません。<br>
+                        初期費用の心配は不要です。
+                    </p>
+                </div>
+                <div class="point-card">
+                    <div class="point-icon">✅</div>
+                    <h3 class="point-title">完全成功報酬</h3>
+                    <div class="point-value">27.5%</div>
+                    <p class="point-description">
+                        回収できた残業代から<br>
+                        報酬をいただきます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金テーブル -->
+    <section class="fee-section">
+        <div class="fee-inner">
+            <div class="section-header">
+                <h2 class="section-title">料金体系</h2>
+                <p class="section-subtitle">※表示はすべて税込価格です。実費（印紙・郵券・交通費等）は別途。</p>
+            </div>
+
+            <div class="fee-tables">
+                <!-- 交渉段階 -->
+                <div class="fee-table">
+                    <div class="fee-table-header">
+                        <h3 class="fee-stage">交渉段階</h3>
+                        <div class="fee-rate">27.5%</div>
+                        <div class="fee-rate-sub">（税抜25%）</div>
+                    </div>
+                    <div class="fee-table-body">
+                        <div class="fee-item">
+                            <div class="fee-item-label">着手金</div>
+                            <div class="fee-item-value">0円</div>
+                        </div>
+                        <div class="fee-item">
+                            <div class="fee-item-label">成功報酬</div>
+                            <div class="fee-item-value">回収額の27.5%</div>
+                            <div class="fee-item-note">※最低報酬額：30万円</div>
+                        </div>
+                        <div class="fee-item">
+                            <div class="fee-item-label">回収150万円の場合</div>
+                            <div class="fee-item-value">報酬41.25万円</div>
+                        </div>
+                        <div class="fee-item">
+                            <div class="fee-item-label">回収300万円の場合</div>
+                            <div class="fee-item-value">報酬82.5万円</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 訴訟段階 -->
+                <div class="fee-table">
+                    <div class="fee-table-header highlight">
+                        <h3 class="fee-stage">訴訟段階</h3>
+                        <div class="fee-rate">33%</div>
+                        <div class="fee-rate-sub">（税抜30%）</div>
+                    </div>
+                    <div class="fee-table-body">
+                        <div class="fee-item">
+                            <div class="fee-item-label">着手金</div>
+                            <div class="fee-item-value">0円</div>
+                        </div>
+                        <div class="fee-item">
+                            <div class="fee-item-label">成功報酬</div>
+                            <div class="fee-item-value">回収額の33%</div>
+                            <div class="fee-item-note">※差額精算方式</div>
+                        </div>
+                        <div class="fee-item">
+                            <div class="fee-item-label">回収150万円の場合</div>
+                            <div class="fee-item-value">報酬49.5万円</div>
+                        </div>
+                        <div class="fee-item">
+                            <div class="fee-item-label">回収300万円の場合</div>
+                            <div class="fee-item-value">報酬99万円</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notice-section">
+                <h3 class="notice-title">⚠️ ご注意事項</h3>
+                <ul class="notice-list">
+                    <li class="notice-item">回収額には、残業代本体のほか、遅延損害金等も含まれます。</li>
+                    <li class="notice-item">訴訟段階に移行した場合、最終的に訴訟報酬率で精算し、交渉段階で受領済みの報酬がある場合は差額のみをいただきます。</li>
+                    <li class="notice-item">事件の難易度・回収見込み等により、個別に協議の上、調整する場合があります。</li>
+                    <li class="notice-item">分割払い等のお支払い方法についてはご相談ください。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金シミュレーション -->
+    <section class="simulation-section">
+        <div class="simulation-inner">
+            <div class="section-header">
+                <h2 class="section-title">料金シミュレーション</h2>
+                <p class="section-subtitle">実際の回収額と、お手元に残る金額の例</p>
+            </div>
+
+            <div class="simulation-calculator">
+                <h3 class="calculator-title">交渉で解決した場合（成功報酬27.5%）</h3>
+                <div class="calculator-examples">
+                    <div class="calculator-example">
+                        <div class="example-amount">回収額</div>
+                        <div class="example-recovery">100万円</div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-label">成功報酬</div>
+                        <div class="example-fee">30万円</div>
+                        <div class="example-label">（最低報酬）</div>
+                        <div class="example-receive">手取り70万円</div>
+                    </div>
+                    <div class="calculator-example">
+                        <div class="example-amount">回収額</div>
+                        <div class="example-recovery">200万円</div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-label">成功報酬</div>
+                        <div class="example-fee">55万円</div>
+                        <div class="example-label">（27.5%）</div>
+                        <div class="example-receive">手取り145万円</div>
+                    </div>
+                    <div class="calculator-example">
+                        <div class="example-amount">回収額</div>
+                        <div class="example-recovery">300万円</div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-label">成功報酬</div>
+                        <div class="example-fee">82.5万円</div>
+                        <div class="example-label">（27.5%）</div>
+                        <div class="example-receive">手取り217.5万円</div>
+                    </div>
+                    <div class="calculator-example">
+                        <div class="example-amount">回収額</div>
+                        <div class="example-recovery">500万円</div>
+                        <div class="example-arrow">↓</div>
+                        <div class="example-label">成功報酬</div>
+                        <div class="example-fee">137.5万円</div>
+                        <div class="example-label">（27.5%）</div>
+                        <div class="example-receive">手取り362.5万円</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<<<<<<< Current (Your changes)
+<<<<<<< Current (Your changes)
+    <!-- 比較テーブル -->
+    <section class="comparison-section">
+        <div class="comparison-inner">
+            <div class="section-header">
+                <h2 class="section-title">他の法律事務所との比較</h2>
+                <p class="section-subtitle">一般的な法律事務所との料金比較</p>
+            </div>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>残業代サポート</th>
+                            <th>一般的な事務所A</th>
+                            <th>一般的な事務所B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>初回相談</td>
+                            <td class="our-service"><span class="check-mark">✓</span> <strong>無料</strong></td>
+                            <td>5,500円〜/30分</td>
+                            <td>11,000円〜/時間</td>
+                        </tr>
+                        <tr>
+                            <td>着手金</td>
+                            <td class="our-service"><span class="check-mark">✓</span> 0円</td>
+                            <td>20〜30万円</td>
+                            <td>30〜50万円</td>
+                        </tr>
+                        <tr>
+                            <td>成功報酬</td>
+                            <td class="our-service">27.5%</td>
+                            <td>20%+着手金</td>
+                            <td>15%+着手金</td>
+                        </tr>
+                        <tr>
+                            <td>リスク</td>
+                            <td class="our-service"><span class="check-mark">✓</span> なし</td>
+                            <td><span class="cross-mark">×</span> 着手金返金なし</td>
+                            <td><span class="cross-mark">×</span> 着手金返金なし</td>
+                        </tr>
+                        <tr>
+                            <td>オンライン相談</td>
+                            <td class="our-service"><span class="check-mark">✓</span> 対応</td>
+                            <td><span class="cross-mark">×</span> 不可</td>
+                            <td>要相談</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+=======
+>>>>>>> Incoming (Background Agent changes)
+=======
+>>>>>>> Incoming (Background Agent changes)
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">費用の心配は不要です</h2>
+            <p class="cta-description">
+                完全成功報酬制なので、初期費用は一切かかりません。<br class="sp-br">
+                まずは<strong>無料相談</strong>で、<strong>あなた</strong>の状況をお聞かせください。
+            </p>
+            <div class="cta-buttons">
+                <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-button-white">
+                    お問い合わせフォームへ
+                </a>
+                <div class="cta-tel">
+                    050-5482-3433
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>残業代サポート</h3>
+                    <p>
+                        <strong>弁護士</strong> 川波晃生（福岡県弁護士会所属）<br>
+                        〒810-0001 福岡市中央区天神一丁目13番25号 福岡中央ビル5階<br>
+                        TEL: 050-5482-3433（平日 9:00〜18:00）
+                    </p>
+                </div>
+                <div class="footer-menu">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="#">解決事例</a></li>
+                        <li><a href="#">相談の流れ</a></li>
+                        <li><a href="#">費用・料金</a></li>
+                        <li><a href="#">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu">
+                    <h4>会社情報</h4>
+                    <ul>
+                        <li><a href="#">弁護士紹介</a></li>
+                        <li><a href="#">事務所案内</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">免責事項</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 残業代サポート All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
