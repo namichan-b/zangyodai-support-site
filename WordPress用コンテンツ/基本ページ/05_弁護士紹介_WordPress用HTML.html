@@ -1,0 +1,201 @@
+<!--
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  弁護士紹介ページ - WordPress SWELL用HTMLコンテンツ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  【実装手順】
+  1. WordPress管理画面 > 固定ページ > 「弁護士紹介」を編集
+  2. 右上の「⋮」→「コードエディター」に切り替え
+  3. このHTMLをすべて貼り付け
+  4. 「プレビュー」で確認
+  5. 問題なければ「公開」または「更新」
+
+  【カスタムCSS】
+  このHTMLと併せて「05_弁護士紹介_カスタムCSS.css」の内容を
+  「外観 > カスタマイズ > 追加CSS」に追加してください。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+-->
+
+<!-- ページヒーロー -->
+<div class="wp-block-cover lawyer-page-hero">
+  <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100"></span>
+  <div class="wp-block-cover__inner-container">
+    <div class="lawyer-hero-content">
+      <h1 class="lawyer-page-title">弁護士紹介</h1>
+      <p class="lawyer-page-subtitle">
+        残業代請求のプロフェッショナルとして<br>
+        <strong>あなた</strong>の権利を守ります
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- プロフィールセクション -->
+<section class="lawyer-profile-section">
+  <div class="lawyer-profile-container">
+
+    <!-- 左カラム：写真＋名刺カード -->
+    <div class="lawyer-profile-left">
+      <div class="lawyer-photo-area">
+        <!-- 写真プレースホルダー（実際の写真に差し替えてください） -->
+        <div class="lawyer-photo">
+          👔
+        </div>
+
+        <div class="lawyer-name-card">
+          <div class="lawyer-name">弁護士　川波　晃生</div>
+          <div class="lawyer-name-reading">かわなみ あきお</div>
+        </div>
+        <div class="lawyer-affiliation">福岡県弁護士会所属</div>
+      </div>
+    </div>
+
+    <!-- 右カラム：挨拶＋詳細情報 -->
+    <div class="lawyer-profile-right">
+
+      <!-- 挨拶セクション -->
+      <div class="lawyer-greeting">
+        <h2 class="lawyer-greeting-title">ご挨拶</h2>
+        <div class="lawyer-greeting-text">
+          <p>未払い残業代の問題は、資料収集や計算が煩雑で、個人での対応が難しい分野です。</p>
+
+          <p>多くの労働者の方が、長時間労働にもかかわらず適切な残業代を受け取っていない現状があります。「固定残業代に含まれている」「管理職だから残業代は出ない」といった会社の主張が、実は法的に無効なケースが多数存在します。</p>
+
+          <p>私は、証拠の集め方から交渉・労働審判・訴訟まで一貫して対応し、迅速かつ適正な解決を目指します。完全成功報酬制により、リスクなくご相談いただける体制を整えています。</p>
+
+          <p><strong>あなた</strong>の正当な権利を守るため、全力でサポートいたします。まずはお気軽に<strong>ご相談</strong>ください。</p>
+        </div>
+      </div>
+
+      <!-- 基本情報テーブル -->
+      <div class="lawyer-info">
+        <table class="lawyer-info-table">
+          <tbody>
+            <tr>
+              <th>事務所</th>
+              <td>HI法律事務所 福岡事務所</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>〒810-0001 福岡市中央区天神一丁目13番25号 福岡中央ビル5階</td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td>050-5482-3433</td>
+            </tr>
+            <tr>
+              <th>所属</th>
+              <td>福岡県弁護士会</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 取扱分野セクション -->
+<section class="lawyer-expertise-section">
+  <div class="lawyer-section-header">
+    <h2 class="lawyer-section-title">取扱分野</h2>
+    <p class="lawyer-section-subtitle">労働問題に特化した専門的なサポートを提供します</p>
+  </div>
+
+  <div class="lawyer-expertise-grid">
+
+    <!-- 未払い残業代請求 -->
+    <div class="lawyer-expertise-card primary single">
+      <div class="expertise-icon">💰</div>
+      <h3 class="expertise-title">未払い残業代請求</h3>
+      <ul class="expertise-list">
+        <li>固定残業代の無効主張</li>
+        <li>管理監督者性の否定</li>
+        <li>事業場外みなし労働の無効</li>
+        <li>タイムカードなしでの立証</li>
+        <li>裁量労働制の無効主張</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- 私の方針セクション -->
+<section class="lawyer-policy-section">
+  <div class="lawyer-section-header">
+    <h2 class="lawyer-section-title">私の方針</h2>
+    <p class="lawyer-section-subtitle">依頼者の立場に立った、透明性の高いサービスを提供します</p>
+  </div>
+
+  <div class="lawyer-policy-grid">
+
+    <div class="lawyer-policy-card">
+      <div class="policy-number">1</div>
+      <h3 class="policy-title">分かりやすい説明</h3>
+      <p class="policy-description">
+        法律用語を避け、分かりやすい言葉で説明します。進捗状況も随時報告し、安心してお任せいただける環境を整えています。
+      </p>
+    </div>
+
+    <div class="lawyer-policy-card">
+      <div class="policy-number">2</div>
+      <h3 class="policy-title">費用の明確化</h3>
+      <p class="policy-description">
+        税込表示・最低成功報酬・差額精算など、すべての費用を明確に提示。後から追加費用が発生することはありません。
+      </p>
+    </div>
+
+    <div class="lawyer-policy-card">
+      <div class="policy-number">3</div>
+      <h3 class="policy-title">証拠の丁寧な整理</h3>
+      <p class="policy-description">
+        タイムカードがない場合でも、メール履歴やPCログなど、様々な証拠を組み合わせて労働時間を立証します。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- メッセージセクション -->
+<div class="wp-block-cover lawyer-message-section">
+  <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100"></span>
+  <div class="wp-block-cover__inner-container">
+    <div class="lawyer-message-content">
+      <h2 class="lawyer-message-title">あなたの正当な権利を守ります</h2>
+      <div class="lawyer-message-text">
+        <p>「残業代は出ないものだと諦めていませんか？」</p>
+
+        <p>多くの企業で、法的に無効な理由で残業代が支払われていません。固定残業代、管理職、裁量労働制...これらの制度が適切に運用されているケースは稀です。</p>
+
+        <p>私は、一人でも多くの労働者が正当な対価を受け取れるよう、全力でサポートします。<strong>初回相談は無料</strong>、<strong>着手金も0円</strong>。まずは気軽に<strong>ご相談</strong>ください。</p>
+      </div>
+      <div class="lawyer-message-signature">
+        弁護士 川波晃生
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTAセクション -->
+<div class="wp-block-cover lawyer-cta-section">
+  <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100"></span>
+  <div class="wp-block-cover__inner-container">
+    <div class="lawyer-cta-content">
+      <h2 class="lawyer-cta-title">まずは無料相談から</h2>
+      <p class="lawyer-cta-description">
+        <strong>あなた</strong>の状況を詳しくお聞きし、最適な解決方法をご提案します。
+      </p>
+
+      <div class="lawyer-cta-buttons">
+        <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="lawyer-cta-button">
+          お問い合わせフォームへ
+        </a>
+        <div class="lawyer-cta-tel-wrapper">
+          <div class="lawyer-cta-tel">050-5482-3433</div>
+          <div class="lawyer-cta-hours">平日 9:00〜18:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

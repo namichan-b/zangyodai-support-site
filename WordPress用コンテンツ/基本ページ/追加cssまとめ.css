@@ -1,0 +1,4777 @@
+/**
+ * 残業代特化サイト - 弁護士事務所デザイン（最終版）
+ *
+ * 改善内容:
+ * - ドットテクスチャのみ削除（オーバーレイは維持）
+ * - 背景画像を適度に暗くして読みやすく
+ * - 弁護士事務所らしいプロフェッショナルなデザイン
+ *
+ * 使用方法:
+ * 外観 > カスタマイズ > 追加CSS
+ */
+
+/* ============================================
+   ドットテクスチャを完全削除
+   ============================================ */
+
+/* SWELLのドットフィルターを無効化 */
+body .p-mainVisual::after,
+html body .p-mainVisual::after,
+.p-mainVisual::after,
+.p-mainVisual__bg::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* ドットパターンクラスを強制削除 */
+body .p-mainVisual .has-texture,
+html body .p-mainVisual .has-texture,
+.p-mainVisual.-dot::after,
+.p-mainVisual.-dots::after {
+    background-image: none !important;
+    background: none !important;
+}
+
+
+/* ============================================
+   グレースケールフィルターを削除
+   ============================================ */
+
+/* グレースケール化を解除 */
+body .p-mainVisual,
+html body .p-mainVisual,
+body .p-mainVisual *,
+html body .p-mainVisual *,
+body .p-mainVisual img,
+html body .p-mainVisual img,
+.p-mainVisual__bg {
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+/* 彩度を正常に */
+body .p-mainVisual__bg img,
+html body .p-mainVisual__bg img {
+    filter: saturate(1) brightness(1) !important;
+    -webkit-filter: saturate(1) brightness(1) !important;
+}
+
+
+/* ============================================
+   適度なオーバーレイ（読みやすさ確保）
+   ============================================ */
+
+/* 既存のオーバーレイの上に追加のグラデーションを重ねる */
+body .p-mainVisual__textLayer::before,
+html body .p-mainVisual__textLayer::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50px !important;
+    left: -50px !important;
+    right: -50px !important;
+    bottom: -50px !important;
+
+    /* 左から右への美しいグラデーション */
+    background: linear-gradient(
+        110deg,
+        rgba(10, 25, 47, 0.85) 0%,      /* 左：濃い紺色 */
+        rgba(15, 35, 60, 0.75) 30%,     /* 左中央：やや薄く */
+        rgba(20, 45, 75, 0.6) 60%,      /* 右中央：さらに薄く */
+        rgba(25, 55, 90, 0.4) 100%      /* 右：かなり薄く */
+    ) !important;
+
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+
+/* ============================================
+   テキストレイヤー: 左揃え配置
+   ============================================ */
+
+body .p-mainVisual__textLayer,
+html body .p-mainVisual__textLayer {
+    text-align: left !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    z-index: 2 !important;
+    position: relative !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__textLayer,
+    html body .p-mainVisual__textLayer {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+}
+
+
+/* ============================================
+   メインタイトル: 弁護士事務所らしく
+   ============================================ */
+
+body .p-mainVisual__slideTitle,
+html body .p-mainVisual__slideTitle,
+.p-mainVisual__slideTitle.p-mainVisual__slideTitle.p-mainVisual__slideTitle {
+    /* 法律事務所らしい重厚な明朝体 */
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "游明朝体", "Yu Mincho", YuMincho, "HG正楷書体-PRO", "HGS明朝E", "MS P明朝", "MS 明朝", "Noto Serif JP", serif !important;
+
+    font-size: clamp(2.5rem, 5.5vw, 5.5rem) !important;  /* サイズを少し小さく */
+    font-weight: 900 !important;  /* より太く、力強く */
+    line-height: 1.3 !important;
+    letter-spacing: 0.08em !important;  /* 文字間隔を調整 */
+    margin-bottom: 2rem !important;
+
+    /* 文字をより重厚に見せる */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+
+    /* はみ出さないように */
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+
+    /* 強めのテキストシャドウで視認性確保 */
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.6),
+        3px 3px 8px rgba(0,0,0,0.5),
+        4px 4px 16px rgba(0,0,0,0.4) !important;
+
+    color: #ffffff !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideTitle,
+    html body .p-mainVisual__slideTitle {
+        font-size: clamp(2.2rem, 8vw, 3.5rem) !important;
+        margin-bottom: 1.5rem !important;
+        letter-spacing: 0.05em !important;
+    }
+}
+
+
+/* ============================================
+   サブテキスト
+   ============================================ */
+
+body .p-mainVisual__slideText,
+html body .p-mainVisual__slideText,
+.p-mainVisual__slideText.p-mainVisual__slideText.p-mainVisual__slideText {
+    /* サブテキストも重厚感のあるゴシック体 */
+    font-family: "ヒラギノ角ゴ ProN W6", "Hiragino Kaku Gothic ProN W6", "ヒラギノ角ゴ Pro W6", "Hiragino Kaku Gothic Pro W6", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", "Noto Sans JP", sans-serif !important;
+
+    font-size: clamp(1.1rem, 2.8vw, 1.75rem) !important;  /* サイズを少し小さく */
+    font-weight: 600 !important;  /* より太く */
+    line-height: 2 !important;
+    margin-top: 1.2rem !important;
+    letter-spacing: 0.05em !important;  /* 文字間隔を調整 */
+
+    /* 文字をくっきり表示 */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+
+    /* はみ出さないように */
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+
+    text-shadow:
+        1px 1px 3px rgba(0,0,0,0.6),
+        2px 2px 6px rgba(0,0,0,0.5) !important;
+
+    color: #ffffff !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideText,
+    html body .p-mainVisual__slideText {
+        font-size: clamp(1rem, 4.5vw, 1.4rem) !important;
+        margin-top: 1rem !important;
+        line-height: 1.9 !important;
+    }
+}
+
+
+/* ============================================
+   ゴールド装飾ライン
+   ============================================ */
+
+body .p-mainVisual__slideTitle::before,
+html body .p-mainVisual__slideTitle::before {
+    content: "" !important;
+    display: block !important;
+    width: 70px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #d4af37 0%, #f4e4a6 100%) !important;
+    margin-bottom: 1.8rem !important;
+    border-radius: 2px !important;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4) !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideTitle::before,
+    html body .p-mainVisual__slideTitle::before {
+        width: 55px !important;
+        height: 3px !important;
+        margin-bottom: 1.2rem !important;
+    }
+}
+
+
+/* ============================================
+   CTAボタン
+   ============================================ */
+
+body .p-mainVisual__slideBtn,
+html body .p-mainVisual__slideBtn {
+    margin-top: 2.5rem !important;
+}
+
+body .p-mainVisual__slideBtn a,
+html body .p-mainVisual__slideBtn a {
+    /* ボタンも重厚感のあるフォント */
+    font-family: "ヒラギノ角ゴ ProN W6", "Hiragino Kaku Gothic ProN W6", "メイリオ", Meiryo, "MS Pゴシック", sans-serif !important;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem) !important;
+    font-weight: 700 !important;
+    padding: 1.3rem 3.5rem !important;
+    letter-spacing: 0.15em !important;  /* 文字間隔を広く */
+
+    /* ゴールドグラデーションボタン */
+    background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%) !important;
+    color: #1a1a1a !important;
+
+    border: none !important;
+    border-radius: 6px !important;
+
+    box-shadow:
+        0 4px 15px rgba(212, 175, 55, 0.35),
+        0 8px 30px rgba(0,0,0,0.25) !important;
+
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-decoration: none !important;
+    letter-spacing: 0.1em !important;
+}
+
+body .p-mainVisual__slideBtn a:hover,
+html body .p-mainVisual__slideBtn a:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    background: linear-gradient(135deg, #f4e4a6 0%, #d4af37 100%) !important;
+    box-shadow:
+        0 6px 20px rgba(212, 175, 55, 0.45),
+        0 12px 40px rgba(0,0,0,0.3) !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideBtn,
+    html body .p-mainVisual__slideBtn {
+        margin-top: 2rem !important;
+    }
+
+    body .p-mainVisual__slideBtn a,
+    html body .p-mainVisual__slideBtn a {
+        padding: 1rem 2.5rem !important;
+    }
+}
+
+
+/* ============================================
+   アニメーション
+   ============================================ */
+
+@keyframes professionalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body .p-mainVisual__slideTitle,
+html body .p-mainVisual__slideTitle {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both !important;
+}
+
+body .p-mainVisual__slideText,
+html body .p-mainVisual__slideText {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both !important;
+}
+
+body .p-mainVisual__slideBtn,
+html body .p-mainVisual__slideBtn {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.9s both !important;
+}
+
+
+/* ============================================
+   メインビジュアル全体
+   ============================================ */
+
+body .p-mainVisual,
+html body .p-mainVisual {
+    min-height: 550px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual,
+    html body .p-mainVisual {
+        min-height: 450px !important;
+    }
+}
+
+/**
+ * 残業代特化サイト - 弁護士事務所デザイン（最終版）
+ *
+ * 改善内容:
+ * - ドットテクスチャのみ削除（オーバーレイは維持）
+ * - 背景画像を適度に暗くして読みやすく
+ * - 弁護士事務所らしいプロフェッショナルなデザイン
+ *
+ * 使用方法:
+ * 外観 > カスタマイズ > 追加CSS
+ */
+
+/* ============================================
+   ドットテクスチャを完全削除
+   ============================================ */
+
+/* SWELLのドットフィルターを無効化 */
+body .p-mainVisual::after,
+html body .p-mainVisual::after,
+.p-mainVisual::after,
+.p-mainVisual__bg::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* ドットパターンクラスを強制削除 */
+body .p-mainVisual .has-texture,
+html body .p-mainVisual .has-texture,
+.p-mainVisual.-dot::after,
+.p-mainVisual.-dots::after {
+    background-image: none !important;
+    background: none !important;
+}
+
+
+/* ============================================
+   グレースケールフィルターを削除
+   ============================================ */
+
+/* グレースケール化を解除 */
+body .p-mainVisual,
+html body .p-mainVisual,
+body .p-mainVisual *,
+html body .p-mainVisual *,
+body .p-mainVisual img,
+html body .p-mainVisual img,
+.p-mainVisual__bg {
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+/* 彩度を正常に */
+body .p-mainVisual__bg img,
+html body .p-mainVisual__bg img {
+    filter: saturate(1) brightness(1) !important;
+    -webkit-filter: saturate(1) brightness(1) !important;
+}
+
+
+/* ============================================
+   適度なオーバーレイ（読みやすさ確保）
+   ============================================ */
+
+/* 既存のオーバーレイの上に追加のグラデーションを重ねる */
+body .p-mainVisual__textLayer::before,
+html body .p-mainVisual__textLayer::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50px !important;
+    left: -50px !important;
+    right: -50px !important;
+    bottom: -50px !important;
+
+    /* 左から右への美しいグラデーション */
+    background: linear-gradient(
+        110deg,
+        rgba(10, 25, 47, 0.85) 0%,      /* 左：濃い紺色 */
+        rgba(15, 35, 60, 0.75) 30%,     /* 左中央：やや薄く */
+        rgba(20, 45, 75, 0.6) 60%,      /* 右中央：さらに薄く */
+        rgba(25, 55, 90, 0.4) 100%      /* 右：かなり薄く */
+    ) !important;
+
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+
+/* ============================================
+   テキストレイヤー: 左揃え配置
+   ============================================ */
+
+body .p-mainVisual__textLayer,
+html body .p-mainVisual__textLayer {
+    text-align: left !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    z-index: 2 !important;
+    position: relative !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__textLayer,
+    html body .p-mainVisual__textLayer {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+}
+
+
+/* ============================================
+   メインタイトル: 弁護士事務所らしく
+   ============================================ */
+
+body .p-mainVisual__slideTitle,
+html body .p-mainVisual__slideTitle,
+.p-mainVisual__slideTitle.p-mainVisual__slideTitle.p-mainVisual__slideTitle {
+    /* 法律事務所らしい重厚な明朝体 */
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "游明朝体", "Yu Mincho", YuMincho, "HG正楷書体-PRO", "HGS明朝E", "MS P明朝", "MS 明朝", "Noto Serif JP", serif !important;
+
+    font-size: clamp(2.5rem, 5.5vw, 5.5rem) !important;  /* サイズを少し小さく */
+    font-weight: 900 !important;  /* より太く、力強く */
+    line-height: 1.3 !important;
+    letter-spacing: 0.08em !important;  /* 文字間隔を調整 */
+    margin-bottom: 2rem !important;
+
+    /* 文字をより重厚に見せる */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+
+    /* はみ出さないように */
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+
+    /* 強めのテキストシャドウで視認性確保 */
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.6),
+        3px 3px 8px rgba(0,0,0,0.5),
+        4px 4px 16px rgba(0,0,0,0.4) !important;
+
+    color: #ffffff !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideTitle,
+    html body .p-mainVisual__slideTitle {
+        font-size: clamp(2.2rem, 8vw, 3.5rem) !important;
+        margin-bottom: 1.5rem !important;
+        letter-spacing: 0.05em !important;
+    }
+}
+
+
+/* ============================================
+   サブテキスト
+   ============================================ */
+
+body .p-mainVisual__slideText,
+html body .p-mainVisual__slideText,
+.p-mainVisual__slideText.p-mainVisual__slideText.p-mainVisual__slideText {
+    /* サブテキストも重厚感のあるゴシック体 */
+    font-family: "ヒラギノ角ゴ ProN W6", "Hiragino Kaku Gothic ProN W6", "ヒラギノ角ゴ Pro W6", "Hiragino Kaku Gothic Pro W6", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", "Noto Sans JP", sans-serif !important;
+
+    font-size: clamp(1.1rem, 2.8vw, 1.75rem) !important;  /* サイズを少し小さく */
+    font-weight: 600 !important;  /* より太く */
+    line-height: 2 !important;
+    margin-top: 1.2rem !important;
+    letter-spacing: 0.05em !important;  /* 文字間隔を調整 */
+
+    /* 文字をくっきり表示 */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+
+    /* はみ出さないように */
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+
+    text-shadow:
+        1px 1px 3px rgba(0,0,0,0.6),
+        2px 2px 6px rgba(0,0,0,0.5) !important;
+
+    color: #ffffff !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideText,
+    html body .p-mainVisual__slideText {
+        font-size: clamp(1rem, 4.5vw, 1.4rem) !important;
+        margin-top: 1rem !important;
+        line-height: 1.9 !important;
+    }
+}
+
+
+/* ============================================
+   ゴールド装飾ライン
+   ============================================ */
+
+body .p-mainVisual__slideTitle::before,
+html body .p-mainVisual__slideTitle::before {
+    content: "" !important;
+    display: block !important;
+    width: 70px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #d4af37 0%, #f4e4a6 100%) !important;
+    margin-bottom: 1.8rem !important;
+    border-radius: 2px !important;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4) !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideTitle::before,
+    html body .p-mainVisual__slideTitle::before {
+        width: 55px !important;
+        height: 3px !important;
+        margin-bottom: 1.2rem !important;
+    }
+}
+
+
+/* ============================================
+   CTAボタン
+   ============================================ */
+
+body .p-mainVisual__slideBtn,
+html body .p-mainVisual__slideBtn {
+    margin-top: 2.5rem !important;
+}
+
+body .p-mainVisual__slideBtn a,
+html body .p-mainVisual__slideBtn a {
+    /* ボタンも重厚感のあるフォント */
+    font-family: "ヒラギノ角ゴ ProN W6", "Hiragino Kaku Gothic ProN W6", "メイリオ", Meiryo, "MS Pゴシック", sans-serif !important;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem) !important;
+    font-weight: 700 !important;
+    padding: 1.3rem 3.5rem !important;
+    letter-spacing: 0.15em !important;  /* 文字間隔を広く */
+
+    /* ゴールドグラデーションボタン */
+    background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%) !important;
+    color: #1a1a1a !important;
+
+    border: none !important;
+    border-radius: 6px !important;
+
+    box-shadow:
+        0 4px 15px rgba(212, 175, 55, 0.35),
+        0 8px 30px rgba(0,0,0,0.25) !important;
+
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-decoration: none !important;
+    letter-spacing: 0.1em !important;
+}
+
+body .p-mainVisual__slideBtn a:hover,
+html body .p-mainVisual__slideBtn a:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    background: linear-gradient(135deg, #f4e4a6 0%, #d4af37 100%) !important;
+    box-shadow:
+        0 6px 20px rgba(212, 175, 55, 0.45),
+        0 12px 40px rgba(0,0,0,0.3) !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual__slideBtn,
+    html body .p-mainVisual__slideBtn {
+        margin-top: 2rem !important;
+    }
+
+    body .p-mainVisual__slideBtn a,
+    html body .p-mainVisual__slideBtn a {
+        padding: 1rem 2.5rem !important;
+    }
+}
+
+
+/* ============================================
+   アニメーション
+   ============================================ */
+
+@keyframes professionalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body .p-mainVisual__slideTitle,
+html body .p-mainVisual__slideTitle {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both !important;
+}
+
+body .p-mainVisual__slideText,
+html body .p-mainVisual__slideText {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both !important;
+}
+
+body .p-mainVisual__slideBtn,
+html body .p-mainVisual__slideBtn {
+    animation: professionalFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.9s both !important;
+}
+
+
+/* ============================================
+   メインビジュアル全体
+   ============================================ */
+
+body .p-mainVisual,
+html body .p-mainVisual {
+    min-height: 550px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 960px) {
+    body .p-mainVisual,
+    html body .p-mainVisual {
+        min-height: 450px !important;
+    }
+}
+
+
+/* ============================================
+     事例詳細ページ用CSS
+     ============================================ */
+/* ========================================
+   【WordPress 追加CSS用】
+   事例詳細：運送業ドライバー300万円回収
+
+   使い方：
+   1. WordPress管理画面 → 外観 → カスタマイズ
+   2. 「追加CSS」を選択
+   3. 以下のCSSをすべてコピー＆ペースト
+   4. 「公開」ボタンをクリック
+======================================== */
+
+/* ========================================
+   基本設定
+======================================== */
+.case-study-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* ========================================
+   ヘッダーセクション
+======================================== */
+.case-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid #1a4d8f;
+}
+
+.case-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a4d8f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========================================
+   セクション共通
+======================================== */
+.case-study-detail section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #1a4d8f;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c9a961;
+  line-height: 1.6;
+}
+
+.section-title .subtitle {
+  font-size: 18px;
+  color: #666;
+  font-weight: normal;
+}
+
+/* ========================================
+   問題提起セクション
+======================================== */
+.case-problem {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  padding: 40px;
+  border-radius: 10px;
+  border-left: 5px solid #1a4d8f;
+}
+
+.problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+}
+
+.problem-list li {
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background: white;
+  border-left: 4px solid #c9a961;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.problem-summary {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a4d8f;
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+}
+
+.lawyer-intro {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.lawyer-credential {
+  margin-top: 25px;
+  padding: 15px;
+  background: #1a4d8f;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* ========================================
+   依頼者プロフィール
+======================================== */
+.profile-list {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 15px;
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+}
+
+.profile-list dt {
+  font-weight: bold;
+  color: #1a4d8f;
+  padding: 10px 0;
+}
+
+.profile-list dd {
+  padding: 10px 0;
+  margin: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.profile-list dd:last-child {
+  border-bottom: none;
+}
+
+/* ========================================
+   相談前の状況
+======================================== */
+.situation-block {
+  margin: 30px 0;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #c9a961;
+}
+
+.situation-block h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a4d8f;
+  margin-bottom: 15px;
+}
+
+.situation-block ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.situation-block li {
+  margin-bottom: 10px;
+}
+
+.quote {
+  font-style: italic;
+  padding: 20px;
+  background: white;
+  border-left: 4px solid #1a4d8f;
+  margin: 20px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* ========================================
+   解決までの流れ
+======================================== */
+.process-step {
+  margin: 40px 0;
+  padding: 30px;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.step-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a4d8f;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.step-number {
+  display: inline-block;
+  background: #c9a961;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.step-content h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border-left: 3px solid #c9a961;
+}
+
+.step-content h5 {
+  font-size: 17px;
+  font-weight: bold;
+  color: #1a4d8f;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.step-content ul,
+.step-content ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.step-content li {
+  margin-bottom: 10px;
+}
+
+.highlight-box {
+  background: #fff9e6;
+  padding: 25px;
+  border-radius: 8px;
+  border: 2px solid #c9a961;
+  margin: 25px 0;
+}
+
+.highlight-box h4 {
+  color: #1a4d8f;
+  margin-top: 0;
+  border: none;
+  padding: 0;
+}
+
+.analysis-finding {
+  background: #f0f7ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border-left: 4px solid #1a4d8f;
+}
+
+.negotiation-result {
+  background: #e6f7e6;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border-left: 4px solid #28a745;
+  font-size: 17px;
+}
+
+/* ========================================
+   結果
+======================================== */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.result-item {
+  background: linear-gradient(135deg, #1a4d8f 0%, #2563a8 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(26, 77, 143, 0.3);
+}
+
+.result-item h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #c9a961;
+  font-weight: bold;
+}
+
+.result-item p {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.result-amount {
+  font-size: 24px !important;
+  font-weight: bold;
+  color: #fff !important;
+}
+
+/* ========================================
+   あなたにも当てはまる
+======================================== */
+.case-relevance {
+  background: #f0f7ff;
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px solid #1a4d8f;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+}
+
+.checklist li {
+  padding: 15px 20px 15px 50px;
+  margin-bottom: 12px;
+  background: white;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 20px;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.cta-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a4d8f;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid #c9a961;
+}
+
+/* ========================================
+   学べるポイント
+======================================== */
+.lesson-item {
+  margin: 35px 0;
+  padding: 30px;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.lesson-item h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a4d8f;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.lesson-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #c9a961;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.lesson-item h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-left: 15px;
+  border-left: 3px solid #c9a961;
+}
+
+.lesson-item ul {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.lesson-item li {
+  margin-bottom: 10px;
+}
+
+/* ========================================
+   相談の案内
+======================================== */
+.faq-section {
+  margin: 40px 0;
+}
+
+.faq-section h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a4d8f;
+  margin-bottom: 25px;
+}
+
+.faq-list {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.faq-list dt {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a4d8f;
+  padding: 20px 25px 10px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.faq-list dt:first-of-type {
+  border-radius: 8px 8px 0 0;
+}
+
+.faq-list dd {
+  padding: 15px 25px 20px;
+  margin: 0;
+  background: white;
+  border-bottom: 2px solid #e9ecef;
+  line-height: 1.8;
+}
+
+.faq-list dd:last-of-type {
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+}
+
+/* ========================================
+   【WordPress 追加CSS用】
+   相談の流れページ - ミドルブルー配色（中間の明るさ）
+   スマホ完全対応版
+
+   配色：ミドルブルー × ゴールド
+   - メインカラー: #2874a6（ミディアムブルー）
+   - グラデーション: #5499c7（ライトミディアム）
+   - アクセント: #c9a961（ゴールド）
+
+   使い方：
+   1. WordPress管理画面 → 外観 → カスタマイズ
+   2. 「追加CSS」を選択
+   3. 既存のCSSの最後に、以下を追加
+   4. 「公開」ボタンをクリック
+======================================== */
+
+/* ========================================
+   相談の流れページ - 基本設定
+======================================== */
+.consultation-flow {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* ========================================
+   ヘッダーセクション
+======================================== */
+.flow-header {
+  text-align: left;
+  margin-bottom: 60px;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  border-radius: 15px;
+  color: white;
+}
+
+.flow-main-title {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  color: white;
+}
+
+.flow-subtitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 15px;
+  color: #c9a961;
+  text-shadow:
+    1px 1px 3px rgba(255, 255, 255, 0.9),
+    -1px -1px 3px rgba(255, 255, 255, 0.9),
+    1px -1px 3px rgba(255, 255, 255, 0.9),
+    -1px 1px 3px rgba(255, 255, 255, 0.9),
+    0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.flow-description {
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* ========================================
+   バッジ（トップ）
+======================================== */
+.badges-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+  justify-content: flex-start;
+}
+
+.badge-top {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   CTAボタン群（トップ）
+======================================== */
+.cta-buttons-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 30px;
+  min-height: 60px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-icon {
+  font-size: 28px;
+}
+
+.cta-phone {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.cta-phone:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+.cta-form {
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+}
+
+.cta-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(58, 58, 58, 0.3);
+}
+
+/* ========================================
+   タイムライン（進行イメージ）
+======================================== */
+.timeline-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 70px;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  overflow-x: auto;
+}
+
+.timeline-step {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.timeline-num {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+}
+
+.timeline-label {
+  font-weight: bold;
+  color: #2874a6;
+  font-size: 16px;
+}
+
+.timeline-arrow {
+  color: #c9a961;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   各ステップセクション
+======================================== */
+.flow-step {
+  margin-bottom: 60px;
+  border: 3px solid #e9ecef;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.flow-step:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 30px 40px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+}
+
+.step-number {
+  background: #c9a961;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.step-title-group {
+  flex-grow: 1;
+}
+
+.step-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 0 5px;
+  color: white;
+}
+
+.step-time {
+  font-size: 16px;
+  margin: 0;
+  color: #c9a961;
+  font-weight: bold;
+}
+
+.step-content {
+  padding: 40px;
+  background: white;
+}
+
+.content-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.content-intro {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* ========================================
+   連絡方法カード
+======================================== */
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.contact-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 30px 25px;
+  text-align: center;
+  transition: all 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.phone-card {
+  border-color: #28a745;
+}
+
+.phone-card:hover {
+  border-color: #20c997;
+  background: linear-gradient(135deg, #f0fff4 0%, #e6fff0 100%);
+}
+
+.form-card {
+  border-color: #2874a6;
+}
+
+.form-card:hover {
+  border-color: #5499c7;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+}
+
+.contact-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.contact-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+}
+
+.contact-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #28a745;
+  margin: 10px 0 5px;
+}
+
+.contact-label {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.contact-hours {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.contact-desc {
+  font-size: 15px;
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  min-height: 48px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s;
+  box-shadow: 0 3px 10px rgba(58, 58, 58, 0.2);
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(58, 58, 58, 0.3);
+  background: linear-gradient(135deg, #2a2a2a 0%, #3498db 100%);
+}
+
+.phone-card .contact-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.phone-card .contact-btn:hover {
+  background: linear-gradient(135deg, #218838 0%, #1ea87a 100%);
+}
+
+.line-card .contact-btn {
+  background: linear-gradient(135deg, #00b900 0%, #06c755 100%);
+}
+
+.line-card .contact-btn:hover {
+  background: linear-gradient(135deg, #009600 0%, #05a848 100%);
+}
+
+/* ========================================
+   バッジ
+======================================== */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.badge {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+}
+
+/* ========================================
+   チェックリスト（資料準備）
+======================================== */
+.document-checklist {
+  margin: 30px 0;
+}
+
+.checklist-section {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.checklist-section:hover {
+  border-color: #c9a961;
+}
+
+.checklist-section[open] {
+  border-color: #2874a6;
+  box-shadow: 0 3px 15px rgba(58, 58, 58, 0.1);
+}
+
+.checklist-title {
+  padding: 20px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-bottom: 2px solid #e9ecef;
+  transition: all 0.3s;
+}
+
+.checklist-title:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.checklist-section[open] .checklist-title {
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+  border-bottom-color: #c9a961;
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 25px 30px;
+  margin: 0;
+}
+
+.checklist-items li {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 16px;
+}
+
+.checklist-items li:last-child {
+  border-bottom: none;
+}
+
+/* ========================================
+   アドバイスボックス
+======================================== */
+.advice-box,
+.info-box {
+  display: flex;
+  gap: 20px;
+  padding: 25px;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3d1 100%);
+  border-left: 5px solid #c9a961;
+  border-radius: 10px;
+  margin: 30px 0;
+  box-shadow: 0 3px 10px rgba(201, 169, 97, 0.15);
+}
+
+.info-box {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+  border-left-color: #2874a6;
+  box-shadow: 0 3px 10px rgba(58, 58, 58, 0.15);
+}
+
+.advice-icon,
+.info-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.advice-content h4,
+.info-content h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 10px;
+}
+
+.advice-content p,
+.info-content p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* ========================================
+   面談オプション
+======================================== */
+.meeting-options,
+.meeting-content {
+  margin: 25px 0;
+}
+
+.meeting-options h4,
+.meeting-content h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.meeting-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meeting-list li {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-left: 4px solid #c9a961;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.meeting-items {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.meeting-items li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.meeting-items li:last-child {
+  border-bottom: none;
+}
+
+/* ========================================
+   方針カード
+======================================== */
+.approach-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 30px 0 15px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.approach-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.approach-card {
+  background: white;
+  border: 3px solid #e9ecef;
+  border-radius: 12px;
+  padding: 30px 25px;
+  transition: all 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.approach-card:hover {
+  border-color: #2874a6;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(58, 58, 58, 0.15);
+}
+
+.approach-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.approach-period {
+  font-size: 16px;
+  font-weight: bold;
+  color: #c9a961;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.approach-label {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  margin: 15px 0 10px;
+}
+
+.approach-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.approach-list li {
+  padding: 10px 0 10px 25px;
+  position: relative;
+}
+
+.approach-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ========================================
+   プロセスブロック
+======================================== */
+.process-block {
+  margin: 25px 0;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-left: 4px solid #2874a6;
+  border-radius: 10px;
+}
+
+.process-block h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  margin: 0 0 15px;
+}
+
+.process-block ul {
+  margin: 10px 0 0;
+  padding-left: 25px;
+}
+
+.process-block li {
+  padding: 8px 0;
+}
+
+/* ========================================
+   FAQ セクション
+======================================== */
+.faq-section {
+  margin: 70px 0 60px;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+  border-radius: 15px;
+  border: 2px solid #2874a6;
+}
+
+.faq-main-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2874a6;
+  text-align: center;
+  margin: 0 0 40px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #c9a961;
+}
+
+.faq-item {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  border-color: #c9a961;
+}
+
+.faq-item[open] {
+  border-color: #2874a6;
+  box-shadow: 0 5px 20px rgba(58, 58, 58, 0.15);
+}
+
+.faq-question {
+  padding: 20px 25px;
+  min-height: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  transition: all 0.3s;
+  list-style: none;
+}
+
+.faq-question:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.faq-item[open] .faq-question {
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  color: white;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "+";
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  color: #c9a961;
+}
+
+.faq-item[open] .faq-question::after {
+  content: "−";
+  color: #c9a961;
+}
+
+.faq-answer {
+  padding: 20px 25px;
+  line-height: 1.8;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+/* ========================================
+   最終CTAセクション
+======================================== */
+.final-cta {
+  margin: 60px 0;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(58, 58, 58, 0.3);
+}
+
+.final-cta-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 50px;
+}
+
+.final-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.final-badges .badge {
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  font-size: 15px;
+  padding: 12px 24px;
+}
+
+/* ========================================
+   フッター情報
+======================================== */
+.flow-footer {
+  text-align: left;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  margin-top: 60px;
+}
+
+.footer-lawyer-name {
+  font-size: 28px;
+  color: #2874a6;
+  margin: 0 0 8px;
+}
+
+.footer-bar-affiliation {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 15px;
+}
+
+.footer-office-small {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 20px;
+}
+
+.footer-address,
+.footer-tel,
+.footer-contact {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.flow-footer a {
+  color: #2874a6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.flow-footer a:hover {
+  color: #c9a961;
+  text-decoration: underline;
+}
+
+/* ========================================
+   スマホ専用改行の表示制御
+======================================== */
+/* デフォルト（PC）では非表示 */
+.sp-br {
+  display: none;
+}
+
+/* ========================================
+   レスポンシブ対応（タブレット）
+======================================== */
+@media (max-width: 768px) {
+  /* タブレットでスマホ改行を表示 */
+  .sp-br {
+    display: inline;
+  }
+  .consultation-flow {
+    padding: 30px 15px;
+  }
+
+  .flow-header {
+    padding: 35px 20px;
+  }
+
+  .flow-main-title {
+    font-size: 32px;
+  }
+
+  .flow-subtitle {
+    font-size: 20px;
+  }
+
+  .flow-description {
+    font-size: 16px;
+  }
+
+  .timeline-overview {
+    padding: 25px 20px;
+    gap: 8px;
+  }
+
+  .timeline-num {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .timeline-label {
+    font-size: 14px;
+  }
+
+  .timeline-arrow {
+    font-size: 20px;
+    padding: 0 5px;
+  }
+
+  .step-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 25px;
+    gap: 15px;
+  }
+
+  .step-title {
+    font-size: 24px;
+  }
+
+  .step-content {
+    padding: 30px 25px;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-section {
+    padding: 35px 25px;
+  }
+
+  .final-cta {
+    padding: 40px 25px;
+  }
+
+  .final-cta-title {
+    font-size: 28px;
+  }
+}
+
+/* ========================================
+   レスポンシブ対応（スマートフォン）
+   タッチターゲット最適化
+======================================== */
+@media (max-width: 480px) {
+  .consultation-flow {
+    padding: 20px 15px;
+  }
+
+  .flow-header {
+    padding: 30px 20px;
+  }
+
+  .flow-main-title {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .flow-subtitle {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  .flow-description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* CTAボタン - タッチ最適化 */
+  .cta-buttons-top {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .cta-btn {
+    padding: 18px 24px;
+    min-height: 60px;
+    font-size: 17px;
+  }
+
+  /* タイムライン - スマホで縦並び */
+  .timeline-overview {
+    flex-direction: column;
+    gap: 8px;
+    padding: 25px 20px;
+  }
+
+  .timeline-num {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+
+  .timeline-label {
+    font-size: 18px;
+  }
+
+  .timeline-arrow {
+    transform: rotate(90deg);
+    padding: 4px 0;
+    font-size: 20px;
+  }
+
+  .step-header {
+    padding: 20px 20px;
+  }
+
+  .step-number {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .step-title {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .step-time {
+    font-size: 15px;
+  }
+
+  .step-content {
+    padding: 25px 20px;
+  }
+
+  .content-heading {
+    font-size: 26px;
+    line-height: 1.5;
+  }
+
+  .content-intro {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* 連絡カード - タッチ最適化 */
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .contact-icon {
+    font-size: 44px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .contact-number {
+    font-size: 24px;
+  }
+
+  .contact-btn {
+    padding: 16px 28px;
+    min-height: 52px;
+    font-size: 17px;
+  }
+
+  /* アドバイスボックス - スマホ最適化 */
+  .advice-box,
+  .info-box {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 20px;
+  }
+
+  .advice-icon,
+  .info-icon {
+    font-size: 36px;
+  }
+
+  .advice-content h4,
+  .info-content h4 {
+    font-size: 17px;
+  }
+
+  .advice-content p,
+  .info-content p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* チェックリスト - タッチ最適化 */
+  .checklist-title {
+    padding: 18px 20px;
+    min-height: 56px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .checklist-items {
+    padding: 20px 20px;
+  }
+
+  .checklist-items li {
+    padding: 14px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* 方針カード */
+  .approach-card {
+    padding: 25px 20px;
+  }
+
+  .approach-name {
+    font-size: 22px;
+  }
+
+  /* プロセスブロック */
+  .process-block {
+    padding: 20px 20px;
+  }
+
+  .process-block h4 {
+    font-size: 17px;
+  }
+
+  .process-block li {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* FAQ - タッチ最適化 */
+  .faq-section {
+    padding: 30px 20px;
+  }
+
+  .faq-main-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    min-height: 60px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .faq-answer {
+    padding: 18px 20px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* 最終CTA */
+  .final-cta {
+    padding: 40px 20px;
+  }
+
+  .final-cta-title {
+    font-size: 26px;
+    line-height: 1.4;
+    margin-bottom: 35px;
+  }
+
+  /* バッジ */
+  .badges,
+  .final-badges {
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  /* フッター */
+  .flow-footer {
+    padding: 30px 20px;
+  }
+
+  .footer-lawyer-name {
+    font-size: 24px;
+  }
+
+  .footer-bar-affiliation {
+    font-size: 15px;
+  }
+
+  .footer-office-small {
+    font-size: 13px;
+  }
+
+  .footer-address,
+  .footer-tel,
+  .footer-contact {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+/* ========================================
+   極小スマホ対応（iPhone SE等）
+======================================== */
+@media (max-width: 375px) {
+  .flow-main-title {
+    font-size: 24px;
+  }
+
+  .flow-subtitle {
+    font-size: 17px;
+  }
+
+  .cta-btn {
+    font-size: 16px;
+    padding: 16px 20px;
+  }
+
+  .step-title {
+    font-size: 20px;
+  }
+
+  .contact-number {
+    font-size: 22px;
+  }
+
+  .final-cta-title {
+    font-size: 23px;
+  }
+}
+
+
+/* ============================================
+   トップページ - モックアップ版CSS
+   ============================================ */
+/**
+ * =================================================
+ * 残業代サポート - トップページ カスタムCSS（モックアップ版）
+ * =================================================
+ * WordPress管理画面での適用方法:
+ * 1. 外観 > カスタマイズ > 追加CSS
+ * 2. 以下のCSSをコピー&ペースト
+ * 3. 「公開」ボタンをクリック
+ * =================================================
+ */
+
+/* ヒーローセクション */
+.hero-mockup {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-mockup::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: rotate(15deg);
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    justify-content: flex-start;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.1);
+    padding: 20px 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 42px;
+    font-weight: 900;
+    color: #ffd700;
+}
+
+.stat-unit {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-button.primary {
+    background: #ff6b35;
+    color: #fff;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.cta-button.primary:hover {
+    background: #ff5722;
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(255,107,53,0.4);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.cta-button.secondary:hover {
+    background: #fff;
+    color: #04384c;
+}
+
+/* 解決事例セクション */
+.cases-mockup {
+    background: #f8f9fa;
+    padding: 80px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-badge {
+    display: inline-block;
+    background: #28a745;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+.cases-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.case-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.case-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.case-header {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    padding: 20px;
+    color: #fff;
+}
+
+.case-industry {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.case-amount {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.case-amount-unit {
+    font-size: 20px;
+}
+
+.case-body {
+    padding: 25px;
+}
+
+.case-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.case-detail-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.case-detail-value {
+    font-weight: 700;
+    color: #04384c;
+}
+
+.case-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 特徴セクション */
+.features-mockup {
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.features-grid {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 30px;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+}
+
+.feature-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* CTAセクション */
+.cta-section-mockup {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.cta-description {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-button-white {
+    background: #fff;
+    color: #ff6b35;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-button-white:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.cta-tel {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .cta-title {
+        font-size: 28px;
+    }
+
+    .cta-tel {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 32px;
+    }
+
+    .case-amount {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+
+/* ============================================
+   相談の流れページ - カスタムCSS（別バージョン）
+   ============================================ */
+/* ================================================
+   「相談の流れ」ページ - カスタムCSS
+   WordPress管理画面 → 外観 → カスタマイズ → 追加CSS に貼り付け
+   または、SWELL設定 → カスタムCSS に貼り付け
+   ================================================ */
+
+/* ================================================
+   1. ページヒーローセクション
+   ================================================ */
+.page-hero-flow {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+.page-hero-flow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+    opacity: 0.3;
+}
+
+.page-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.page-title-hero {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.page-subtitle-hero {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+}
+
+/* ================================================
+   2. フローステップセクション
+   ================================================ */
+.flow-section {
+    padding: 0 20px 80px;
+    background: #fff;
+}
+
+.flow-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.flow-steps {
+    position: relative;
+}
+
+.flow-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.flow-step:last-child {
+    margin-bottom: 0;
+}
+
+/* ステップ番号 */
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 20px rgba(255,107,53,0.3);
+}
+
+/* ステップ1は緑色 */
+.step-number-1 {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+    box-shadow: 0 5px 20px rgba(40,167,69,0.3) !important;
+}
+
+/* その他のステップはオレンジ色 */
+.step-number-2,
+.step-number-3,
+.step-number-4,
+.step-number-5,
+.step-number-6 {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    box-shadow: 0 5px 20px rgba(255,107,53,0.3);
+}
+
+/* 縦線 */
+.flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 80px;
+    width: 2px;
+    height: calc(100% - 30px);
+    background: linear-gradient(to bottom, #04384c 0%, rgba(4,56,76,0.2) 100%);
+    z-index: 1;
+}
+
+/* ステップコンテンツ */
+.step-content {
+    margin-left: 30px;
+    flex: 1;
+}
+
+.step-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.step-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #04384c;
+    padding: 3px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.step-description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.step-details {
+    background: #f8f9fa;
+    border-left: 4px solid #04384c;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.step-details-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 10px;
+}
+
+.step-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.step-details-item {
+    padding: 8px 0;
+    color: #666;
+    padding-left: 25px;
+    position: relative;
+}
+
+.step-details-item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: 700;
+}
+
+/* ================================================
+   3. 必要書類セクション
+   ================================================ */
+.documents-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.documents-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.document-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+}
+
+.document-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+}
+
+.document-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.document-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 10px;
+}
+
+.document-items {
+    list-style: none;
+    font-size: 14px;
+    color: #666;
+    padding: 0;
+    margin: 0;
+}
+
+.document-item {
+    padding: 5px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.document-item::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+}
+
+/* 特別なケース */
+.special-cases {
+    background: #fff8f0;
+    border: 2px solid #ff6b35;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.special-cases-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.special-case {
+    margin-bottom: 20px;
+}
+
+.special-case:last-child {
+    margin-bottom: 0;
+}
+
+.special-case-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 10px;
+}
+
+.special-case-content {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ================================================
+   4. FAQセクション
+   ================================================ */
+.faq-section-flow {
+    background: #fff;
+    padding: 60px 20px;
+}
+
+.faq-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.faq-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.faq-question {
+    padding: 25px 30px;
+    background: #f8f9fa;
+    font-size: 18px;
+    font-weight: 700;
+    color: #04384c;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-icon {
+    font-size: 24px;
+    color: #ff6b35;
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    padding: 25px 30px;
+    color: #666;
+    line-height: 1.8;
+    display: none;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* ================================================
+   5. CTAセクション
+   ================================================ */
+.cta-section-flow {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    padding: 60px 20px;
+}
+
+.cta-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.cta-description {
+    font-size: 18px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.cta-buttons-flow {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cta-button-white {
+    background: #fff;
+    color: #ff6b35;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+.cta-button-white:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+.cta-tel-flow {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.cta-tel-flow a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.cta-tel-flow a:hover {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+}
+
+/* ================================================
+   6. レスポンシブ対応
+   ================================================ */
+@media (max-width: 768px) {
+    .page-title-hero {
+        font-size: 28px;
+    }
+
+    .flow-step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .flow-step::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .step-content {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .step-title {
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons-flow {
+        flex-direction: column;
+    }
+
+    .cta-title {
+        font-size: 24px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+/* ================================================
+   7. プリント対応（必要に応じて）
+   ================================================ */
+@media print {
+    .page-hero-flow,
+    .cta-section-flow {
+        background: #fff;
+        color: #000;
+    }
+
+    .page-title-hero,
+    .cta-title {
+        color: #000;
+    }
+
+    .faq-answer {
+        display: block !important;
+    }
+}
+
+
+/* ============================================
+   費用・料金ページ用CSS
+   ============================================ */
+/* スマホ用改行 */
+.sp-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sp-br {
+        display: inline;
+    }
+}
+
+/* ページヒーロー */
+.fee-page-hero {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 60px 20px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.fee-page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+    opacity: 0.3;
+}
+
+.fee-page-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.fee-page-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.fee-page-subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+}
+
+/* メインポイント */
+.fee-main-points {
+    background: #fff;
+    padding: 60px 20px;
+}
+
+.fee-main-points-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fee-points-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.fee-point-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.fee-point-card.fee-highlight {
+    background: linear-gradient(135deg, #fff8f0 0%, #ffe5d5 100%);
+    border: 2px solid #ff6b35;
+    transform: scale(1.05);
+}
+
+.fee-point-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.fee-point-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+}
+
+.fee-point-card.fee-highlight .fee-point-icon {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+}
+
+.fee-point-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 10px;
+}
+
+.fee-point-value {
+    font-size: 48px;
+    font-weight: 900;
+    color: #ff6b35;
+    margin-bottom: 10px;
+}
+
+.fee-point-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 料金テーブル */
+.fee-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.fee-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fee-section-header {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.fee-section-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 15px;
+}
+
+.fee-section-subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+.fee-tables {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.fee-table {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.fee-table-header {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 30px;
+    text-align: center;
+}
+
+.fee-table-header.fee-highlight-header {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+}
+
+.fee-stage {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.fee-rate {
+    font-size: 42px;
+    font-weight: 900;
+    color: #ffd700;
+}
+
+.fee-rate-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+}
+
+.fee-table-body {
+    padding: 30px;
+}
+
+.fee-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.fee-item:last-child {
+    border-bottom: none;
+}
+
+.fee-item-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.fee-item-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+}
+
+.fee-item-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* 料金シミュレーション */
+.fee-simulation-section {
+    background: #fff;
+    padding: 60px 20px;
+}
+
+.fee-simulation-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fee-simulation-calculator {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.fee-calculator-examples {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.fee-calculator-case-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.fee-calculator-example {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.fee-calculator-example:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.fee-example-amount {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.fee-example-recovery {
+    font-size: 28px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 5px;
+}
+
+.fee-example-arrow {
+    color: #ff6b35;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.fee-example-fee {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff6b35;
+}
+
+.fee-example-receive {
+    font-size: 24px;
+    font-weight: 900;
+    color: #28a745;
+    margin-top: 10px;
+}
+
+.fee-example-label {
+    font-size: 12px;
+    color: #666;
+}
+
+
+/* CTAセクション */
+.fee-cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    padding: 60px 20px;
+    border: none;
+}
+
+.fee-cta-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.fee-cta-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+    border: none !important;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.fee-cta-description {
+    font-size: 20px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.fee-cta-buttons {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.fee-cta-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fee-cta-button-white {
+    background: #fff;
+    color: #ff6b35;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+.fee-cta-button-white:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.fee-cta-tel {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.fee-cta-note {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin: 0;
+    text-align: left;
+}
+
+.fee-cta-highlight {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .fee-page-title {
+        font-size: 28px;
+    }
+
+    .fee-points-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-tables {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-calculator-examples {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-cta-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+
+/* ============================================
+   弁護士紹介ページ用CSS
+   ============================================ */
+/*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  弁護士紹介ページ - カスタムCSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  【適用手順】
+  1. WordPress管理画面にログイン
+  2. 「外観」>「カスタマイズ」を開く
+  3. 「追加CSS」をクリック
+  4. このファイルの内容をすべてコピー＆ペースト
+  5. 「公開」ボタンをクリック
+
+  【注意事項】
+  - 既存の追加CSSがある場合は、末尾に追加してください
+  - カラーコードは必要に応じて調整可能です
+    - メインカラー: #04384c（ダークブルー）
+    - アクセントカラー: #ff6b35（オレンジ）
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+*/
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   1. ページヒーローセクション
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.lawyer-page-hero {
+  background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%) !important;
+  padding: 80px 20px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.lawyer-page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.lawyer-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.lawyer-page-title {
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+}
+
+.lawyer-page-subtitle {
+  font-size: 20px;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.8;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .lawyer-page-hero {
+    padding: 50px 20px !important;
+  }
+
+  .lawyer-page-title {
+    font-size: 32px;
+  }
+
+  .lawyer-page-subtitle {
+    font-size: 16px;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   2. プロフィールセクション
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.lawyer-profile-section {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.lawyer-profile-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* 左カラム：写真エリア */
+.lawyer-profile-left {
+  text-align: center;
+}
+
+.lawyer-photo-area {
+  position: sticky;
+  top: 100px;
+}
+
+.lawyer-photo {
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  border-radius: 10px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+  color: #adb5bd;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 写真を実際の画像に差し替える場合 */
+.lawyer-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.lawyer-name-card {
+  background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.lawyer-name {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.lawyer-name-reading {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.lawyer-title {
+  font-size: 16px;
+  color: #ffd700;
+  font-weight: 700;
+}
+
+/* 右カラム：詳細エリア */
+.lawyer-profile-right {
+  padding-top: 20px;
+}
+
+.lawyer-greeting {
+  margin-bottom: 50px;
+}
+
+.lawyer-greeting-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #04384c;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #ff6b35;
+}
+
+.lawyer-greeting-text {
+  font-size: 16px;
+  color: #333;
+  line-height: 2;
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 5px solid #04384c;
+}
+
+.lawyer-greeting-text p {
+  margin-bottom: 1em;
+}
+
+.lawyer-greeting-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* 基本情報テーブル */
+.lawyer-info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lawyer-info-table tr {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.lawyer-info-table th {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  font-weight: 700;
+  color: #04384c;
+  width: 150px;
+  text-align: left;
+}
+
+.lawyer-info-table td {
+  padding: 15px 20px;
+  color: #333;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .lawyer-profile-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lawyer-photo-area {
+    position: static;
+  }
+
+  .lawyer-photo {
+    width: 250px;
+    height: 330px;
+  }
+
+  .lawyer-greeting-title {
+    font-size: 28px;
+  }
+
+  .lawyer-greeting-text {
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .lawyer-info-table th,
+  .lawyer-info-table td {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+  }
+
+  .lawyer-info-table th {
+    border-bottom: none;
+    padding-bottom: 5px;
+  }
+
+  .lawyer-info-table td {
+    padding-top: 0;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   3. 取扱分野セクション
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.lawyer-expertise-section {
+  background: #f8f9fa;
+  padding: 60px 20px;
+}
+
+.lawyer-section-header {
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+}
+
+.lawyer-section-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #04384c;
+  margin-bottom: 15px;
+}
+
+.lawyer-section-subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+.lawyer-expertise-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.lawyer-expertise-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+  border-top: 5px solid #04384c;
+}
+
+/* メインカード（残業代請求）を強調 */
+.lawyer-expertise-card.primary {
+  border-top-color: #ff6b35;
+  transform: scale(1.05);
+}
+
+.lawyer-expertise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.lawyer-expertise-card.primary:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.expertise-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.lawyer-expertise-card.primary .expertise-icon {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+}
+
+.expertise-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #04384c;
+  margin-bottom: 15px;
+}
+
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expertise-list li {
+  padding: 8px 0;
+  color: #666;
+  font-size: 14px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.expertise-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: 700;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .lawyer-section-title {
+    font-size: 32px;
+  }
+
+  .lawyer-expertise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lawyer-expertise-card.primary {
+    transform: scale(1);
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4. 私の方針セクション
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.lawyer-policy-section {
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.lawyer-policy-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.lawyer-policy-card {
+  text-align: center;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.lawyer-policy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.policy-number {
+  width: 60px;
+  height: 60px;
+  background: #ff6b35;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0 auto 20px;
+}
+
+.policy-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #04384c;
+  margin-bottom: 15px;
+}
+
+.policy-description {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .lawyer-policy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   5. メッセージセクション
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.lawyer-message-section {
+  background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%) !important;
+  padding: 80px 20px !important;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lawyer-message-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: float 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.lawyer-message-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.lawyer-message-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.lawyer-message-text {
+  font-size: 18px;
+  color: rgba(255,255,255,0.95);
+  line-height: 2;
+  margin-bottom: 40px;
+}
+
+.lawyer-message-text p {
+  margin-bottom: 1em;
+}
+
+.lawyer-message-signature {
+  font-size: 20px;
+  color: #ffd700;
+  font-weight: 700;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .lawyer-message-section {
+    padding: 50px 20px !important;
+  }
+
+  .lawyer-message-title {
+    font-size: 24px;
+  }
+
+  .lawyer-message-text {
+    font-size: 16px;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   6. CTAセクション
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.lawyer-cta-section {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%) !important;
+  padding: 60px 20px !important;
+  text-align: left;
+}
+
+.lawyer-cta-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.lawyer-cta-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.lawyer-cta-description {
+  font-size: 20px;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.lawyer-cta-buttons {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.lawyer-cta-button {
+  background: #fff;
+  color: #ff6b35;
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: inline-block;
+}
+
+.lawyer-cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  color: #ff6b35;
+  text-decoration: none;
+}
+
+.lawyer-cta-tel-wrapper {
+  text-align: left;
+}
+
+.lawyer-cta-tel {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.lawyer-cta-hours {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  margin-top: 5px;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .lawyer-cta-section {
+    padding: 40px 20px !important;
+  }
+
+  .lawyer-cta-title {
+    font-size: 28px;
+  }
+
+  .lawyer-cta-description {
+    font-size: 16px;
+  }
+
+  .lawyer-cta-buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .lawyer-cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .lawyer-cta-tel {
+    font-size: 24px;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   7. 共通スタイル調整
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* SWELLのカバーブロックの背景を完全に消す */
+.lawyer-page-hero .wp-block-cover__background,
+.lawyer-message-section .wp-block-cover__background,
+.lawyer-cta-section .wp-block-cover__background {
+  background-color: transparent !important;
+}
+
+/* セクション間の余白を統一 */
+.lawyer-profile-section,
+.lawyer-expertise-section,
+.lawyer-policy-section {
+  margin: 0;
+}
+
+
+/* ============================================
+   解決事例一覧ページ用CSS
+   ============================================ */
+/* ===================================
+   解決事例ページ - カスタムCSS
+   =================================== */
+
+/* ページヒーロー */
+.page-hero {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 60px 20px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+    opacity: 0.3;
+}
+
+.page-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.page-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.page-subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+}
+
+/* スマホ用改行 */
+.cases-sp-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .cases-sp-br {
+        display: inline;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+}
+
+/* フィルター */
+.filter-section {
+    background: #fff;
+    padding: 30px 20px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.filter-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 15px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: 8px 20px;
+    background: #fff;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-button:hover {
+    border-color: #04384c;
+    color: #04384c;
+}
+
+.filter-button.active {
+    background: #04384c;
+    border-color: #04384c;
+    color: #fff;
+}
+
+/* 事例一覧 */
+.cases-list {
+    padding: 60px 20px;
+    background: #f8f9fa;
+}
+
+.cases-list-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 事例カード - 詳細版 */
+.case-card-detailed {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s;
+}
+
+/* 事例カード内の見出しタグのデフォルトスタイルをリセット */
+.case-card-detailed h2,
+.case-card-detailed h3 {
+    border: none !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+.case-card-detailed:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.case-card-header {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 30px;
+    position: relative;
+    border: none !important; /* デフォルトのボーダーを削除 */
+}
+
+.case-card-header.highlight {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+}
+
+.case-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.case-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    max-width: calc(100% - 200px); /* 右側に数字のスペースを確保 */
+    border: none !important; /* デフォルトのボーダーを削除 */
+    padding-bottom: 0 !important; /* デフォルトのパディングを削除 */
+}
+
+.case-meta {
+    display: flex;
+    gap: 20px;
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    flex-wrap: wrap;
+    max-width: calc(100% - 200px); /* 右側に数字のスペースを確保 */
+}
+
+.case-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.case-amount-large {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+.case-amount-number {
+    font-size: 56px;
+    font-weight: 900;
+    color: #ffd700;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.case-amount-unit {
+    font-size: 20px;
+    color: #fff;
+}
+
+.case-card-body {
+    padding: 30px;
+}
+
+.case-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.case-detail-item {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #04384c;
+}
+
+.case-detail-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.case-detail-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #04384c;
+}
+
+.case-story {
+    margin-bottom: 30px;
+}
+
+.case-story-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.case-story-content {
+    color: #666;
+    line-height: 1.8;
+}
+
+.case-points {
+    background: #fff8f0;
+    border: 2px solid #ff6b35;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.case-points-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.case-points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.case-points-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,107,53,0.2);
+    color: #666;
+    padding-left: 25px;
+    position: relative;
+}
+
+.case-points-item:last-child {
+    border-bottom: none;
+}
+
+.case-points-item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+    font-weight: 700;
+}
+
+.case-cta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.case-cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #ff6b35;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.case-cta-button:hover {
+    background: #ff5722;
+    transform: scale(1.05);
+}
+
+.case-cta-text {
+    color: #666;
+    font-size: 14px;
+}
+
+/* CTA セクション */
+.cases-cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    padding: 60px 20px;
+    margin-top: 0;
+}
+
+.cases-cta-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.cases-cta-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.cases-cta-description {
+    font-size: 20px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.cases-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cases-cta-button-white {
+    background: #fff;
+    color: #ff6b35;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cases-cta-button-white:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.cases-cta-tel-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cases-cta-tel {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.cases-cta-tel-hours {
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .case-card-header {
+        padding: 20px;
+    }
+
+    .case-title,
+    .case-meta {
+        max-width: 100%; /* スマホでは全幅を使用 */
+    }
+
+    .case-amount-large {
+        position: static;
+        transform: none;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .case-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cases-cta-title {
+        font-size: 28px;
+    }
+
+    .cases-cta-description {
+        font-size: 16px;
+    }
+
+    .cases-cta-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ============================================
+   解決事例ページ - ボーダー削除（強化版）
+   ============================================ */
+
+/* SWELLのh2デフォルトスタイルを完全に無効化 */
+.case-card-detailed h2.case-title,
+.case-card-header h2,
+.case-card-header .case-title {
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 10px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 念のため、::before と ::after も無効化 */
+.case-card-detailed h2.case-title::before,
+.case-card-detailed h2.case-title::after,
+.case-card-header h2::before,
+.case-card-header h2::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+}
+

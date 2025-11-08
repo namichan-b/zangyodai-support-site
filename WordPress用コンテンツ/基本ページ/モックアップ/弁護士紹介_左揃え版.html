@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弁護士紹介 - 左揃え版</title>
+
+  <style>
+/* ========================================
+   リセット & ベース設定
+======================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* ========================================
+   弁護士紹介セクション
+======================================== */
+.lawyer-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* ヘッダー部分 */
+.lawyer-header {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid #2874a6;
+}
+
+.lawyer-title {
+  font-size: 42px;
+  font-weight: bold;
+  color: #2874a6;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.lawyer-subtitle {
+  font-size: 20px;
+  color: #666;
+  text-align: left;
+}
+
+/* プロフィール部分 */
+.lawyer-profile {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+  align-items: flex-start;
+}
+
+.lawyer-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.lawyer-info {
+  flex: 1;
+  text-align: left;
+}
+
+.lawyer-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2874a6;
+  margin-bottom: 10px;
+}
+
+.lawyer-affiliation {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.lawyer-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #c9a961 0%, #d4af37 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* メッセージ部分 */
+.lawyer-message {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.message-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2874a6;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c9a961;
+}
+
+.message-content {
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.message-content strong {
+  color: #2874a6;
+  font-weight: bold;
+}
+
+.message-signature {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2874a6;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* 経歴セクション */
+.career-section {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2874a6;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #c9a961;
+  text-align: left;
+}
+
+.career-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.career-item {
+  display: flex;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.career-item:last-child {
+  border-bottom: none;
+}
+
+.career-year {
+  font-weight: bold;
+  color: #c9a961;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.career-content {
+  flex: 1;
+  color: #333;
+}
+
+/* 取扱分野 */
+.practice-areas {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.practice-item {
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+  border-left: 4px solid #2874a6;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.practice-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2874a6;
+  margin-bottom: 8px;
+}
+
+.practice-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+/* CTA部分 */
+.lawyer-cta {
+  background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+  border-radius: 15px;
+  padding: 50px 40px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 40px rgba(40, 116, 166, 0.3);
+}
+
+.cta-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cta-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.cta-btn-primary {
+  background: white;
+  color: #2874a6;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-btn-secondary:hover {
+  background: white;
+  color: #2874a6;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .lawyer-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lawyer-info {
+    text-align: center;
+  }
+
+  .lawyer-title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .lawyer-subtitle {
+    text-align: center;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .career-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .practice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lawyer-section {
+    padding: 40px 15px;
+  }
+
+  .lawyer-message,
+  .career-section,
+  .practice-areas {
+    padding: 30px 20px;
+  }
+
+  .lawyer-title {
+    font-size: 28px;
+  }
+
+  .lawyer-name {
+    font-size: 26px;
+  }
+
+  .message-title,
+  .section-title {
+    font-size: 24px;
+  }
+
+  .cta-title {
+    font-size: 26px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<div class="lawyer-section">
+
+  <!-- ヘッダー -->
+  <header class="lawyer-header">
+    <h1 class="lawyer-title">弁護士紹介</h1>
+    <p class="lawyer-subtitle">労働問題に強い、あなたの味方</p>
+  </header>
+
+  <!-- プロフィール -->
+  <section class="lawyer-profile">
+    <div class="lawyer-image">
+      [弁護士写真]
+    </div>
+    <div class="lawyer-info">
+      <h2 class="lawyer-name">川波 晃生</h2>
+      <p class="lawyer-affiliation">福岡県弁護士会所属</p>
+      <div>
+        <span class="lawyer-badge">✓ 労働問題専門</span>
+        <span class="lawyer-badge">✓ 相談実績500件以上</span>
+        <span class="lawyer-badge">✓ 全国対応可能</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- メッセージ -->
+  <section class="lawyer-message">
+    <h3 class="message-title">ご挨拶</h3>
+    <div class="message-content">
+      <p>
+        はじめまして、弁護士の川波晃生と申します。
+      </p>
+      <p>
+        私は、<strong>労働者の正当な権利を守る</strong>ことを使命として、日々活動しています。
+        残業代請求、不当解雇、パワハラ・セクハラなど、労働問題全般に対応しております。
+      </p>
+      <p>
+        特に<strong>残業代請求</strong>については、これまで多くの案件を手がけ、
+        依頼者様の正当な権利回復に努めてまいりました。
+      </p>
+      <p>
+        「残業代は出ないものだ」と諦めている方が多いですが、
+        法律は労働者を守るためにあります。
+        <strong>一人で悩まず、まずはお気軽にご相談ください。</strong>
+      </p>
+      <p>
+        初回相談は無料、着手金も0円から対応可能です。
+        あなたの問題を、一緒に解決していきましょう。
+      </p>
+    </div>
+    <p class="message-signature">弁護士 川波 晃生</p>
+  </section>
+
+  <!-- 経歴 -->
+  <section class="career-section">
+    <h3 class="section-title">経歴</h3>
+    <ul class="career-list">
+      <li class="career-item">
+        <span class="career-year">2010年</span>
+        <span class="career-content">〇〇大学法学部 卒業</span>
+      </li>
+      <li class="career-item">
+        <span class="career-year">2013年</span>
+        <span class="career-content">司法試験 合格</span>
+      </li>
+      <li class="career-item">
+        <span class="career-year">2014年</span>
+        <span class="career-content">弁護士登録（福岡県弁護士会）</span>
+      </li>
+      <li class="career-item">
+        <span class="career-year">2014年</span>
+        <span class="career-content">〇〇法律事務所 入所</span>
+      </li>
+      <li class="career-item">
+        <span class="career-year">2020年</span>
+        <span class="career-content">Hi法律事務所福岡事務所 開設</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 取扱分野 -->
+  <section class="practice-areas">
+    <h3 class="section-title">取扱分野</h3>
+    <div class="practice-grid">
+      <div class="practice-item">
+        <div class="practice-name">残業代請求</div>
+        <div class="practice-desc">未払い残業代の回収、固定残業代制度の検証</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-name">不当解雇</div>
+        <div class="practice-desc">解雇の無効主張、地位確認請求</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-name">ハラスメント</div>
+        <div class="practice-desc">パワハラ・セクハラの損害賠償請求</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-name">労働災害</div>
+        <div class="practice-desc">労災申請サポート、会社への損害賠償請求</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="lawyer-cta">
+    <h3 class="cta-title">まずは無料相談から</h3>
+    <p class="cta-subtitle">労働問題でお困りの方は、お気軽にご相談ください</p>
+    <div class="cta-buttons">
+      <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-btn cta-btn-primary">
+        無料相談を予約する
+      </a>
+      <a href="tel:05054823433" class="cta-btn cta-btn-secondary">
+        電話で相談する
+      </a>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

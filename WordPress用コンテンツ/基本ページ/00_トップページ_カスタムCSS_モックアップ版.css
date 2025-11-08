@@ -1,0 +1,429 @@
+/**
+ * =================================================
+ * 残業代サポート - トップページ カスタムCSS（モックアップ版）
+ * =================================================
+ * WordPress管理画面での適用方法:
+ * 1. 外観 > カスタマイズ > 追加CSS
+ * 2. 以下のCSSをコピー&ペースト
+ * 3. 「公開」ボタンをクリック
+ * =================================================
+ */
+
+/* ヒーローセクション */
+.hero-mockup {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-mockup::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: rotate(15deg);
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    justify-content: flex-start;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.1);
+    padding: 20px 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 42px;
+    font-weight: 900;
+    color: #ffd700;
+}
+
+.stat-unit {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-button.primary {
+    background: #ff6b35;
+    color: #fff;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.cta-button.primary:hover {
+    background: #ff5722;
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(255,107,53,0.4);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.cta-button.secondary:hover {
+    background: #fff;
+    color: #04384c;
+}
+
+/* 解決事例セクション */
+.cases-mockup {
+    background: #f8f9fa;
+    padding: 80px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-badge {
+    display: inline-block;
+    background: #28a745;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+.cases-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.case-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.case-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.case-header {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    padding: 20px;
+    color: #fff;
+}
+
+.case-industry {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.case-amount {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.case-amount-unit {
+    font-size: 20px;
+}
+
+.case-body {
+    padding: 25px;
+}
+
+.case-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.case-detail-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.case-detail-value {
+    font-weight: 700;
+    color: #04384c;
+}
+
+.case-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 特徴セクション */
+.features-mockup {
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.features-grid {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 30px;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+}
+
+.feature-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* CTAセクション */
+.cta-section-mockup {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.cta-description {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-button-white {
+    background: #fff;
+    color: #ff6b35;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-button-white:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.cta-tel {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .cta-title {
+        font-size: 28px;
+    }
+
+    .cta-tel {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .stat-value {
+        font-size: 32px;
+    }
+
+    .case-amount {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+/**
+ * =================================================
+ * デザイン原則の適用（ノンデザイナーズ・デザインブック）
+ * =================================================
+ * 1. 近接 (Proximity)
+ *    - 関連情報をグループ化（hero-stats、case-detail）
+ *    - セクション間の余白を80pxで統一
+ *
+ * 2. 整列 (Alignment)
+ *    - ヒーローセクション: 左揃え（text-align: left）
+ *    - セクションヘッダー: 中央揃え
+ *    - CTAボタン: 左揃え（justify-content: flex-start）
+ *
+ * 3. 反復 (Repetition)
+ *    - セクション間パディング: 80px
+ *    - ボタンのborder-radius: 50px
+ *    - カードのborder-radius: 20px
+ *
+ * 4. コントラスト (Contrast)
+ *    - ヒーロー背景: ダークブルーグラデーション
+ *    - CTA背景: オレンジグラデーション
+ *    - フォントサイズの差: 48px（タイトル）vs 14px（説明文）
+ * =================================================
+ */
