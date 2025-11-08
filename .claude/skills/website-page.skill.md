@@ -468,6 +468,228 @@ WordPress用コンテンツ/
 - 十分なコントラスト比
 - フォーカス状態の明示
 
+## トラブルシューティング（重要）
+
+### 問題1: SWELLテーマのh2タグにネイビーのボーダーが表示される
+
+**症状:**
+- 事例カードのタイトル（h2タグ）に、意図しないネイビー色のボーダーが表示される
+- CSSで `border: none` を指定しても消えない
+
+**原因:**
+- SWELLテーマのデフォルトスタイルが、h2タグに対して強いスタイルを適用している
+- テーマのCSSが `!important` を使用している可能性がある
+
+**解決方法:**
+
+追加CSSの**一番下**に、以下の強制スタイルを追加：
+
+```css
+/* ============================================
+   SWELLテーマのh2ボーダー削除 - 強制適用
+   ============================================ */
+
+/* 事例カード内の見出しタグのデフォルトスタイルをリセット */
+.case-card-detailed h2,
+.case-card-detailed h3 {
+    border: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* SWELLのh2デフォルトスタイルを完全に無効化 */
+.case-card-detailed h2.case-title,
+.case-card-header h2,
+.case-card-header .case-title {
+    border: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 10px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 念のため、::before と ::after も無効化 */
+.case-card-detailed h2.case-title::before,
+.case-card-detailed h2.case-title::after,
+.case-card-header h2::before,
+.case-card-header h2::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+}
+
+/* ヘッダー部分のボーダーも削除 */
+.case-card-header {
+    border: none !important;
+}
+```
+
+### 問題2: CTAセクションの背景色がネイビーになる
+
+**症状:**
+- CTAセクションの背景が、オレンジのグラデーションではなくネイビー色になる
+- 電話番号や営業時間が表示されない
+
+**原因:**
+- CSSが正しく読み込まれていない
+- WordPressのキャッシュ（Jetpack等）が古いCSSをキャッシュしている
+
+**解決方法:**
+
+#### ステップ1: CSSが正しく追加されているか確認
+
+1. WordPress管理画面で「外観」→「カスタマイズ」→「追加CSS」を開く
+2. 以下のコードが含まれているか確認：
+
+```css
+/* CTA セクション */
+.cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+```
+
+3. 含まれていない場合は、CSSファイル全体を追加CSS欄に貼り付ける
+
+#### ステップ2: キャッシュをクリア
+
+**ブラウザキャッシュ:**
+- **Windows**: Ctrl + Shift + R（スーパーリロード）
+- **Mac**: Cmd + Shift + R（スーパーリロード）
+
+**Jetpackキャッシュ:**
+- WordPress.comの「Performance & speed」でサイトアクセラレーターが有効な場合、キャッシュが原因
+- 一時的に「Enable site accelerator」をオフにして確認
+- または、URLに `?v=123` などのクエリパラメータを追加してアクセス
+
+#### ステップ3: 強制スタイルを追加
+
+それでも解決しない場合は、追加CSSの**一番下**に以下を追加：
+
+```css
+/* ============================================
+   CTAセクション - 強制適用
+   ============================================ */
+
+.cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%) !important;
+    padding: 60px 20px !important;
+    margin-top: 0 !important;
+}
+
+.cta-content {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+}
+
+.cta-title {
+    font-size: 42px !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    margin-bottom: 20px !important;
+    border: none !important;
+    padding-bottom: 0 !important;
+}
+
+.cta-description {
+    font-size: 20px !important;
+    color: rgba(255,255,255,0.95) !important;
+    margin-bottom: 30px !important;
+    line-height: 1.8 !important;
+}
+
+.cta-buttons {
+    display: flex !important;
+    gap: 20px !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.cta-button-white {
+    background: #fff !important;
+    color: #ff6b35 !important;
+    padding: 18px 40px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    transition: all 0.3s !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+}
+
+.cta-tel-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+}
+
+.cta-tel {
+    color: #fff !important;
+    font-size: 28px !important;
+    font-weight: 900 !important;
+}
+
+.cta-tel-hours {
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 14px !important;
+}
+
+@media (max-width: 768px) {
+    .cta-title {
+        font-size: 28px !important;
+    }
+
+    .cta-description {
+        font-size: 16px !important;
+    }
+
+    .cta-buttons {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
+```
+
+### 問題3: 回収金額がタイトルと重なる
+
+**症状:**
+- 事例カードヘッダー内で、タイトルと回収金額（640万円等）が重なって表示される
+
+**原因:**
+- タイトルの `max-width` が設定されていない
+
+**解決方法:**
+
+CSSに以下を追加：
+
+```css
+.case-title {
+    max-width: calc(100% - 200px); /* 右側に数字のスペースを確保 */
+}
+
+.case-meta {
+    max-width: calc(100% - 200px); /* 右側に数字のスペースを確保 */
+}
+
+@media (max-width: 768px) {
+    .case-title,
+    .case-meta {
+        max-width: 100%; /* スマホでは全幅を使用 */
+    }
+}
+```
+
+### 一般的なトラブルシューティング手順
+
+1. **HTMLファイルを確認**: 正しいファイル（広告規制準拠版）を使用しているか
+2. **CSSファイルを確認**: 追加CSSに正しく貼り付けられているか
+3. **キャッシュをクリア**: ブラウザとWordPressのキャッシュをクリア
+4. **スーパーリロード**: Ctrl+Shift+R（Windows）または Cmd+Shift+R（Mac）
+5. **強制スタイルを追加**: `!important` を使った強制スタイルを追加CSS欄に追加
+
 ## 今後の拡張
 
 ### 将来的に追加予定
