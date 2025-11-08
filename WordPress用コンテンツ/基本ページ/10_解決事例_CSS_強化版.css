@@ -1,0 +1,29 @@
+/* ===================================
+   解決事例ページ - カスタムCSS（強化版）
+   SWELLテーマのデフォルトスタイルを完全に上書き
+   =================================== */
+
+/* SWELLのh2デフォルトスタイルを完全に無効化 */
+.case-card-detailed h2.case-title,
+.case-card-header h2,
+.case-card-header .case-title {
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 10px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 念のため、::before と ::after も無効化 */
+.case-card-detailed h2.case-title::before,
+.case-card-detailed h2.case-title::after,
+.case-card-header h2::before,
+.case-card-header h2::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+}

@@ -1,0 +1,178 @@
+<!-- ページヒーロー -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <h1 class="page-title">解決事例</h1>
+        <p class="page-subtitle">
+            これまでに「残業代サポート」が解決した事例をご紹介します。<br class="sp-br">
+            <strong>あなた</strong>と似た状況の事例があれば、ぜひ参考にしてください。
+        </p>
+    </div>
+</section>
+
+<!-- フィルター -->
+<section class="filter-section">
+    <div class="filter-inner">
+        <h3 class="filter-title">業種で絞り込む</h3>
+        <div class="filter-buttons">
+            <button class="filter-button active">すべて</button>
+            <button class="filter-button">IT・通信</button>
+            <button class="filter-button">運送・物流</button>
+            <button class="filter-button">飲食・サービス</button>
+            <button class="filter-button">製造業</button>
+            <button class="filter-button">建設業</button>
+            <button class="filter-button">医療・福祉</button>
+            <button class="filter-button">営業職</button>
+        </div>
+    </div>
+</section>
+
+<!-- 事例一覧 -->
+<section class="cases-list">
+    <div class="cases-list-inner">
+
+        <!-- 事例1：ルート営業 640万円 -->
+        <article class="case-card-detailed">
+            <div class="case-card-header highlight">
+                <span class="case-badge">解決実績</span>
+                <h2 class="case-title">ルート営業が固定残業無効で約640万円を回収</h2>
+                <div class="case-meta">
+                    <span class="case-meta-item">👤 40代男性</span>
+                    <span class="case-meta-item">🏢 サービス業</span>
+                    <span class="case-meta-item">⏱ 解決期間: 2〜3ヶ月</span>
+                </div>
+                <div class="case-amount-large">
+                    <div class="case-amount-number">640</div>
+                    <div class="case-amount-unit">万円回収</div>
+                </div>
+            </div>
+            <div class="case-card-body">
+                <div class="case-details-grid">
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">職種</div>
+                        <div class="case-detail-value">ルート営業</div>
+                    </div>
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">勤続期間</div>
+                        <div class="case-detail-value">10年以上</div>
+                    </div>
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">解決方法</div>
+                        <div class="case-detail-value">交渉（裁判外）</div>
+                    </div>
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">労働時間</div>
+                        <div class="case-detail-value">月100時間超の残業</div>
+                    </div>
+                </div>
+
+                <div class="case-story">
+                    <h3 class="case-story-title">📖 ケースの概要</h3>
+                    <div class="case-story-content">
+                        長時間労働が常態化する中、会社は「固定残業代として手当を支給している」と主張していました。しかし、就業規則・賃金規程・求人票の内容が不整合で、固定残業代の有効性に疑問がありました。<br><br>
+                        <strong>弁護士</strong>が介入し、会社が保有する客観的記録（酒気帯び確認記録表、配車記録等）を分析。これらの記録から実際の労働時間を立証し、固定残業代制度の無効を主張しました。
+                    </div>
+                </div>
+
+                <div class="case-points">
+                    <h3 class="case-points-title">💡 解決のポイント</h3>
+                    <ul class="case-points-list">
+                        <li class="case-points-item">就業規則と賃金規程の不整合を詳細に分析</li>
+                        <li class="case-points-item">会社保有の客観的記録から労働時間を正確に立証</li>
+                        <li class="case-points-item">固定残業代制度の法的無効性を明確に主張</li>
+                        <li class="case-points-item">交渉段階での解決を実現（訴訟を回避）</li>
+                    </ul>
+                </div>
+
+                <div class="case-cta">
+                    <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="case-cta-button">
+                        同じ状況でお悩みの方は<strong>ご相談</strong>ください
+                    </a>
+                    <span class="case-cta-text"><strong>初回相談無料</strong>・<strong>着手金0円</strong></span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 事例2：運送業ドライバー 300万円 -->
+        <article class="case-card-detailed">
+            <div class="case-card-header">
+                <span class="case-badge">解決実績</span>
+                <h2 class="case-title">運送業ドライバーが就業規則にない固定残業代を無効にし約300万円を回収</h2>
+                <div class="case-meta">
+                    <span class="case-meta-item">👤 40代男性</span>
+                    <span class="case-meta-item">🚚 運送業</span>
+                    <span class="case-meta-item">⏱ 解決期間: 3〜5ヶ月</span>
+                </div>
+                <div class="case-amount-large">
+                    <div class="case-amount-number">300</div>
+                    <div class="case-amount-unit">万円回収</div>
+                </div>
+            </div>
+            <div class="case-card-body">
+                <div class="case-details-grid">
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">職種</div>
+                        <div class="case-detail-value">トラック運転手</div>
+                    </div>
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">勤続期間</div>
+                        <div class="case-detail-value">数年程度</div>
+                    </div>
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">解決方法</div>
+                        <div class="case-detail-value">交渉（裁判外）</div>
+                    </div>
+                    <div class="case-detail-item">
+                        <div class="case-detail-label">労働時間</div>
+                        <div class="case-detail-value">月80時間超の残業</div>
+                    </div>
+                </div>
+
+                <div class="case-story">
+                    <h3 class="case-story-title">📖 ケースの概要</h3>
+                    <div class="case-story-content">
+                        運送業のドライバーとして長時間労働をしていたにもかかわらず、残業代が支払われていない状況でした。会社側は「手当に固定残業代が含まれている」と主張しましたが、就業規則には固定残業代に関する規定が一切ありませんでした。<br><br>
+                        労働契約の基本である就業規則に基づいて法的見解を示し、訴訟リスクを明確に伝えることで、会社側も早期解決に応じ、約300万円の回収に成功しました。
+                    </div>
+                </div>
+
+                <div class="case-points">
+                    <h3 class="case-points-title">💡 解決のポイント</h3>
+                    <ul class="case-points-list">
+                        <li class="case-points-item">就業規則の記載内容を詳細に確認</li>
+                        <li class="case-points-item">固定残業代の法的要件を満たしていないことを立証</li>
+                        <li class="case-points-item">運行記録から正確な労働時間を算出</li>
+                        <li class="case-points-item">法的リスクを明確に示し早期解決を実現</li>
+                    </ul>
+                </div>
+
+                <div class="case-cta">
+                    <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="case-cta-button">
+                        同じ状況でお悩みの方は<strong>ご相談</strong>ください
+                    </a>
+                    <span class="case-cta-text"><strong>初回相談無料</strong>・<strong>着手金0円</strong></span>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- CTAセクション -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2 class="cta-title">あなたも残業代を取り戻せるかもしれません</h2>
+        <p class="cta-description">
+            完全成功報酬制なので、<strong>着手金</strong>・<strong>相談料</strong>は一切かかりません。<br class="sp-br">
+            まずは<strong>無料相談</strong>で、<strong>あなた</strong>の状況をお聞かせください。
+        </p>
+        <div class="cta-buttons">
+            <a href="https://zangyodai-support.com/%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b/" class="cta-button-white">
+                お問い合わせフォームへ
+            </a>
+            <div class="cta-tel-info">
+                <div class="cta-tel">050-5482-3433</div>
+                <div class="cta-tel-hours">平日 9:00〜18:00</div>
+            </div>
+        </div>
+    </div>
+</section>
