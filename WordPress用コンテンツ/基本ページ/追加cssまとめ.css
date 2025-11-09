@@ -2333,9 +2333,13 @@ html body .p-mainVisual {
 /* ヒーローセクション */
 .hero-mockup {
     background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
-    padding: 60px 20px;
+    padding: 80px 20px; /* 上下のパディングを増やして余裕を持たせる */
     position: relative;
     overflow: hidden;
+    /* フルワイド化 - WordPressのコンテナ制限を突破 */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
 .hero-mockup::before {
@@ -2355,6 +2359,7 @@ html body .p-mainVisual {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding: 0 40px; /* 左右に余白を追加 */
 }
 
 .hero-title {
@@ -2363,30 +2368,32 @@ html body .p-mainVisual {
     color: #fff;
     line-height: 1.3;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center; /* 中央揃えに変更 */
 }
 
 .hero-subtitle {
     font-size: 20px;
     color: rgba(255,255,255,0.9);
     margin-bottom: 30px;
-    text-align: left;
+    text-align: center; /* 中央揃えに変更 */
 }
 
 .hero-stats {
     display: flex;
     gap: 40px;
     margin-bottom: 40px;
-    justify-content: flex-start;
+    justify-content: center; /* 中央揃えに変更 */
+    flex-wrap: wrap; /* スマホ対応 */
 }
 
 .stat-item {
     background: rgba(255,255,255,0.1);
-    padding: 20px 30px;
+    padding: 25px 40px; /* パディングを増やして大きく */
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
     text-align: center;
+    min-width: 180px; /* 最小幅を設定 */
 }
 
 .stat-label {
@@ -2410,7 +2417,8 @@ html body .p-mainVisual {
     display: flex;
     gap: 20px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center; /* 中央揃えに変更 */
+    flex-wrap: wrap; /* スマホ対応 */
 }
 
 .cta-button {
@@ -2456,6 +2464,10 @@ html body .p-mainVisual {
 .cases-mockup {
     background: #f8f9fa;
     padding: 80px 20px;
+    /* フルワイド化 - WordPressのコンテナ制限を突破 */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
 .section-header {
@@ -2561,6 +2573,10 @@ html body .p-mainVisual {
 .features-mockup {
     padding: 80px 20px;
     background: #fff;
+    /* フルワイド化 - WordPressのコンテナ制限を突破 */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
 .features-grid {
@@ -2607,6 +2623,10 @@ html body .p-mainVisual {
     background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
     padding: 60px 20px;
     text-align: center;
+    /* フルワイド化 - WordPressのコンテナ制限を突破 */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
 .cta-content {
