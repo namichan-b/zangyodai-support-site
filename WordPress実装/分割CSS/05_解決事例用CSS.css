@@ -10,7 +10,7 @@
 /* ============================================
    基本設定
    ============================================ */
-.cases-page {
+   .cases-page {
     font-family: 'Noto Serif JP', 'Mincho', serif;
     line-height: 1.8;
     color: #333;
@@ -186,7 +186,7 @@
 }
 
 .case-card-header {
-    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
     padding: 30px;
     position: relative;
     border: none !important;
@@ -204,18 +204,20 @@
     border-radius: 20px;
     font-size: 12px;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 0;
 }
 
 .case-title {
     font-size: 24px;
     font-weight: 700;
     color: #fff;
+    margin-top: 0 !important;
     margin-bottom: 10px;
     line-height: 1.4;
     max-width: calc(100% - 200px); /* 右側に数字のスペースを確保 */
     border: none !important;
     padding-bottom: 0 !important;
+    padding-top: 0 !important;
 }
 
 .case-meta {
@@ -463,6 +465,8 @@
     border-left: none !important;
     border-right: none !important;
     padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
     margin-bottom: 10px !important;
     background: transparent !important;
     box-shadow: none !important;
