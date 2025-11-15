@@ -399,7 +399,17 @@
     color: #fff !important;
     margin-bottom: 20px !important;
     border: none !important;
-    padding-bottom: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.cta-title::before,
+.cta-title::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    background: none !important;
 }
 
 .cta-description {
