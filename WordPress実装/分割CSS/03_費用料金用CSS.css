@@ -1,8 +1,15 @@
-/* ============================================
-   費用・料金ページ用CSS
-   ============================================ */
+/**
+ * 残業代サポートサイト - 費用・料金ページ用CSS
+ *
+ * 用途: 固定ページ「費用・料金」編集画面
+ *      → カスタムCSS & JS → CSS用コード欄に配置
+ *
+ * 更新日: 2024/11/10
+ */
 
-/* スマホ用改行 */
+/* ============================================
+   スマホ用改行
+   ============================================ */
 .sp-br {
     display: none;
 }
@@ -13,7 +20,9 @@
     }
 }
 
-/* ページヒーロー */
+/* ============================================
+   ページヒーロー
+   ============================================ */
 .fee-page-hero {
     background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
     padding: 60px 20px;
@@ -54,7 +63,9 @@
     line-height: 1.8;
 }
 
-/* メインポイント */
+/* ============================================
+   メインポイント
+   ============================================ */
 .fee-main-points {
     background: #fff;
     padding: 60px 20px;
@@ -130,7 +141,9 @@
     line-height: 1.6;
 }
 
-/* 料金テーブル */
+/* ============================================
+   料金テーブル
+   ============================================ */
 .fee-section {
     background: #f8f9fa;
     padding: 60px 20px;
@@ -231,7 +244,9 @@
     margin-top: 5px;
 }
 
-/* 料金シミュレーション */
+/* ============================================
+   料金シミュレーション
+   ============================================ */
 .fee-simulation-section {
     background: #fff;
     padding: 60px 20px;
@@ -314,8 +329,50 @@
     color: #666;
 }
 
+/* ============================================
+   注意事項セクション
+   ============================================ */
+.fee-notes-section {
+    background: #fff8f0;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 0;
+    border: 2px solid #ff6b35;
+}
 
-/* CTAセクション */
+.fee-notes-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff6b35;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fee-notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.fee-notes-list li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #666;
+    line-height: 1.8;
+}
+
+.fee-notes-list li::before {
+    content: '⚠';
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+}
+
+/* ============================================
+   CTAセクション
+   ============================================ */
 .fee-cta-section {
     background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
     padding: 60px 20px;
@@ -328,17 +385,14 @@
     text-align: left;
 }
 
-.fee-cta-title.fee-cta-title {
+.fee-cta-title {
     font-size: 42px;
     font-weight: 900;
     color: #fff;
     margin-bottom: 20px;
     border: none !important;
-    border-bottom: none !important;
-    border-top: none !important;
-    text-decoration: none !important;
-    box-shadow: none !important;
-    background: none !important;
+    text-decoration: none;
+    box-shadow: none;
 }
 
 .fee-cta-description {
@@ -399,14 +453,82 @@
     color: #fff;
 }
 
-/* レスポンシブ */
+/* ============================================
+   よくある質問セクション
+   ============================================ */
+.fee-faq-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.fee-faq-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.fee-faq-item {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.fee-faq-question {
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    font-size: 18px;
+    font-weight: 700;
+    color: #04384c;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fee-faq-question:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.fee-faq-icon {
+    font-size: 24px;
+    color: #ff6b35;
+    transition: transform 0.3s;
+}
+
+.fee-faq-answer {
+    padding: 20px 25px;
+    color: #666;
+    line-height: 1.8;
+    display: none;
+}
+
+.fee-faq-item.open .fee-faq-answer {
+    display: block;
+}
+
+.fee-faq-item.open .fee-faq-icon {
+    transform: rotate(45deg);
+}
+
+/* ============================================
+   レスポンシブ対応
+   ============================================ */
 @media (max-width: 768px) {
     .fee-page-title {
         font-size: 28px;
     }
 
+    .fee-page-subtitle {
+        font-size: 16px;
+    }
+
     .fee-points-grid {
         grid-template-columns: 1fr;
+    }
+
+    .fee-point-card.fee-highlight {
+        transform: scale(1);
     }
 
     .fee-tables {
@@ -421,5 +543,47 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+    }
+
+    .fee-cta-title {
+        font-size: 28px;
+    }
+
+    .fee-section-title {
+        font-size: 32px;
+    }
+
+    .fee-notes-section {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fee-page-hero {
+        padding: 40px 20px;
+    }
+
+    .fee-page-title {
+        font-size: 24px;
+    }
+
+    .fee-point-value {
+        font-size: 36px;
+    }
+
+    .fee-rate {
+        font-size: 32px;
+    }
+
+    .fee-section-title {
+        font-size: 24px;
+    }
+
+    .fee-cta-title {
+        font-size: 24px;
+    }
+
+    .fee-cta-tel {
+        font-size: 20px;
     }
 }

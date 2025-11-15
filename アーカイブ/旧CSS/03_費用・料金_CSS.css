@@ -1,0 +1,448 @@
+/* ============================================
+   費用・料金ページ用CSS
+   ============================================ */
+
+/* スマホ用改行 */
+.sp-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sp-br {
+        display: inline;
+    }
+}
+
+/* ページヒーロー */
+.fee-page-hero {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 60px 20px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.fee-page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+    opacity: 0.3;
+}
+
+.fee-page-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.fee-page-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.fee-page-subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+}
+
+/* メインポイント */
+.fee-main-points {
+    background: #fff;
+    padding: 60px 20px;
+}
+
+.fee-main-points-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fee-points-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.fee-point-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.fee-point-card.fee-highlight {
+    background: linear-gradient(135deg, #fff8f0 0%, #ffe5d5 100%);
+    border: 2px solid #ff6b35;
+    transform: scale(1.05);
+}
+
+.fee-point-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.fee-point-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+}
+
+.fee-point-card.fee-highlight .fee-point-icon {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+}
+
+.fee-point-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 10px;
+}
+
+.fee-point-value {
+    font-size: 48px;
+    font-weight: 900;
+    color: #ff6b35;
+    margin-bottom: 10px;
+}
+
+.fee-point-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 料金テーブル */
+.fee-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.fee-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fee-section-header {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.fee-section-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 15px;
+}
+
+.fee-section-subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+.fee-tables {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.fee-table {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.fee-table-header {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    padding: 30px;
+    text-align: center;
+}
+
+.fee-table-header.fee-highlight-header {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+}
+
+.fee-stage {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.fee-rate {
+    font-size: 42px;
+    font-weight: 900;
+    color: #ffd700;
+}
+
+.fee-rate-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+}
+
+.fee-table-body {
+    padding: 30px;
+}
+
+.fee-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.fee-item:last-child {
+    border-bottom: none;
+}
+
+.fee-item-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.fee-item-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+}
+
+.fee-item-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* 料金シミュレーション */
+.fee-simulation-section {
+    background: #fff;
+    padding: 60px 20px;
+}
+
+.fee-simulation-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fee-simulation-calculator {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.fee-calculator-examples {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.fee-calculator-case-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.fee-calculator-example {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.fee-calculator-example:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.fee-example-amount {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.fee-example-recovery {
+    font-size: 28px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 5px;
+}
+
+.fee-example-arrow {
+    color: #ff6b35;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.fee-example-fee {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff6b35;
+}
+
+.fee-example-receive {
+    font-size: 24px;
+    font-weight: 900;
+    color: #28a745;
+    margin-top: 10px;
+}
+
+.fee-example-label {
+    font-size: 12px;
+    color: #666;
+}
+
+
+/* CTAセクション */
+.fee-cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+    padding: 60px 20px;
+    border: none;
+}
+
+.fee-cta-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.fee-cta-title.fee-cta-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 0 !important;
+    border: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* h2タグへの直接スタイル適用（SWELLテーマ対策） */
+.fee-cta-section h2.fee-cta-title {
+    border: none !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* 疑似要素の削除（SWELLの装飾対策） */
+.fee-cta-title::before,
+.fee-cta-title::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    background: none !important;
+}
+
+.fee-cta-description {
+    font-size: 20px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.fee-cta-buttons {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.fee-cta-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fee-cta-button-white {
+    background: #fff;
+    color: #ff6b35;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+.fee-cta-button-white:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.fee-cta-tel {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.fee-cta-note {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin: 0;
+    text-align: left;
+}
+
+.fee-cta-highlight {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .fee-page-title {
+        font-size: 28px;
+    }
+
+    .fee-points-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-tables {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-calculator-examples {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-cta-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}

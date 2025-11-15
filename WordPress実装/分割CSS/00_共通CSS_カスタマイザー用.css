@@ -1,0 +1,210 @@
+/**
+ * 残業代サポートサイト - 共通CSS
+ *
+ * 用途: WordPress カスタマイザー → 追加CSS に配置
+ * 説明: 全ページで使用する共通スタイルのみ
+ *
+ * 更新日: 2024/11/10
+ */
+
+/* ============================================
+   カラー変数定義
+   ============================================ */
+:root {
+    --main-color: #2874a6;      /* ミドルブルー */
+    --accent-color: #c9a961;    /* ゴールド */
+    --text-color: #333333;       /* 本文色 */
+    --bg-light: #f8f9fa;        /* 背景色（薄） */
+    --bg-dark: #e9ecef;         /* 背景色（濃） */
+    --success-color: #28a745;   /* 成功・電話 */
+    --white: #ffffff;
+}
+
+/* ============================================
+   基本フォント設定
+   ============================================ */
+body {
+    font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体",
+                 "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro",
+                 "メイリオ", "Meiryo", sans-serif;
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* 明朝体（タイトル用） */
+.serif-font {
+    font-family: "ヒラギノ明朝 ProN", "Hiragino Mincho ProN",
+                 "游明朝体", "Yu Mincho", YuMincho,
+                 "Noto Serif JP", serif;
+}
+
+/* ============================================
+   SWELLテーマのカスタマイズ
+   ============================================ */
+
+/* ドットテクスチャを削除 */
+.p-mainVisual::after,
+.p-mainVisual__bg::after,
+.p-mainVisual.-dot::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+}
+
+/* グレースケールフィルターを削除 */
+.p-mainVisual,
+.p-mainVisual *,
+.p-mainVisual__bg {
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+/* ============================================
+   共通ボタンスタイル
+   ============================================ */
+.cta-button,
+.wp-block-button__link {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4af37 100%);
+    color: var(--white) !important;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+    border: none;
+}
+
+.cta-button:hover,
+.wp-block-button__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+    opacity: 0.95;
+}
+
+/* 電話ボタン専用 */
+.phone-button {
+    background: linear-gradient(135deg, var(--success-color) 0%, #20c997 100%);
+}
+
+.phone-button:hover {
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+/* ============================================
+   共通バッジスタイル
+   ============================================ */
+.badge {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4af37 100%);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px;
+    box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+}
+
+/* ============================================
+   レスポンシブ表示制御
+   ============================================ */
+/* PC用表示 */
+@media (min-width: 960px) {
+    .sp-only {
+        display: none !important;
+    }
+}
+
+/* スマホ用表示 */
+@media (max-width: 959px) {
+    .pc-only {
+        display: none !important;
+    }
+
+    body {
+        font-size: 15px;
+    }
+}
+
+/* タブレット用調整 */
+@media (max-width: 768px) {
+    .cta-button,
+    .wp-block-button__link {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+}
+
+/* ============================================
+   共通レイアウトユーティリティ
+   ============================================ */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-40 { margin-bottom: 40px; }
+
+/* ============================================
+   アニメーション
+   ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* ============================================
+   スクロールバーカスタマイズ
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1e5a8a;
+}
+
+/* ============================================
+   フッター調整
+   ============================================ */
+.l-footer {
+    background: linear-gradient(135deg, #2874a6 0%, #5499c7 100%);
+    color: var(--white);
+}
+
+.l-footer a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.l-footer a:hover {
+    color: var(--accent-color);
+}

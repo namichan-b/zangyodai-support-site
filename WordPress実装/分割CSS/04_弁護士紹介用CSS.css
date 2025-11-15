@@ -1,0 +1,635 @@
+/**
+ * 残業代サポートサイト - 弁護士紹介ページ用CSS
+ *
+ * 用途: 固定ページ「弁護士紹介」編集画面
+ *      → カスタムCSS & JS → CSS用コード欄に配置
+ *
+ * 更新日: 2024/11/10
+ */
+
+/* ============================================
+   ページヒーローセクション
+   ============================================ */
+.lawyer-page-hero {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%) !important;
+    padding: 80px 20px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.lawyer-page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.lawyer-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.lawyer-page-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.lawyer-page-subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.8;
+}
+
+/* ============================================
+   プロフィールセクション
+   ============================================ */
+.lawyer-profile-section {
+    background: #fff;
+    padding: 80px 20px;
+}
+
+.lawyer-profile-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* 左カラム：写真エリア */
+.lawyer-profile-left {
+    text-align: center;
+}
+
+.lawyer-photo-area {
+    position: sticky;
+    top: 100px;
+}
+
+.lawyer-photo {
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    border-radius: 10px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    color: #adb5bd;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 写真を実際の画像に差し替える場合 */
+.lawyer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.lawyer-name-card {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.lawyer-name {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.lawyer-name-reading {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.lawyer-title {
+    font-size: 16px;
+    color: #ffd700;
+    font-weight: 700;
+}
+
+/* 右カラム：詳細エリア */
+.lawyer-profile-right {
+    padding-top: 20px;
+}
+
+.lawyer-greeting {
+    margin-bottom: 50px;
+}
+
+.lawyer-greeting-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #ff6b35;
+}
+
+.lawyer-greeting-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 2;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #04384c;
+}
+
+.lawyer-greeting-text p {
+    margin-bottom: 1em;
+}
+
+.lawyer-greeting-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* 基本情報テーブル */
+.lawyer-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lawyer-info-table tr {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.lawyer-info-table th {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    font-weight: 700;
+    color: #04384c;
+    width: 150px;
+    text-align: left;
+}
+
+.lawyer-info-table td {
+    padding: 15px 20px;
+    color: #333;
+}
+
+/* ============================================
+   取扱分野セクション
+   ============================================ */
+.lawyer-expertise-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.lawyer-section-header {
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+
+.lawyer-section-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #04384c;
+    margin-bottom: 15px;
+}
+
+.lawyer-section-subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+.lawyer-expertise-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.lawyer-expertise-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    border-top: 5px solid #04384c;
+}
+
+/* メインカード（残業代請求）を強調 */
+.lawyer-expertise-card.primary {
+    border-top-color: #ff6b35;
+    transform: scale(1.05);
+}
+
+.lawyer-expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.lawyer-expertise-card.primary:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.expertise-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.lawyer-expertise-card.primary .expertise-icon {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%);
+}
+
+.expertise-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 15px;
+}
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expertise-list li {
+    padding: 8px 0;
+    color: #666;
+    font-size: 14px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.expertise-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: 700;
+}
+
+/* ============================================
+   私の方針セクション
+   ============================================ */
+.lawyer-policy-section {
+    background: #fff;
+    padding: 60px 20px;
+}
+
+.lawyer-policy-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.lawyer-policy-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.lawyer-policy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.policy-number {
+    width: 60px;
+    height: 60px;
+    background: #ff6b35;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0 auto 20px;
+}
+
+.policy-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #04384c;
+    margin-bottom: 15px;
+}
+
+.policy-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ============================================
+   メッセージセクション
+   ============================================ */
+.lawyer-message-section {
+    background: linear-gradient(135deg, #04384c 0%, #0a5a7a 100%) !important;
+    padding: 80px 20px !important;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.lawyer-message-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+.lawyer-message-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.lawyer-message-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.lawyer-message-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.95);
+    line-height: 2;
+    margin-bottom: 40px;
+}
+
+.lawyer-message-text p {
+    margin-bottom: 1em;
+}
+
+.lawyer-message-signature {
+    font-size: 20px;
+    color: #ffd700;
+    font-weight: 700;
+}
+
+/* ============================================
+   CTAセクション
+   ============================================ */
+.lawyer-cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8964 100%) !important;
+    padding: 60px 20px !important;
+    text-align: left;
+}
+
+.lawyer-cta-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.lawyer-cta-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.lawyer-cta-description {
+    font-size: 20px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.lawyer-cta-buttons {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.lawyer-cta-button {
+    background: #fff;
+    color: #ff6b35;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+.lawyer-cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+.lawyer-cta-tel-wrapper {
+    text-align: left;
+}
+
+.lawyer-cta-tel {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.lawyer-cta-hours {
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+    margin-top: 5px;
+}
+
+/* ============================================
+   共通スタイル調整
+   ============================================ */
+/* SWELLのカバーブロックの背景を完全に消す */
+.lawyer-page-hero .wp-block-cover__background,
+.lawyer-message-section .wp-block-cover__background,
+.lawyer-cta-section .wp-block-cover__background {
+    background-color: transparent !important;
+}
+
+/* セクション間の余白を統一 */
+.lawyer-profile-section,
+.lawyer-expertise-section,
+.lawyer-policy-section {
+    margin: 0;
+}
+
+/* ============================================
+   レスポンシブ対応
+   ============================================ */
+@media (max-width: 768px) {
+    .lawyer-page-hero {
+        padding: 50px 20px !important;
+    }
+
+    .lawyer-page-title {
+        font-size: 32px;
+    }
+
+    .lawyer-page-subtitle {
+        font-size: 16px;
+    }
+
+    .lawyer-profile-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .lawyer-photo-area {
+        position: static;
+    }
+
+    .lawyer-photo {
+        width: 250px;
+        height: 330px;
+    }
+
+    .lawyer-greeting-title {
+        font-size: 28px;
+    }
+
+    .lawyer-greeting-text {
+        padding: 20px;
+        font-size: 15px;
+    }
+
+    .lawyer-info-table th,
+    .lawyer-info-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    .lawyer-info-table th {
+        border-bottom: none;
+        padding-bottom: 5px;
+    }
+
+    .lawyer-info-table td {
+        padding-top: 0;
+    }
+
+    .lawyer-section-title {
+        font-size: 32px;
+    }
+
+    .lawyer-expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lawyer-expertise-card.primary {
+        transform: scale(1);
+    }
+
+    .lawyer-policy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lawyer-message-section {
+        padding: 50px 20px !important;
+    }
+
+    .lawyer-message-title {
+        font-size: 24px;
+    }
+
+    .lawyer-message-text {
+        font-size: 16px;
+    }
+
+    .lawyer-cta-section {
+        padding: 40px 20px !important;
+    }
+
+    .lawyer-cta-title {
+        font-size: 28px;
+    }
+
+    .lawyer-cta-description {
+        font-size: 16px;
+    }
+
+    .lawyer-cta-buttons {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .lawyer-cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .lawyer-cta-tel {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lawyer-page-title {
+        font-size: 24px;
+    }
+
+    .lawyer-greeting-title {
+        font-size: 24px;
+    }
+
+    .lawyer-section-title {
+        font-size: 24px;
+    }
+
+    .lawyer-message-title {
+        font-size: 20px;
+    }
+
+    .lawyer-cta-title {
+        font-size: 24px;
+    }
+
+    .lawyer-cta-tel {
+        font-size: 20px;
+    }
+}
